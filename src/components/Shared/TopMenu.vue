@@ -1,0 +1,30 @@
+<template>
+	<div class="col-6 d-flex align-items-center" style="padding-left: 5vw;">
+		
+		<span class="text-white">Nombre de usuario / Información del sitio</span>
+	</div>
+	<div class="col-6 d-flex align-items-center justify-content-end" style="padding-right: 5vw;">
+		<button class="btn btn-border-lighblue">Cerrar sesión</button>
+	</div>
+</template>
+
+<script setup>
+
+</script>
+
+<style scoped>
+	.btn-border-lighblue{
+		height: 4vh;
+		color: var(--light-blue);
+		border: 2px solid var(--light-blue);
+		/* margin-right: 50px; */
+		width: 8vw;
+		border-radius: 30px;
+		font-weight: bold;
+	}
+	.btn-border-lighblue:hover{
+		color: white;
+		background-color: var(--light-blue);
+	}
+
+</style>

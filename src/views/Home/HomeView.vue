@@ -14,10 +14,10 @@
 </template>
 
 <script setup>
-	import TopMenu from '../../components/Home/TopMenu.vue'
+	import TopMenu from '../../components/Shared/TopMenu.vue'
 	import Header from '../../components/Home/Header.vue'
 	import Categories from '../../components/Home/Categories.vue'
-	import Footer from '../../components/Home/Footer.vue'
+	import Footer from '../../components/Shared/Footer.vue'
 	
 	defineProps({
 		msg: {
