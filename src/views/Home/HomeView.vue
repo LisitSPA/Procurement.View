@@ -5,7 +5,7 @@
 	<div class="row" style="height: 94vh">
 		<Header />
 	</div>
-	<div class="row" style="height: 90vh; background-color: white;">
+	<div class="row malla" style="height: 90vh; background-color: white;">
 		<Categories />
 	</div>
 	<div class="row" style="height: 10vh; background-color: #013F7A;">
@@ -28,7 +28,12 @@
 </script>
 
 
-<style>
+<style scoped>
+
+.malla{
+		background-image: url('./../../assets/images/bg-malla.png');
+		background-size: cover;
+}
 
 </style>
 

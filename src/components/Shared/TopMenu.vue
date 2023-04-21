@@ -1,10 +1,10 @@
 <template>
 	<div class="col-6 d-flex align-items-center" style="padding-left: 5vw;">
-		
+		<i class="bi bi-person-circle user-image"></i>
 		<span class="text-white">Nombre de usuario / Información del sitio</span>
 	</div>
 	<div class="col-6 d-flex align-items-center justify-content-end" style="padding-right: 5vw;">
-		<button class="btn btn-border-lighblue">Cerrar sesión</button>
+		<button class="btn btn-border-lighblue"><i class="bi bi-power"></i> Cerrar sesión</button>
 	</div>
 </template>
 
@@ -17,7 +17,6 @@
 		height: 4vh;
 		color: var(--light-blue);
 		border: 2px solid var(--light-blue);
-		/* margin-right: 50px; */
 		width: 8vw;
 		border-radius: 30px;
 		font-weight: bold;
@@ -25,6 +24,11 @@
 	.btn-border-lighblue:hover{
 		color: white;
 		background-color: var(--light-blue);
+	}
+	.user-image{
+		font-size: 3vh;
+		margin-right: 10px;
+		color: white;
 	}
 
 </style>
