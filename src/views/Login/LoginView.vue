@@ -22,7 +22,7 @@ export default {
 <style scoped>
 
 .bg-login{
-	background-color: var(--dark-blue);
+	background-image: url('./../../assets/images/bg-login.png');
 	height: 100vh;
 	background-size: cover;
 }
