@@ -33,3 +33,30 @@ a,
     /* padding: 0 2rem; */
   }
 }
+
+.cursor-pointer{
+	cursor: pointer;
+}
+
+.bg-gris{
+	background-color: #ECEDF1;
+}
+
+.bg-celeste{
+	background-color: #1DB7C1;
+}
+
+.bg-blue1{
+	background-color: #2880C2;
+}
+
+.bg-blue2{
+	background-color: #0F54A2;
+}
+
+.blue-text1{
+	color: #559BCF;
+}
+.blue-text2{
+	color: #0F54A2;
+}

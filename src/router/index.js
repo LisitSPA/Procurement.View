@@ -12,6 +12,15 @@ const router = createRouter({
 			path: '/Home',
 			name: 'home',
 			component: () => import ('../views/Home/HomeView.vue')
+		},
+		{
+			path: '/Colaboradores',
+			name: 'colaboradores',
+			component: () => import ('../views/Secciones/Colaboradores/ColaboradoresView.vue'),
+			children: [
+				{ path: '/homeColaboradores', name: 'homeColaboradores', component: () => import ('../components/Secciones/Colaboradores/Home.vue') },
+				// { path: 'detail', name: 'detail', component: DetailView, props: true },
+			]
 		}
   ]
 })

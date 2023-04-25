@@ -1,7 +1,7 @@
 <template>
 	<div class="col-6 d-flex align-items-center" style="padding-left: 5vw;">
-		<i class="bi bi-person-circle user-image"></i>
-		<span class="text-white">Nombre de usuario / Información del sitio</span>
+		<i class="bi bi-person-circle user-image" :class="this.$route.path === '/Home'? 'text-white' : 'text-blue'"></i>
+		<span :class="this.$route.path === '/Home'? 'text-white' : 'text-blue'">Nombre de usuario / Información del sitio</span>
 	</div>
 	<div class="col-6 d-flex align-items-center justify-content-end" style="padding-right: 5vw;">
 		<button class="btn btn-border-lighblue"><i class="bi bi-power"></i> Cerrar sesión</button>
@@ -28,7 +28,6 @@
 	.user-image{
 		font-size: 3vh;
 		margin-right: 10px;
-		color: white;
 	}
 
 </style>
