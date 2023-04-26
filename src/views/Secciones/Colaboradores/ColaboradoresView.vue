@@ -6,7 +6,8 @@
 	<div class="row malla">
 		<div class="contenido">
 			<!-- <HomeSection/> -->
-			<Organigrama/>
+			<!-- <Organigrama/> -->
+			<Cumpleaños/>
 		</div>
 		<SectionFooter/>
 	</div>
@@ -18,6 +19,7 @@
 	import SectionMenu from '../../../components/Shared/SectionMenu.vue'
 	import HomeSection from '../../../components/Secciones/Colaboradores/Home.vue'
 	import Organigrama from '../../../components/Secciones/Colaboradores/Organigrama.vue'
+	import Cumpleaños from '../../../components/Secciones/Colaboradores/Cumpleaños.vue'
 	import SectionFooter from '../../../components/Shared/SectionFooter.vue'
 	
 </script>

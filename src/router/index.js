@@ -20,6 +20,7 @@ const router = createRouter({
 			children: [
 				{ path: '/homeColaboradores', name: 'homeColaboradores', component: () => import ('../components/Secciones/Colaboradores/Home.vue') },
 				{ path: '/homeOrganigrama', name: 'homeOrganigrama', component: () => import ('../components/Secciones/Colaboradores/Organigrama.vue') },
+				{ path: '/homeCumpleaños', name: 'homeCumpleaños', component: () => import ('../components/Secciones/Colaboradores/Cumpleaños.vue') },
 				// { path: 'detail', name: 'detail', component: DetailView, props: true },
 			]
 		}
