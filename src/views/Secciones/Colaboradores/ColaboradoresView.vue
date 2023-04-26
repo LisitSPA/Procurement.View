@@ -7,7 +7,8 @@
 		<div class="contenido">
 			<!-- <HomeSection/> -->
 			<!-- <Organigrama/> -->
-			<Cumpleaños/>
+			<!-- <Cumpleaños/> -->
+			<ProcurementAwards/>
 		</div>
 		<SectionFooter/>
 	</div>
@@ -20,6 +21,7 @@
 	import HomeSection from '../../../components/Secciones/Colaboradores/Home.vue'
 	import Organigrama from '../../../components/Secciones/Colaboradores/Organigrama.vue'
 	import Cumpleaños from '../../../components/Secciones/Colaboradores/Cumpleaños.vue'
+	import ProcurementAwards from '../../../components/Secciones/Colaboradores/ProcurementAwards.vue'
 	import SectionFooter from '../../../components/Shared/SectionFooter.vue'
 	
 </script>
