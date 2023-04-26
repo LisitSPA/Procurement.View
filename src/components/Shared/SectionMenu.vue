@@ -1,7 +1,7 @@
 <template>
 	<div class="row row-menu">
-		<div class="col-6 menu">
-			<span class="title-section">Colaboradores</span>
+		<div class="col-6 menu cursor-pointer">
+			<span class="title-section" @click="$emit('updateContent', 'home')">{{ titleSection }} / {{ titleSubSection }}</span>
 			<input type="search" class="form-control" placeholder="Aquí puedes buscar..." style="width: 10vw; height: 4vh;">
 		</div>
 		<div class="col-6 logo">
@@ -10,10 +10,17 @@
 	</div>
 </template>
 
-<script>
-export default {
-
-}
+<script setup>
+defineProps({
+  titleSection: {
+    type: String,
+    required: true
+  },
+	titleSubSection: {
+    type: String,
+    required: true
+  }
+})
 </script>
 
 <style scoped>
