@@ -5,7 +5,8 @@
 	<SectionMenu/>
 	<div class="row malla">
 		<div class="contenido">
-			<HomeSection/>
+			<!-- <HomeSection/> -->
+			<Organigrama/>
 		</div>
 		<SectionFooter/>
 	</div>
@@ -16,6 +17,7 @@
 	import TopMenu from '../../../components/Shared/TopMenu.vue'
 	import SectionMenu from '../../../components/Shared/SectionMenu.vue'
 	import HomeSection from '../../../components/Secciones/Colaboradores/Home.vue'
+	import Organigrama from '../../../components/Secciones/Colaboradores/Organigrama.vue'
 	import SectionFooter from '../../../components/Shared/SectionFooter.vue'
 	
 </script>
