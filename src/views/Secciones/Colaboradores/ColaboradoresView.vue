@@ -9,6 +9,7 @@
 			<Organigrama v-if="content === 'organigrama'"/>
 			<Cumpleaños v-if="content === 'cumpleaños'"/>
 			<ProcurementAwards v-if="content === 'procurement'"/>
+			<NuevosIngresos v-if="content === 'ingresos'"/>
 		</div>
 		<SectionFooter/>
 	</div>
@@ -22,6 +23,7 @@
 	import Organigrama from '../../../components/Secciones/Colaboradores/Organigrama.vue'
 	import Cumpleaños from '../../../components/Secciones/Colaboradores/Cumpleaños.vue'
 	import ProcurementAwards from '../../../components/Secciones/Colaboradores/ProcurementAwards.vue'
+	import NuevosIngresos from '../../../components/Secciones/Colaboradores/NuevosIngresos.vue'
 	import SectionFooter from '../../../components/Shared/SectionFooter.vue'
 	import { ref, watch } from 'vue';
 
