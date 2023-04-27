@@ -3,18 +3,7 @@
 		<div class="col-12" style="height: 20%;">
 			<p style="font-size: 21px;">Selector mensual de cumpleaños</p>
 			<div style="justify-content: space-evenly; display: flex;">
-				<span class="badge bg-gris custom-badgage">ENERO</span>
-				<span class="badge bg-gris custom-badgage">FEBRERO</span>
-				<span class="badge bg-gris custom-badgage">MARZO</span>
-				<span class="badge bg-gris custom-badgage">ABRIL</span>
-				<span class="badge bg-gris custom-badgage">MAYO</span>
-				<span class="badge bg-gris custom-badgage">JUNIO</span>
-				<span class="badge bg-gris custom-badgage">JULIO</span>
-				<span class="badge bg-gris custom-badgage">AGOSTO</span>
-				<span class="badge bg-gris custom-badgage">SEPTIEMBRE</span>
-				<span class="badge bg-gris custom-badgage">OCTUBRE</span>
-				<span class="badge bg-gris custom-badgage">NOVIEMBRE</span>
-				<span class="badge bg-gris custom-badgage">DICIEMBRE</span>
+				<span class="badge bg-gris custom-badgage" v-for="(item, index) in months" :key="index">{{item}}</span>
 			</div>
 		</div>
 		<div class="col-12" style="height: 40%; padding-bottom: 1rem;">
@@ -64,10 +53,8 @@
 	</div>
 </template>
 
-<script>
-export default {
-
-}
+<script setup>
+	const months = ['ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE']
 </script>
 
 <style scoped>

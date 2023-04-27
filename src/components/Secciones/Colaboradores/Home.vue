@@ -36,10 +36,10 @@
 			<span class="text-white" style="font-size: 22px;">Procurement awards</span>
 		</div>
 		<div class="col-6" style="padding: 0 20px 0 20px;">
-			<div class="row">
+			<div class="row h-100">
 				<div class="col-12 cursor-pointer" @click="$emit('updateContent', 'ingresos')">
-					<p class="blue-text2 fw-bold" style="font-size: 22px;">Nuevos ingresos</p>
-					<p class="text-blue2" style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa at ducimus veniam doloremque omnis recusandae eos? Doloribus, ad porro! Tempore dicta minima architecto a consequuntur maiores vero quod totam odio!</p>
+					<p class="blue-text2 fw-bold m-0" style="font-size: 22px;">Nuevos ingresos</p>
+					<p class="text-blue2 m-0" style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa at ducimus veniam doloremque omnis recusandae eos? Doloribus, ad porro! Tempore dicta minima architecto a consequuntur maiores vero quod totam odio!</p>
 				</div>
 				<div class="col-12" style="padding: 0 10px 0 20px; height: 12vh;;">
 					<div class="row h-100">
@@ -49,7 +49,7 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col text-blue2 text-center bg-gris" v-for="(items,index) in 5" :key="index" style="margin-right: 10px; margin-top: 10px;">
+								<div class="col text-blue2 text-center bg-gris" v-for="(items,index) in 5" :key="index" style="margin-right: 10px; height: 1.5rem;">
 									<span class="fw-bold">12 abril 23</span>
 								</div>
 							</div>
@@ -77,7 +77,7 @@
 	margin-right: 5px;
 }
 .new-user{
-	border-radius: 100px;
+	clip-path: circle(40% at 50% 50%);
 	margin-right: 5px;
 }
 
