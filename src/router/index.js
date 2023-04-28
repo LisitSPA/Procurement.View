@@ -17,14 +17,20 @@ const router = createRouter({
 			path: '/Colaboradores',
 			name: 'colaboradores',
 			component: () => import ('../views/Secciones/Colaboradores/ColaboradoresView.vue'),
-			children: [
-				{ path: '/homeColaboradores', name: 'homeColaboradores', component: () => import ('../components/Secciones/Colaboradores/Home.vue') },
-				{ path: '/homeOrganigrama', name: 'homeOrganigrama', component: () => import ('../components/Secciones/Colaboradores/Organigrama.vue') },
-				{ path: '/homeCumpleaños', name: 'homeCumpleaños', component: () => import ('../components/Secciones/Colaboradores/Cumpleaños.vue') },
-				{ path: '/homeProcurementAwards', name: 'homeProcurementAwards', component: () => import ('../components/Secciones/Colaboradores/ProcurementAwards.vue') },
-				// { path: 'detail', name: 'detail', component: DetailView, props: true },
-			]
-		}
+			// children: [
+			// 	{ path: '/homeColaboradores', name: 'homeColaboradores', component: () => import ('../components/Secciones/Colaboradores/Home.vue') },
+			// 	{ path: '/homeOrganigrama', name: 'homeOrganigrama', component: () => import ('../components/Secciones/Colaboradores/Organigrama.vue') },
+			// 	{ path: '/homeCumpleaños', name: 'homeCumpleaños', component: () => import ('../components/Secciones/Colaboradores/Cumpleaños.vue') },
+			// 	{ path: '/homeProcurementAwards', name: 'homeProcurementAwards', component: () => import ('../components/Secciones/Colaboradores/ProcurementAwards.vue') },
+			// { path: 'detail', name: 'detail', component: DetailView, props: true },
+			// ]
+		},
+		{
+			path: '/Control-Gestion',
+			name: 'controlGestion',
+			component: () => import ('../views/Secciones/Control de Gestion/ControlGestionView.vue'),
+		},
+
   ]
 })
 

@@ -2,7 +2,7 @@
 	<div class="row h-100">
 		<div class="col-12" style="height: 20%; margin-top: 15vh;">
 			<div style="justify-content: space-evenly; display: flex;">
-				<span class="bg-celeste custom-categorias" v-for="(items, index) in [1,2,3,4,5,6,7,8]" :key="index">Categorias</span>
+				<span class="bg-light-blue custom-categorias" v-for="(items, index) in [1,2,3,4,5,6,7,8]" :key="index">Categorias</span>
 			</div>
 		</div>
 		<div class="col-12" style="height: 40%; padding-bottom: 1rem;">

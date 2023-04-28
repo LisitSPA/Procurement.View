@@ -16,7 +16,7 @@
 		<div class="col-6" style="padding: 0 20px 0 20px;">
 			<div class="row h-100">
 				<div class="col-12 cursor-pointer" @click="$emit('updateContent', 'cumpleaños')">
-					<p class="blue-text1 fw-bold" style="font-size: 22px;">Cumpleaños</p>
+					<p class="light-blue-text fw-bold" style="font-size: 22px;">Cumpleaños</p>
 					<p class="text-blue2" style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa at ducimus veniam doloremque omnis recusandae eos? Doloribus, ad porro! Tempore dicta minima architecto a consequuntur maiores vero quod totam odio!</p>
 				</div>
 				<div class="col-12" style="padding: 0 10px 0 20px; height: 20vh;">
@@ -38,7 +38,7 @@
 		<div class="col-6" style="padding: 0 20px 0 20px;">
 			<div class="row h-100">
 				<div class="col-12 cursor-pointer" @click="$emit('updateContent', 'ingresos')">
-					<p class="blue-text2 fw-bold m-0" style="font-size: 22px;">Nuevos ingresos</p>
+					<p class="dark-blue-text fw-bold m-0" style="font-size: 22px;">Nuevos ingresos</p>
 					<p class="text-blue2 m-0" style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa at ducimus veniam doloremque omnis recusandae eos? Doloribus, ad porro! Tempore dicta minima architecto a consequuntur maiores vero quod totam odio!</p>
 				</div>
 				<div class="col-12" style="padding: 0 10px 0 20px; height: 12vh;;">

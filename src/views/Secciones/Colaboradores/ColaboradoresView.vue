@@ -60,20 +60,5 @@
 </script>
 
 <style>
-.top-menu{
-	height: 6vh; 
-}
-.contenido{
-	margin-top: 5vh;
-	width: 90vw;
-	margin-left: auto;
-	margin-right: auto;
-	height: 65vh;
-}
-.malla{
-	height: 79vh;
-	background-image: url('./../../../assets/images/bg-malla.png');
-	background-size: cover;
-}
 
 </style>
