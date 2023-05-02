@@ -9,6 +9,7 @@
 			<ReportesMensuales v-if="content === 'reportes-mensuales'"/>
 			<AdministracionContratos v-if="content === 'administracion-contratos'"/>
 			<PanelContratosLegales v-if="content === 'contratos-legales'"/>
+			<CosteDrivers v-if="content === 'coste-drivers'"/>
 		</div>
 		<SectionFooter/>
 	</div>
@@ -23,6 +24,7 @@
 	import ReportesMensuales from '../../../components/Secciones/Control de Gestion/ReportesMensuales.vue'
 	import AdministracionContratos from '../../../components/Secciones/Control de Gestion/AdministracionContratos.vue'
 	import PanelContratosLegales from '../../../components/Secciones/Control de Gestion/PanelContratosLegales.vue'
+	import CosteDrivers from '../../../components/Secciones/Control de Gestion/CosteDrivers.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');
@@ -44,6 +46,9 @@
 				break;
 			case 'contratos-legales':
 				titleSubSection.value = 'Panel de Contratos Legales'
+				break;
+			case 'coste-drivers':
+				titleSubSection.value = 'Coste Drivers e Indicadores de Mercado'
 				break;
 		}
 	})

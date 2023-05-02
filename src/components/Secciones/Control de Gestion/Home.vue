@@ -12,7 +12,7 @@
 	</div>
 	<div class="row" style="height: 25%;">
 		<div class="col d-flex justify-content-center align-items-center">
-			<button class="btn btn-section-menu">Coste drivers e<br>Indicadores de mercado</button>
+			<button class="btn btn-section-menu" @click="$emit('updateContent', 'coste-drivers')">Coste drivers e<br>Indicadores de mercado</button>
 		</div>
 		<div class="col d-flex justify-content-center align-items-center">
 			<button class="btn btn-section-menu">Panel de<br>pago a proveedores</button>
