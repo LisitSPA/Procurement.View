@@ -26,15 +26,5 @@
 </script>
 
 <style>
-.boton{
-	width: 15vw;
-	height: 4vh;
-	border-radius: 30px;
-	color: white;
-}
-
-.boton:hover{
-	border: 2px solid var(--dark-blue);
-}
 
 </style>
