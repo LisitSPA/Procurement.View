@@ -11,6 +11,7 @@
 			<PanelContratosLegales v-if="content === 'contratos-legales'"/>
 			<CosteDrivers v-if="content === 'coste-drivers'"/>
 			<PagoProveedores v-if="content === 'pago-proveedores'"/>
+			<Presupuestos v-if="content === 'presupuestos'"/>
 		</div>
 		<SectionFooter/>
 	</div>
@@ -27,6 +28,7 @@
 	import PanelContratosLegales from '../../../components/Secciones/Control de Gestion/PanelContratosLegales.vue'
 	import CosteDrivers from '../../../components/Secciones/Control de Gestion/CosteDrivers.vue'
 	import PagoProveedores from '../../../components/Secciones/Control de Gestion/PagoProveedores.vue'
+	import Presupuestos from '../../../components/Secciones/Control de Gestion/Presupuestos.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');
@@ -54,6 +56,9 @@
 				break;
 			case 'pago-proveedores':
 				titleSubSection.value = 'Panel de Pago a Proveedores'
+				break;
+			case 'presupuestos':
+				titleSubSection.value = 'Presupuestos'
 				break;
 		}
 	})

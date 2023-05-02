@@ -18,7 +18,7 @@
 			<button class="btn btn-section-menu" @click="$emit('updateContent', 'pago-proveedores')">Panel de<br>pago a proveedores</button>
 		</div>
 		<div class="col d-flex justify-content-center align-items-center">
-			<button class="btn btn-section-menu">Presupuesto</button>
+			<button class="btn btn-section-menu" @click="$emit('updateContent', 'presupuestos')">Presupuesto</button>
 		</div>
 	</div>
 </template>
