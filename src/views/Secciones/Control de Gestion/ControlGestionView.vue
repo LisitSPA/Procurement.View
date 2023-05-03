@@ -14,6 +14,9 @@
 			<Presupuestos v-if="content === 'presupuestos'"/>
 			<!-- reportes mensuales -->
 			<Bridge v-if="subcontent === 'bridge'"/>
+			<IPS v-if="subcontent === 'ips'"/>
+			<GestionProcurement v-if="subcontent === 'gestion-procurement'"/>
+			<VariacionPrecios v-if="subcontent === 'variacion-precios'"/>
 		</div>
 		<SectionFooter/>
 	</div>
@@ -32,6 +35,9 @@
 	import PagoProveedores from '../../../components/Secciones/Control de Gestion/PagoProveedores.vue'
 	import Presupuestos from '../../../components/Secciones/Control de Gestion/Presupuestos.vue'
 	import Bridge from '../../../components/Secciones/Control de Gestion/Reportes Mensuales/Bridge.vue'
+	import IPS from '../../../components/Secciones/Control de Gestion/Reportes Mensuales/IPS.vue'
+	import GestionProcurement from '../../../components/Secciones/Control de Gestion/Reportes Mensuales/GestionProcurement.vue'
+	import VariacionPrecios from '../../../components/Secciones/Control de Gestion/Reportes Mensuales/VariacionPrecios.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');
