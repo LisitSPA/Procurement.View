@@ -30,6 +30,11 @@ const router = createRouter({
 			name: 'controlGestion',
 			component: () => import ('../views/Secciones/Control de Gestion/ControlGestionView.vue'),
 		},
+		{
+			path: '/Procurement-Excellence',
+			name: 'procurementExcellence',
+			component: () => import ('../views/Secciones/Procurement Excellence/ProcurementExcellenceView.vue'),
+		},
 
   ]
 })
