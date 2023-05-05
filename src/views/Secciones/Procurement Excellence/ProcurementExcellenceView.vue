@@ -8,6 +8,7 @@
 			<Home v-if="content === 'home'" @updateContent="updateContent"/>
 			<Procedimientos v-if="content === 'procedimientos'"/>
 			<Racis v-if="content === 'racis'"/>
+			<Manuales v-if="content === 'manuales'"/>
 		</div>
 		<SectionFooter/>
 	</div>
@@ -21,6 +22,7 @@
 	import Home from './../../../components/Secciones/Procurement Excellence/Home.vue'
 	import Procedimientos from './../../../components/Secciones/Procurement Excellence/Procedimientos.vue'
 	import Racis from './../../../components/Secciones/Procurement Excellence/Racis.vue'
+	import Manuales from './../../../components/Secciones/Procurement Excellence/Manuales.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');
