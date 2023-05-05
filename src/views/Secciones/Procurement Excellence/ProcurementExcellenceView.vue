@@ -6,6 +6,7 @@
 	<div class="row malla">
 		<div class="contenido">
 			<Home v-if="content === 'home'" @updateContent="updateContent"/>
+			<Procedimientos v-if="content === 'procedimientos'"/>
 		</div>
 		<SectionFooter/>
 	</div>
@@ -17,6 +18,7 @@
 	import SectionMenu from '../../../components/Shared/SectionMenu.vue'
 	import SectionFooter from '../../../components/Shared/SectionFooter.vue'
 	import Home from './../../../components/Secciones/Procurement Excellence/Home.vue'
+	import Procedimientos from './../../../components/Secciones/Procurement Excellence/Procedimientos.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');
