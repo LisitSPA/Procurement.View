@@ -7,6 +7,7 @@
 		<div class="contenido">
 			<Home v-if="content === 'home'" @updateContent="updateContent"/>
 			<Procedimientos v-if="content === 'procedimientos'"/>
+			<Racis v-if="content === 'racis'"/>
 		</div>
 		<SectionFooter/>
 	</div>
@@ -19,6 +20,7 @@
 	import SectionFooter from '../../../components/Shared/SectionFooter.vue'
 	import Home from './../../../components/Secciones/Procurement Excellence/Home.vue'
 	import Procedimientos from './../../../components/Secciones/Procurement Excellence/Procedimientos.vue'
+	import Racis from './../../../components/Secciones/Procurement Excellence/Racis.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');
@@ -36,7 +38,7 @@
 				titleSubSection.value = 'Procedimientos' 
 				break;
 			case 'racis':
-				titleSubSection.value = 'RACISs'
+				titleSubSection.value = 'RACIs'
 				break;
 			case 'manuales':
 				titleSubSection.value = 'Manuales' 
