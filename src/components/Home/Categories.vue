@@ -7,7 +7,7 @@
 			<button class="btn btn-border-blue" @click="this.$router.push('/Colaboradores')">Colaboradores</button>
 			<button class="btn btn-border-blue" @click="this.$router.push('/Control-Gestion')">Control de gestión</button>
 			<button class="btn btn-border-blue" @click="this.$router.push('/Procurement-Excellence')">Procurement Excellence</button>
-			<button class="btn btn-border-blue">PMO</button>
+			<button class="btn btn-border-blue" @click="this.$router.push('/Proyectos-de-Valor')">Proyectos de Valor</button>
 		</div>
 		<div class="col-12 d-flex justify-content-center align-items-center">
 			<button class="btn btn-border-blue">Sostenibilidad</button>

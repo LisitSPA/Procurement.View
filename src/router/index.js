@@ -35,7 +35,11 @@ const router = createRouter({
 			name: 'procurementExcellence',
 			component: () => import ('../views/Secciones/Procurement Excellence/ProcurementExcellenceView.vue'),
 		},
-
+		{
+			path: '/Proyectos-de-Valor',
+			name: 'proyectosValor',
+			component: () => import ('../views/Secciones/Proyectos de Valor/ProyectosValorView.vue'),
+		},
   ]
 })
 
