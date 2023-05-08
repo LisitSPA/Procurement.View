@@ -6,6 +6,7 @@
 	<div class="row malla">
 		<div class="contenido">
 			<Home v-if="content === 'home'" @updateContent="updateContent"/>
+			<ImpactTracker v-if="content === 'impact-tracker'"/>
 		</div>
 		<SectionFooter/>
 	</div>
@@ -17,6 +18,7 @@
 	import SectionMenu from '../../../components/Shared/SectionMenu.vue'
 	import SectionFooter from '../../../components/Shared/SectionFooter.vue'
 	import Home from './../../../components/Secciones/Proyectos de Valor/Home.vue'
+	import ImpactTracker from './../../../components/Secciones/Proyectos de Valor/ImpactTracker.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');
