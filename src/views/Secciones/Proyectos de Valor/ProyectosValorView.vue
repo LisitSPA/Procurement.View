@@ -10,6 +10,7 @@
 			<InformesMensuales v-if="content === 'informes-mensuales'"/>
 			<Presentaciones v-if="content === 'presentaciones'"  @updateSubContent="updateSubContent"/>
 			<Otros v-if="subcontent === 'otros'" />
+			<Comites v-if="subcontent === 'comites'" />
 		</div>
 		<SectionFooter/>
 	</div>
@@ -25,6 +26,7 @@
 	import InformesMensuales from './../../../components/Secciones/Proyectos de Valor/InformesMensuales.vue'
 	import Presentaciones from './../../../components/Secciones/Proyectos de Valor/Presentaciones.vue'
 	import Otros from './../../../components/Secciones/Proyectos de Valor/PresentacionesFolder/Otros.vue'
+	import Comites from './../../../components/Secciones/Proyectos de Valor/PresentacionesFolder/Comites.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');
