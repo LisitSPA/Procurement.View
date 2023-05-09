@@ -11,6 +11,7 @@
 			<Presentaciones v-if="content === 'presentaciones'"  @updateSubContent="updateSubContent"/>
 			<Otros v-if="subcontent === 'otros'" />
 			<Comites v-if="subcontent === 'comites'" />
+			<Seguimiento v-if="subcontent === 'seguimiento'" />
 		</div>
 		<SectionFooter/>
 	</div>
@@ -27,6 +28,7 @@
 	import Presentaciones from './../../../components/Secciones/Proyectos de Valor/Presentaciones.vue'
 	import Otros from './../../../components/Secciones/Proyectos de Valor/PresentacionesFolder/Otros.vue'
 	import Comites from './../../../components/Secciones/Proyectos de Valor/PresentacionesFolder/Comites.vue'
+	import Seguimiento from './../../../components/Secciones/Proyectos de Valor/PresentacionesFolder/Seguimiento.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');
