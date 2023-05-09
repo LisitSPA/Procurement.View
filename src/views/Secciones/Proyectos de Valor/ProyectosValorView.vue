@@ -7,6 +7,7 @@
 		<div class="contenido">
 			<Home v-if="content === 'home'" @updateContent="updateContent"/>
 			<ImpactTracker v-if="content === 'impact-tracker'"/>
+			<InformesMensuales v-if="content === 'informes-mensuales'"/>
 		</div>
 		<SectionFooter/>
 	</div>
@@ -19,6 +20,7 @@
 	import SectionFooter from '../../../components/Shared/SectionFooter.vue'
 	import Home from './../../../components/Secciones/Proyectos de Valor/Home.vue'
 	import ImpactTracker from './../../../components/Secciones/Proyectos de Valor/ImpactTracker.vue'
+	import InformesMensuales from './../../../components/Secciones/Proyectos de Valor/InformesMensuales.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');
