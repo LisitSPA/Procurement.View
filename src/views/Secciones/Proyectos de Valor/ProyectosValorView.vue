@@ -8,6 +8,8 @@
 			<Home v-if="content === 'home'" @updateContent="updateContent"/>
 			<ImpactTracker v-if="content === 'impact-tracker'"/>
 			<InformesMensuales v-if="content === 'informes-mensuales'"/>
+			<Presentaciones v-if="content === 'presentaciones'"  @updateSubContent="updateSubContent"/>
+			<Otros v-if="subcontent === 'otros'" />
 		</div>
 		<SectionFooter/>
 	</div>
@@ -21,9 +23,12 @@
 	import Home from './../../../components/Secciones/Proyectos de Valor/Home.vue'
 	import ImpactTracker from './../../../components/Secciones/Proyectos de Valor/ImpactTracker.vue'
 	import InformesMensuales from './../../../components/Secciones/Proyectos de Valor/InformesMensuales.vue'
+	import Presentaciones from './../../../components/Secciones/Proyectos de Valor/Presentaciones.vue'
+	import Otros from './../../../components/Secciones/Proyectos de Valor/PresentacionesFolder/Otros.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');
+	const subcontent = ref('');
 	const backstate = ref('');
 	const titleSection = ref('Proyectos de Valor');
 	const titleSubSection = ref('Home');
@@ -33,32 +38,45 @@
 		switch (newContent) {
 			case 'home':
 				titleSubSection.value = 'Home' 
+				subcontent.value = ''
 				break;
 			case 'impact-tracker':
-				titleSubSection.value = 'Impact Tracker' 
+				titleSubSection.value = 'Impact Tracker'
+				subcontent.value = '' 
 				break;
 			case 'informes-mensuales':
 				titleSubSection.value = 'Informes Mensuales' 
+				subcontent.value = ''
 				break;
 			case 'presentaciones':
 				titleSubSection.value = 'Presentaciones' 
+				subcontent.value = ''
 				break;
 			case 'manual':
 				titleSubSection.value = 'Manual' 
+				subcontent.value = ''
 				break;
 			case 'planes-ahorro':
 				titleSubSection.value = 'Planes de Ahorro' 
+				subcontent.value = ''
 				break;
 			case 'reunion-plt':
 				titleSubSection.value = 'Reunión PLT' 
+				subcontent.value = ''
 				break;
 			case 'licitaciones':
 				titleSubSection.value = 'Licitaciones' 
+				subcontent.value = ''
 				break;
 		}
 	})
 	function updateContent(value){
 		content.value = value
+	}
+
+	function updateSubContent(value){
+		subcontent.value = value
+		content.value = ''
 	}
 
 </script>
