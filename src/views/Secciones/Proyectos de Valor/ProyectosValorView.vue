@@ -9,6 +9,7 @@
 			<ImpactTracker v-if="content === 'impact-tracker'"/>
 			<InformesMensuales v-if="content === 'informes-mensuales'"/>
 			<Presentaciones v-if="content === 'presentaciones'"  @updateSubContent="updateSubContent"/>
+			<Manual v-if="content === 'manual'"/>
 			<Otros v-if="subcontent === 'otros'" />
 			<Comites v-if="subcontent === 'comites'" />
 			<Seguimiento v-if="subcontent === 'seguimiento'" />
@@ -26,6 +27,7 @@
 	import ImpactTracker from './../../../components/Secciones/Proyectos de Valor/ImpactTracker.vue'
 	import InformesMensuales from './../../../components/Secciones/Proyectos de Valor/InformesMensuales.vue'
 	import Presentaciones from './../../../components/Secciones/Proyectos de Valor/Presentaciones.vue'
+	import Manual from './../../../components/Secciones/Proyectos de Valor/Manual.vue'
 	import Otros from './../../../components/Secciones/Proyectos de Valor/PresentacionesFolder/Otros.vue'
 	import Comites from './../../../components/Secciones/Proyectos de Valor/PresentacionesFolder/Comites.vue'
 	import Seguimiento from './../../../components/Secciones/Proyectos de Valor/PresentacionesFolder/Seguimiento.vue'
