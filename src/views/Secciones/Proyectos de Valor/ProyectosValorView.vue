@@ -11,6 +11,7 @@
 			<Presentaciones v-if="content === 'presentaciones'"  @updateSubContent="updateSubContent"/>
 			<Manual v-if="content === 'manual'"/>
 			<PlanesAhorro v-if="content === 'planes-ahorro'" />
+			<ReunionPLT v-if="content === 'reunion-plt'" />
 			<!-- Subcontenido -->
 			<Otros v-if="subcontent === 'otros'" />
 			<Comites v-if="subcontent === 'comites'" />
@@ -34,6 +35,7 @@
 	import Comites from './../../../components/Secciones/Proyectos de Valor/PresentacionesFolder/Comites.vue'
 	import Seguimiento from './../../../components/Secciones/Proyectos de Valor/PresentacionesFolder/Seguimiento.vue'
 	import PlanesAhorro from './../../../components/Secciones/Proyectos de Valor/PlanesAhorro.vue'
+	import ReunionPLT from './../../../components/Secciones/Proyectos de Valor/ReunionPLT.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');
