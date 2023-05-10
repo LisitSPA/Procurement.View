@@ -18,6 +18,9 @@
 			<Otros v-if="subcontent === 'otros'" />
 			<Comites v-if="subcontent === 'comites'" />
 			<Seguimiento v-if="subcontent === 'seguimiento'" />
+			<Directos v-if="subcontent === 'directos'" />
+			<Indirectos v-if="subcontent === 'indirectos'" />
+			<Servicios v-if="subcontent === 'servicios'" />
 		</div>
 		<SectionFooter/>
 	</div>
@@ -33,12 +36,16 @@
 	import InformesMensuales from './../../../components/Secciones/Proyectos de Valor/InformesMensuales.vue'
 	import Presentaciones from './../../../components/Secciones/Proyectos de Valor/Presentaciones.vue'
 	import Manual from './../../../components/Secciones/Proyectos de Valor/Manual.vue'
-	import Otros from './../../../components/Secciones/Proyectos de Valor/PresentacionesFolder/Otros.vue'
-	import Comites from './../../../components/Secciones/Proyectos de Valor/PresentacionesFolder/Comites.vue'
-	import Seguimiento from './../../../components/Secciones/Proyectos de Valor/PresentacionesFolder/Seguimiento.vue'
 	import PlanesAhorro from './../../../components/Secciones/Proyectos de Valor/PlanesAhorro.vue'
 	import ReunionPLT from './../../../components/Secciones/Proyectos de Valor/ReunionPLT.vue'
 	import Licitaciones from './../../../components/Secciones/Proyectos de Valor/Licitaciones.vue'
+	// Subcontenido
+	import Otros from './../../../components/Secciones/Proyectos de Valor/Presentaciones Views/Otros.vue'
+	import Comites from './../../../components/Secciones/Proyectos de Valor/Presentaciones Views/Comites.vue'
+	import Seguimiento from './../../../components/Secciones/Proyectos de Valor/Presentaciones Views/Seguimiento.vue'
+	import Directos from './../../../components/Secciones/Proyectos de Valor/Licitaciones Views/Directos.vue'
+	import Indirectos from './../../../components/Secciones/Proyectos de Valor/Licitaciones Views/Indirectos.vue'
+	import Servicios from './../../../components/Secciones/Proyectos de Valor/Licitaciones Views/Servicios.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');
