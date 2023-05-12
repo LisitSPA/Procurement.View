@@ -91,6 +91,12 @@ a,
 	background-size: cover;
 }
 
+.malla-admin{
+	height: 84vh;
+	background-image: url('./images/bg-malla.png');
+	background-size: cover;
+}
+
 /* Botones de menu para subsecciones */
 .btn-section-menu{
 	height: 10vh;
