@@ -111,3 +111,7 @@ a,
 	color: white;
 	background-color: var(--light-blue);
 }
+/* BTN MODAL */
+.btn-radius{
+	border-radius: 40px;
+}

@@ -2,7 +2,8 @@
 	<div class="row" style="height: 10%;">
 		<div class="col-12 d-flex align-items-center">
 			<h1>Usuarios</h1>
-			<button class="btn-border-lighblue" style="margin-left: 1rem;"><i class="bi bi-plus" style="font-size: 1.2rem;"></i> Añadir Usuario</button>
+			<button class="btn-border-lighblue" data-bs-toggle="modal" data-bs-target="#myModal"
+				style="margin-left: 1rem;" @click="$emit('setModalContent', 'create')"><i class="bi bi-plus" style="font-size: 1.2rem;"></i> Añadir Usuario</button>
 		</div>
 	</div>
 	<div class="row" style="height: 85%;">
@@ -29,8 +30,10 @@
 							<td>Cargo prueba</td>
 							<td>Admin</td>
 							<td>
-								<button class="btn-actions" style="margin-left: 1rem;"><i class="bi bi-pencil-square"></i></button>
-								<button class="btn-actions" style="margin-left: 1rem;"><i class="bi bi-trash-fill"></i></button>
+								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"  
+									@click="$emit('setModalContent', 'edit')"><i class="bi bi-pencil-square"></i></button>
+								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"
+								@click="$emit('setModalContent', 'deshabilitar')"><i class="bi bi-trash-fill"></i></button>
 							</td>
 						</tr>
 					</tbody>
