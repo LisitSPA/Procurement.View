@@ -1,8 +1,9 @@
 <template>
 	<div class="row row-menu">
 		<div class="col-9 menu">
-			<button class="btn-border-blue">Usuarios</button>
-			<button class="btn-border-blue" v-for="(item, index) in 8" :key="index">Módulo {{ index+1 }}</button>
+			<button class="btn-border-blue" @click="$emit('setSection', 'usuarios')">Usuarios</button>
+			<button class="btn-border-blue" @click="$emit('setSection', index)"
+				v-for="(item, index) in 8" :key="index">Módulo {{ index+1 }}</button>
 		</div>
 		<div class="col-3 logo">
 			<img src="./../../assets/images/logo-azul.png" alt="Logo procurement" style="width: 50%;">

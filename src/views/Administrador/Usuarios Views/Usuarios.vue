@@ -3,7 +3,7 @@
 		<div class="col-12 d-flex align-items-center">
 			<h1>Usuarios</h1>
 			<button class="btn-border-lighblue" data-bs-toggle="modal" data-bs-target="#myModal"
-				style="margin-left: 1rem;" @click="$emit('setModalContent', 'create')"><i class="bi bi-plus" style="font-size: 1.2rem;"></i> Añadir Usuario</button>
+				style="margin-left: 1rem;" @click="setModalContent('create')"><i class="bi bi-plus" style="font-size: 1.2rem;"></i> Añadir Usuario</button>
 		</div>
 	</div>
 	<div class="row" style="height: 85%;">
@@ -13,12 +13,12 @@
 					<thead>
 						<tr class="bg-blue1 text-white text-center">
 							<th scope="col">#</th>
-							<th scope="col">Nombre</th>
-							<th scope="col">Apellido</th>
-							<th scope="col">Correo</th>
-							<th scope="col">Cargo</th>
-							<th scope="col">Rol</th>
-							<th scope="col">Acciones</th>
+							<th scope="col">NOMBRE</th>
+							<th scope="col">APELLIDO</th>
+							<th scope="col">CORREO</th>
+							<th scope="col">CARGO</th>
+							<th scope="col">ROL</th>
+							<th scope="col">ACCIONES</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -31,9 +31,9 @@
 							<td>Admin</td>
 							<td>
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"  
-									@click="$emit('setModalContent', 'edit')"><i class="bi bi-pencil-square"></i></button>
+									@click="setModalContent('edit')"><i class="bi bi-pencil-square"></i></button>
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"
-								@click="$emit('setModalContent', 'deshabilitar')"><i class="bi bi-trash-fill"></i></button>
+								@click="setModalContent('disabled')"><i class="bi bi-trash-fill"></i></button>
 							</td>
 						</tr>
 					</tbody>
@@ -62,9 +62,30 @@
 			</nav>
 		</div>
 	</div>
+	<!-- modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+				<CrearUsuario v-if="modalContent === 'create'"/>
+				<EditarUsuario v-if="modalContent === 'edit'"/>
+				<DeshabilitarUsuario v-if="modalContent === 'disabled'"/>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script setup>
+	import {ref} from 'vue'
+	// MODAL COMPONENTS
+	import CrearUsuario from './Modal/Crear.vue'
+	import EditarUsuario from './Modal/Editar.vue'
+	import DeshabilitarUsuario from './Modal/Deshabilitar.vue'
+
+	const modalContent = ref('create')
+
+	function setModalContent(option){
+		modalContent.value = option
+	}
 
 </script>
 

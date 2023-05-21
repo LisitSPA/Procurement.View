@@ -4,7 +4,7 @@
 		<span :class="this.$route.path === '/Home'? 'text-white' : 'text-blue'">Nombre de usuario / Información del sitio</span>
 	</div>
 	<div class="col-6 d-flex align-items-center justify-content-end" style="padding-right: 5vw;">
-		<button class="btn btn-border-lighblue"><i class="bi bi-power"></i> Cerrar sesión</button>
+		<button class="btn btn-border-lighblue" @click="this.$router.push('/Admin')"><i class="bi bi-power"></i> Cerrar sesión</button>
 	</div>
 </template>
 
