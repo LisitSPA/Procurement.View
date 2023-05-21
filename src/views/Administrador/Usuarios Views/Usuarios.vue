@@ -75,7 +75,9 @@
 </template>
 
 <script setup>
-	import {ref} from 'vue'
+	import { ref, onMounted } from 'vue'
+	// import UserServices from '../../../services/Users'
+
 	// MODAL COMPONENTS
 	import CrearUsuario from './Modal/Crear.vue'
 	import EditarUsuario from './Modal/Editar.vue'
@@ -83,7 +85,7 @@
 
 	const modalContent = ref('create')
 
-	function setModalContent(option){
+	const setModalContent = (option) => {
 		modalContent.value = option
 	}
 
