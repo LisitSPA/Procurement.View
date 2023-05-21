@@ -8,23 +8,23 @@
 			<div class="row">
 				<div class="col-6">
 					<label for="">Nombre</label>
-					<input type="text" class="form-control" v-model="name" required>
+					<input type="text" class="form-control" v-model="name">
 				</div>
 				<div class="col-6">
 					<label for="">Apellido</label>
-					<input type="text" class="form-control" v-model="lastname" required>
+					<input type="text" class="form-control" v-model="lastname">
 				</div>
 				<div class="col-6">
 					<label for="">Correo</label>
-					<input type="email" class="form-control" v-model="email" required>
+					<input type="email" class="form-control" v-model="email">
 				</div>
 				<div class="col-6">
 					<label for="">Cargo</label>
-					<input type="text" class="form-control" v-model="position" required>
+					<input type="text" class="form-control" v-model="position">
 				</div>
 				<div class="col-6">
 					<label for="">Rol</label>
-					<input type="text" class="form-control" v-model="role" required>
+					<input type="text" class="form-control" v-model="role">
 				</div>
 			</div>
 		</div>
@@ -41,6 +41,7 @@
 
 <script setup>
 	import { ref } from 'vue'
+	import { toast } from 'vue3-toastify';
 	import UserServices from '../../../../services/Users'
 
 	const name = ref('')
@@ -58,9 +59,11 @@
 			data.append('Nombres', name.value + ' ' + lastname.value)
 			data.append('Rol', role.value)
 			const res = await UserServices.storeUser(data)
+			toast.success('Se ha creado el usuario.')
 			console.log(res.data)
 		}catch(error){
 			btnSend.value = false
+			toast.error('Se ha producido un error al crear el usuario.')
 			console.log(error)
 		}
 	}
