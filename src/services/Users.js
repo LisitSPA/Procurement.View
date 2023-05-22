@@ -12,4 +12,9 @@ users.getUsers = async () => {
 	return res
 }
 
+users.getRoles = async () => {
+	const res = await axios.get(baseUrl + '/Security/ObtenerRoles')
+	return res
+}
+
 export default users

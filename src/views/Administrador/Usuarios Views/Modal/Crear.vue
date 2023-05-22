@@ -19,12 +19,10 @@
 					<input type="email" class="form-control" v-model="email">
 				</div>
 				<div class="col-6">
-					<label for="">Cargo</label>
-					<input type="text" class="form-control" v-model="position">
-				</div>
-				<div class="col-6">
 					<label for="">Rol</label>
-					<input type="text" class="form-control" v-model="role">
+					<select class="form-control" v-model="role">
+						<option v-for="(role, index) in roles" :key="index">{{ role }}</option>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -43,6 +41,12 @@
 	import { ref } from 'vue'
 	import { toast } from 'vue3-toastify';
 	import UserServices from '../../../../services/Users'
+
+	defineProps({
+		roles: {
+			required: true
+		}
+	})
 
 	const name = ref('')
 	const lastname = ref('')

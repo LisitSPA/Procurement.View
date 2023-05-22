@@ -62,7 +62,7 @@
 	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-lg">
 			<div class="modal-content">
-				<CrearUsuario v-if="modalContent === 'create'"/>
+				<CrearUsuario v-if="modalContent === 'create'" :roles="roles"/>
 				<EditarUsuario v-if="modalContent === 'edit'"/>
 				<DeshabilitarUsuario v-if="modalContent === 'disabled'"/>
 			</div>
@@ -81,6 +81,7 @@
 
 	const modalContent = ref('create')
 	const users = ref([])
+	const roles = ref([])
 
 	const setModalContent = (option) => {
 		modalContent.value = option
@@ -95,7 +96,18 @@
 		}
 	}
 
+	const getRoles = async() => {
+		try{
+			const res = await UserServices.getRoles()
+			roles.value = res.data
+			console.log(res)
+		}catch(error){
+			console.log(error)
+		}
+	}
+
 	getusers()
+	getRoles()
 
 </script>
 
