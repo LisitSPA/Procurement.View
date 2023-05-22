@@ -7,4 +7,9 @@ users.storeUser = async (data) => {
 	return res;
 }
 
+users.getUsers = async () => {
+	const res = await axios.get(baseUrl + '/Security/ObtenerUsuarios')
+	return res
+}
+
 export default users

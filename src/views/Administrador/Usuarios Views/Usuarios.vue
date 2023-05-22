@@ -14,21 +14,17 @@
 						<tr class="bg-blue1 text-white text-center">
 							<th scope="col">#</th>
 							<th scope="col">NOMBRE</th>
-							<th scope="col">APELLIDO</th>
 							<th scope="col">CORREO</th>
-							<th scope="col">CARGO</th>
 							<th scope="col">ROL</th>
 							<th scope="col">ACCIONES</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="text-center dark-blue-text" v-for="(item,index) in 10" :key="index">
+						<tr class="text-center dark-blue-text" v-for="(user,index) in users" :key="index">
 							<th scope="row">{{ index+1 }}</th>
-							<td>Mark</td>
-							<td>Marquez</td>
-							<td>correo@cmpc.cl</td>
-							<td>Cargo prueba</td>
-							<td>Admin</td>
+							<td>{{user.names}}</td>
+							<td>{{user.mail}}</td>
+							<td>{{user.role}}</td>
 							<td>
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"  
 									@click="setModalContent('edit')"><i class="bi bi-pencil-square"></i></button>
@@ -75,8 +71,8 @@
 </template>
 
 <script setup>
-	import { ref, onMounted } from 'vue'
-	// import UserServices from '../../../services/Users'
+	import { ref } from 'vue'
+	import UserServices from '../../../services/Users'
 
 	// MODAL COMPONENTS
 	import CrearUsuario from './Modal/Crear.vue'
@@ -84,10 +80,22 @@
 	import DeshabilitarUsuario from './Modal/Deshabilitar.vue'
 
 	const modalContent = ref('create')
+	const users = ref([])
 
 	const setModalContent = (option) => {
 		modalContent.value = option
 	}
+
+	const getusers = async() => {
+		try{
+			const res = await UserServices.getUsers()
+			users.value = res.data
+		}catch(error){
+			console.log(error)
+		}
+	}
+
+	getusers()
 
 </script>
 
