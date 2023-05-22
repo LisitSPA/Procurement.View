@@ -29,7 +29,7 @@
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"  
 									@click="setModalContent('edit')"><i class="bi bi-pencil-square"></i></button>
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"
-								@click="setModalContent('disabled')"><i class="bi bi-trash-fill"></i></button>
+								@click="setModalContent('disabled', user)"><i class="bi bi-trash-fill"></i></button>
 							</td>
 						</tr>
 					</tbody>
@@ -64,7 +64,7 @@
 			<div class="modal-content">
 				<CrearUsuario v-if="modalContent === 'create'" :roles="roles"/>
 				<EditarUsuario v-if="modalContent === 'edit'"/>
-				<DeshabilitarUsuario v-if="modalContent === 'disabled'"/>
+				<DeshabilitarUsuario v-if="modalContent === 'disabled'" :selectedUser="selectedUser"/>
 			</div>
 		</div>
 	</div>
@@ -82,9 +82,11 @@
 	const modalContent = ref('create')
 	const users = ref([])
 	const roles = ref([])
+	const selectedUser = ref({})
 
-	const setModalContent = (option) => {
+	const setModalContent = (option, user) => {
 		modalContent.value = option
+		selectedUser.value = user
 	}
 
 	const getusers = async() => {

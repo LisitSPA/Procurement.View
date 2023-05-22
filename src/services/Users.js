@@ -17,4 +17,9 @@ users.getRoles = async () => {
 	return res
 }
 
+users.disableUser = async (data) => {
+	const res = await axios.put(baseUrl + '/Security/ActualizarEstado', data)
+	return res;
+}
+
 export default users
