@@ -7,4 +7,19 @@ users.storeUser = async (data) => {
 	return res;
 }
 
+users.getUsers = async () => {
+	const res = await axios.get(baseUrl + '/Security/ObtenerUsuarios')
+	return res
+}
+
+users.getRoles = async () => {
+	const res = await axios.get(baseUrl + '/Security/ObtenerRoles')
+	return res
+}
+
+users.disableUser = async (data) => {
+	const res = await axios.put(baseUrl + '/Security/ActualizarEstado', data)
+	return res;
+}
+
 export default users

@@ -14,26 +14,22 @@
 						<tr class="bg-blue1 text-white text-center">
 							<th scope="col">#</th>
 							<th scope="col">NOMBRE</th>
-							<th scope="col">APELLIDO</th>
 							<th scope="col">CORREO</th>
-							<th scope="col">CARGO</th>
 							<th scope="col">ROL</th>
 							<th scope="col">ACCIONES</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="text-center dark-blue-text" v-for="(item,index) in 10" :key="index">
+						<tr class="text-center dark-blue-text" v-for="(user,index) in users" :key="index">
 							<th scope="row">{{ index+1 }}</th>
-							<td>Mark</td>
-							<td>Marquez</td>
-							<td>correo@cmpc.cl</td>
-							<td>Cargo prueba</td>
-							<td>Admin</td>
+							<td>{{user.names}}</td>
+							<td>{{user.mail}}</td>
+							<td>{{user.role}}</td>
 							<td>
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"  
 									@click="setModalContent('edit')"><i class="bi bi-pencil-square"></i></button>
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"
-								@click="setModalContent('disabled')"><i class="bi bi-trash-fill"></i></button>
+								@click="setModalContent('disabled', user)"><i class="bi bi-trash-fill"></i></button>
 							</td>
 						</tr>
 					</tbody>
@@ -66,17 +62,17 @@
 	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-lg">
 			<div class="modal-content">
-				<CrearUsuario v-if="modalContent === 'create'"/>
+				<CrearUsuario v-if="modalContent === 'create'" :roles="roles"/>
 				<EditarUsuario v-if="modalContent === 'edit'"/>
-				<DeshabilitarUsuario v-if="modalContent === 'disabled'"/>
+				<DeshabilitarUsuario v-if="modalContent === 'disabled'" :selectedUser="selectedUser"/>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script setup>
-	import { ref, onMounted } from 'vue'
-	// import UserServices from '../../../services/Users'
+	import { ref } from 'vue'
+	import UserServices from '../../../services/Users'
 
 	// MODAL COMPONENTS
 	import CrearUsuario from './Modal/Crear.vue'
@@ -84,10 +80,36 @@
 	import DeshabilitarUsuario from './Modal/Deshabilitar.vue'
 
 	const modalContent = ref('create')
+	const users = ref([])
+	const roles = ref([])
+	const selectedUser = ref({})
 
-	const setModalContent = (option) => {
+	const setModalContent = (option, user) => {
 		modalContent.value = option
+		selectedUser.value = user
 	}
+
+	const getusers = async() => {
+		try{
+			const res = await UserServices.getUsers()
+			users.value = res.data
+		}catch(error){
+			console.log(error)
+		}
+	}
+
+	const getRoles = async() => {
+		try{
+			const res = await UserServices.getRoles()
+			roles.value = res.data
+			console.log(res)
+		}catch(error){
+			console.log(error)
+		}
+	}
+
+	getusers()
+	getRoles()
 
 </script>
 

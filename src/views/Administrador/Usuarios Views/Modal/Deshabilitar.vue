@@ -8,11 +8,32 @@
 	</div>
 	<div class="modal-footer">
 		<button type="button" class="btn btn-secondary btn-radius" data-bs-dismiss="modal">Cerrar</button>
-		<button type="button" class="btn btn-danger btn-radius">Deshabilitar</button>
+		<button type="button" class="btn btn-danger btn-radius" @click="disableUser(selectedUser)">Deshabilitar</button>
 	</div>
 </template>
 
 <script setup>
+	import { toast } from 'vue3-toastify'
+	import UsersServices from './../../../../services/Users'
+	defineProps({
+		selectedUser: {
+			required: true
+		}
+	})
+
+	const disableUser = async (user) => {
+		try{
+			let data = new FormData()
+			data.append('idUsuario', user.id)
+			const res = await UsersServices.disableUser(data)
+			console.log(res)
+			toast.success('Usuario deshabilitado.')
+		}catch(error){
+			$('#myModal').modal('hide')
+			toast.error('Se ha producido un error.')
+			console.log(error)
+		}
+	}
 
 </script>
 
