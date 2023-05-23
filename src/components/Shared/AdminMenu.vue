@@ -1,9 +1,18 @@
 <template>
 	<div class="row row-menu">
 		<div class="col-9 menu">
-			<button class="btn-border-blue" @click="$emit('setSection', 'usuarios')">Usuarios</button>
-			<button class="btn-border-blue" @click="$emit('setSection', index)"
-				v-for="(item, index) in 8" :key="index">Módulo {{ index+1 }}</button>
+			<div class="contenedor-btn h-100 d-flex justify-content-center align-items-center px-3 cursor-pointer"
+				@click="$emit('setSection', 'usuarios')">
+				<span><i class="bi bi-people" style="font-size: 1.5rem;"></i> Usuarios</span>
+			</div>
+			<div class="contenedor-btn h-100 d-flex justify-content-center align-items-center px-3 cursor-pointer"
+				@click="$emit('setSection', 'news')">
+				<span><i class="bi bi-newspaper" style="font-size: 1.5rem;"></i> Newsletters</span>
+			</div>
+			<div class="contenedor-btn h-100 d-flex justify-content-center align-items-center px-3 cursor-pointer" @click="$emit('setSection', index)"
+				v-for="(item, index) in 7" :key="index">
+				<span><i class="bi bi-menu-app" style="font-size: 1.5rem;"></i> Módulo {{ index+1 }}</span>
+			</div>
 		</div>
 		<div class="col-3 logo">
 			<img src="./../../assets/images/logo-azul.png" alt="Logo procurement" style="width: 50%;">
@@ -32,19 +41,8 @@
 	justify-content: flex-end;
 	padding-right: 5vw;
 }
-
-.btn-border-blue{
-		height: 3vh;
-		color: var(--dark-blue);
-		border: 2px solid var(--dark-blue);
-		margin-right: 10px;
-		margin-left: 10px;
-		width: 12vw;
-		border-radius: 30px;
-		font-weight: bold;
-	}
-.btn-border-blue:hover{
+.contenedor-btn:hover{
 	color: white;
-	background-color: var(--light-blue);
+	background-color: var(--dark-blue);
 }
 </style>
