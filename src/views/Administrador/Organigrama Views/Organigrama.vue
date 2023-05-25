@@ -4,6 +4,8 @@
 			<h1>Organigrama</h1>
 			<button class="btn-border-lighblue-add" data-bs-toggle="modal" data-bs-target="#myModal"
 				style="margin-left: 1rem;" @click="setModalContent('create')"><i class="bi bi-plus" style="font-size: 1.2rem;"></i> Añadir Organigrama</button>
+			<button class="btn-border-lighblue-add" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"
+							@click="setModalContent('delete')"><i class="bi bi-trash-fill"></i></button>
 		</div>
 	</div>
 	<div class="row" style="height: 85%;">
@@ -16,7 +18,8 @@
 	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-lg">
 			<div class="modal-content">
-				<CrearOrganigrama v-if="modalContent === 'create'" :roles="roles"/>
+				<CrearOrganigrama v-if="modalContent === 'create'"/>
+				<EliminarOrganigrama v-if="modalContent === 'delete'"/>
 			</div>
 		</div>
 	</div>
@@ -28,6 +31,7 @@
 
 	// MODAL COMPONENTS
 	import CrearOrganigrama from './Modal/Crear.vue'
+	import EliminarOrganigrama from './Modal/Eliminar.vue'
 
 	const modalContent = ref('create')
 
