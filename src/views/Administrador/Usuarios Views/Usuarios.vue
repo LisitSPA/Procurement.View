@@ -2,7 +2,7 @@
 	<div class="row" style="height: 10%;">
 		<div class="col-12 d-flex align-items-center">
 			<h1>Usuarios</h1>
-			<button class="btn-border-lighblue" data-bs-toggle="modal" data-bs-target="#myModal"
+			<button class="btn-border-lighblue-add" data-bs-toggle="modal" data-bs-target="#myModal"
 				style="margin-left: 1rem;" @click="setModalContent('create')"><i class="bi bi-plus" style="font-size: 1.2rem;"></i> Añadir Usuario</button>
 		</div>
 	</div>
@@ -114,29 +114,5 @@
 </script>
 
 <style scoped>
-.btn-border-lighblue{
-		height: 4vh;
-		color: var(--light-blue);
-		border: 2px solid var(--light-blue);
-		width: 8vw;
-		border-radius: 30px;
-		font-weight: bold;
-	}
-.btn-border-lighblue:hover{
-	color: white;
-	background-color: var(--light-blue);
-}
 
-.btn-actions{
-	height: 2rem;
-	color: var(--light-blue);
-	border: 2px solid var(--light-blue);
-	width: 4rem;
-	border-radius: 30px;
-	font-weight: bold;
-}
-.btn-actions:hover{
-	color: white;
-	background-color: var(--light-blue);
-}
 </style>

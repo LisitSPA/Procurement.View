@@ -115,3 +115,30 @@ a,
 .btn-radius{
 	border-radius: 40px;
 }
+
+/* Botones Admin */
+.btn-border-lighblue-add{
+	height: 4vh;
+	color: var(--light-blue);
+	border: 2px solid var(--light-blue);
+	width: 8vw;
+	border-radius: 30px;
+	font-weight: bold;
+}
+.btn-border-lighblue-add:hover{
+color: white;
+background-color: var(--light-blue);
+}
+
+.btn-actions{
+height: 2rem;
+color: var(--light-blue);
+border: 2px solid var(--light-blue);
+width: 4rem;
+border-radius: 30px;
+font-weight: bold;
+}
+.btn-actions:hover{
+color: white;
+background-color: var(--light-blue);
+}
