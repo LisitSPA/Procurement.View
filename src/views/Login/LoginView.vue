@@ -7,15 +7,20 @@
 				</div>
 				<div class="col-12 text-center" style="margin-top: 10rem;">
 					<p style="font-size: 17px">Para acceder, debes iniciar sesión</p>
+					<button class="btn btn-google" @click="login">
+						<i class="bi bi-google"></i> Iniciar sesión con Google</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
 
-<script>
-export default {
-
+<script setup>
+import { googleTokenLogin } from "vue3-google-login"
+const login = () => {
+  googleTokenLogin().then((response) => {
+    console.log(response)
+  })
 }
 </script>
 
@@ -36,6 +41,9 @@ export default {
     margin: 7vh 44vh 7vh 44vh;
     justify-content: center;
     align-content: center;
+}
+.btn-google{
+	border: 2px solid gray;
 }
 
 </style>
