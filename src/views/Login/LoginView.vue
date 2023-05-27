@@ -17,10 +17,24 @@
 
 <script setup>
 import { googleTokenLogin } from "vue3-google-login"
+import UserServices from './../../services/Users'
+
 const login = () => {
   googleTokenLogin().then((response) => {
     console.log(response)
+		googleVerify(response)
   })
+}
+
+const googleVerify = async(response) => {
+	try{
+		let data = new FormData()
+		data.append('data', response.access_token)
+		const res = await UserServices.login(data)
+		console.log(res.data)
+	}catch(error){
+		console.log(error)
+	}
 }
 </script>
 

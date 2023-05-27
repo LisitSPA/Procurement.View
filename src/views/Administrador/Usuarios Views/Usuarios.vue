@@ -62,7 +62,9 @@
 	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-lg">
 			<div class="modal-content">
-				<CrearUsuario v-if="modalContent === 'create'" :roles="roles"/>
+				<CrearUsuario v-if="modalContent === 'create'" 
+					:roles="roles"
+					@updateUserList="updateUserList"/>
 				<EditarUsuario v-if="modalContent === 'edit'"/>
 				<DeshabilitarUsuario v-if="modalContent === 'disabled'" :selectedUser="selectedUser"/>
 			</div>
@@ -87,6 +89,10 @@
 	const setModalContent = (option, user) => {
 		modalContent.value = option
 		selectedUser.value = user
+	}
+
+	const updateUserList = (user) => {
+		users.value.push(user)
 	}
 
 	const getusers = async() => {

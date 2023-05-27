@@ -47,6 +47,7 @@
 			required: true
 		}
 	})
+	const emit = defineEmits(['updateUserList'])
 
 	const name = ref('')
 	const lastname = ref('')
@@ -56,15 +57,16 @@
 	const btnSend = ref(false)
 
 	const storeUser = async () => {
+		btnSend.value = true
 		try{
-			btnSend.value = true
 			let data = new FormData()
 			data.append('Email', email.value)
 			data.append('Nombres', name.value + ' ' + lastname.value)
 			data.append('Rol', role.value)
 			const res = await UserServices.storeUser(data)
 			toast.success('Se ha creado el usuario.')
-			console.log(res.data)
+			emit('updateUserList', res.data)
+			btnSend.value = false
 		}catch(error){
 			btnSend.value = false
 			toast.error('Se ha producido un error al crear el usuario.')

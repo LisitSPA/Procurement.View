@@ -22,4 +22,13 @@ users.disableUser = async (data) => {
 	return res;
 }
 
+users.login = async (data) => {
+	const res = await axios.post(baseUrl + '/Security/Login', data, {
+		headers: {
+			"Content-Type": 'application/json'
+		}
+	 })
+	return res;
+}
+
 export default users
