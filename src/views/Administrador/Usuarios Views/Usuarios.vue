@@ -92,6 +92,8 @@
 	}
 
 	const updateUserList = (user) => {
+		var closeModal = document.getElementById("btnCerrar");
+		closeModal.click()
 		users.value.push(user)
 	}
 

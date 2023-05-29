@@ -17,6 +17,7 @@
 
 <script setup>
 import { googleTokenLogin } from "vue3-google-login"
+import { useRouter } from 'vue-router'
 import UserServices from './../../services/Users'
 
 const login = () => {
@@ -26,12 +27,15 @@ const login = () => {
   })
 }
 
+const router = useRouter()
+
 const googleVerify = async(response) => {
 	try{
 		let data = new FormData()
 		data.append('data', response.access_token)
 		const res = await UserServices.login(data)
-		console.log(res.data)
+		localStorage.setItem('usuario', JSON.stringify(res.data))
+		router.push('/Home')
 	}catch(error){
 		console.log(error)
 	}

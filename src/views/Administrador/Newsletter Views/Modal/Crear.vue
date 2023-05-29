@@ -7,21 +7,30 @@
 		<div class="modal-body">
 			<div class="row">
 				<div class="col-12">
+					<label for="">Tipo</label>
+					<select class="form-control" v-model="type" required>
+						<option value="" selected disabled>Seleccione una opción...</option>
+						<option v-for="(type, index) in types" :key="index" :value="type.id">{{ type.nombre }}</option>
+					</select>
+				</div>
+				<div class="col-12">
 					<label for="">Título</label>
-					<input type="text" class="form-control" v-model="title">
+					<input type="text" class="form-control" v-model="title" required>
 				</div>
 				<div class="col-12">
 					<label for="">Descripción</label>
-					<textarea class="form-control" cols="30" rows="5" v-model="description"></textarea>
+					<textarea class="form-control" cols="30" rows="5" v-model="description" required></textarea>
 				</div>
 				<div class="col-12">
 					<label for="">Imagen</label>
-					<input type="file" class="form-control" accept="image/png, image/jpeg, image/jpg">
+					<input type="file" class="form-control" accept="image/png, image/jpeg, image/jpg"
+						@change="uploadImage($event)"
+						:required="type === 1">
 				</div>
 			</div>
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary btn-radius" data-bs-dismiss="modal">Cerrar</button>
+			<button type="button" class="btn btn-secondary btn-radius" data-bs-dismiss="modal" id="btnCerrar">Cerrar</button>
 			<button type="submit" class="btn btn-primary btn-radius" :disabled="btnSend">
 			 Guardar
 			 <div v-if="btnSend" class="text-info spinner-border spinner-border-sm" role="status">
@@ -34,11 +43,60 @@
 <script setup>
 	import { ref } from 'vue'
 	import { toast } from 'vue3-toastify';
+	import newsletterServices from './../../../../services/Newsletters';
+
+	const emit = defineEmits(['updateNewsletterList'])
 
 	const title = ref('')
 	const description = ref('')
+	const type = ref('')
+	const types = ref([])
 	const image = ref('')
 	const btnSend = ref(false)
+
+	const getTypes = async() => {
+		try {
+			const res = await newsletterServices.getNewslettersTypes()
+			types.value = res.data
+		} catch (error) {
+			console.log(error)
+			toast.error('Ha ocurrido un error al cargar los tipos.')
+		}
+	}
+
+	const storeNewsletter = async() => {
+		btnSend.value = true
+		try {
+			let data = new FormData()
+			data.append('Titulo', title.value)
+			data.append('Descripcion', description.value)
+			data.append('TipoAssetId', type.value)
+			data.append('FormFile', image.value)
+			data.append('_method', 'POST')
+			const res = await newsletterServices.storeNewsletter(data)
+			console.log(res.data)
+			btnSend.value = false
+			emit('updateNewsletterList', res.data)
+			clearInputs()
+			toast.success('Se ha creado el registro exitosamente.')
+		} catch (error) {
+			btnSend.value = false
+			console.log(error)
+		}
+	}
+
+	const uploadImage = async (event) => {
+		image.value = event.target.files[0]
+	}
+
+	const clearInputs = () => {
+		type.value = ''
+		title.value = ''
+		description.value = ''
+		image.value = ''
+	}
+
+	getTypes()
 
 </script>
 

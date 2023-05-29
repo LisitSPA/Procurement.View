@@ -27,7 +27,7 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary btn-radius" data-bs-dismiss="modal">Cerrar</button>
+			<button type="button" class="btn btn-secondary btn-radius" data-bs-dismiss="modal" id="btnCerrar">Cerrar</button>
 			<button type="submit" class="btn btn-primary btn-radius" :disabled="btnSend">
 			 Guardar
 			 <div v-if="btnSend" class="text-info spinner-border spinner-border-sm" role="status">

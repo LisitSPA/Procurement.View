@@ -1,7 +1,7 @@
 <template>
 	<div class="row" style="height: 10%;">
 		<div class="col-12 d-flex align-items-center">
-			<h1>Newsletters</h1>
+			<h1>Newsletters / FAQ's</h1>
 			<button class="btn-border-lighblue-add" data-bs-toggle="modal" data-bs-target="#myModal"
 				style="margin-left: 1rem;" @click="setModalContent('create')"><i class="bi bi-plus" style="font-size: 1.2rem;"></i> Añadir Newsletter</button>
 		</div>
@@ -15,16 +15,19 @@
 							<th scope="col">#</th>
 							<th scope="col">TITULO</th>
 							<th scope="col">DESCRIPCION</th>
+							<th scope="col">TIPO</th>
 							<th scope="col">IMAGEN</th>
 							<th scope="col">ACCIONES</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="text-center dark-blue-text" v-for="(item,index) in 10" :key="index">
+						<tr class="text-center dark-blue-text" v-for="(newsletter,index) in newsletters" :key="index">
 							<th width="25">{{ index+1 }}</th>
-							<td width="25">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</td>
-							<td style="text-align: justify;" width="25">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error atque commodi nostrum assumenda iure, quam, doloremque nam, facere quibusdam veniam ea. Dicta quasi rerum, maiores perferendis vitae molestiae blanditiis aspernatur!</td>
-							<td width="25"><img src="https://picsum.photos/200" alt="imagen" style="width: 5vw"></td>
+							<td width="25">{{ newsletter.titulo }}</td>
+							<td style="text-align: justify;" width="25">{{ newsletter.descripcion }}</td>
+							<td width="25">{{ newsletter.nombreTipoAsset }}</td>
+							<!-- <td width="25"><img src="https://picsum.photos/200" alt="imagen" style="width: 5vw"></td> -->
+							<td width="25"><img :src="newsletter.urlsImagenes[0]" alt="newsletter image" style="width: 5vw"></td>
 							<td width="25">
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"  
 									@click="setModalContent('edit')"><i class="bi bi-pencil-square"></i></button>
@@ -62,7 +65,8 @@
 	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-lg">
 			<div class="modal-content">
-				<Crear v-if="modalContent === 'create'"/>
+				<Crear v-if="modalContent === 'create'"
+					@updateNewsletterList="updateNewsletterList"/>
 				<Editar v-if="modalContent === 'edit'"/>
 				<Eliminar v-if="modalContent === 'delete'"/>
 			</div>
@@ -72,6 +76,7 @@
 
 <script setup>
 	import { ref } from 'vue'
+	import newsletterServices from './../../../services/Newsletters'
 
 	// MODAL COMPONENTS
 	import Crear from './Modal/Crear.vue'
@@ -80,11 +85,29 @@
 
 	const modalContent = ref('create')
 	const newsletterSelected = ref({})
+	const newsletters = ref([])
 
 	const setModalContent = (option, user) => {
 		modalContent.value = option
 		newsletterSelected.value = user
 	}
+
+	const getNewsletters = async() => {
+		try{
+			const res = await newsletterServices.getNewsletters()
+			newsletters.value = res.data
+		}catch(error){
+			console.log(error)
+		}
+	}
+
+	const updateNewsletterList = (newsletter) => {
+		var closeModal = document.getElementById("btnCerrar");
+		closeModal.click()
+		newsletters.value.push(newsletter)
+	}
+
+	getNewsletters()
 
 </script>
 

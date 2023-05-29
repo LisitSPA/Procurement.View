@@ -9,7 +9,7 @@
 			<router-link class="contenedor-btn h-100 d-flex justify-content-center align-items-center px-3 cursor-pointer"
 				to="/Admin/Newsletters"
 				:class="{ 'menu-selected': $route.path === '/Admin/Newsletters' }">
-				<span><i class="bi bi-newspaper" style="font-size: 1.5rem;"></i> Newsletters</span>
+				<span><i class="bi bi-newspaper" style="font-size: 1.5rem;"></i> Newsletters / FAQ's</span>
 			</router-link>
 			<router-link class="contenedor-btn h-100 d-flex justify-content-center align-items-center px-3 cursor-pointer"
 				to="/Admin/Organigrama"

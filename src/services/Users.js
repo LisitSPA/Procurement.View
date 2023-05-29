@@ -1,6 +1,8 @@
 import axios from 'axios'
+import baseUrl from './baseUrl'
+
 const users = {}
-const baseUrl = 'https://procurementsoftys-api.azurewebsites.net/api'
+const userStorage = JSON.parse(localStorage.getItem("usuario"))
 
 users.storeUser = async (data) => {
 	const res = await axios.post(baseUrl + '/Security/CrearUsuario', data)
@@ -8,23 +10,36 @@ users.storeUser = async (data) => {
 }
 
 users.getUsers = async () => {
-	const res = await axios.get(baseUrl + '/Security/ObtenerUsuarios')
+	const res = await axios.get(baseUrl + '/Security/ObtenerUsuarios', {
+		headers: {
+			'Authorization': 'Bearer ' + userStorage.token
+		}
+	})
 	return res
 }
 
 users.getRoles = async () => {
-	const res = await axios.get(baseUrl + '/Security/ObtenerRoles')
+	const res = await axios.get(baseUrl + '/Security/ObtenerRoles', {
+		headers: {
+			'Authorization': 'Bearer ' + userStorage.token
+		}
+	})
 	return res
 }
 
 users.disableUser = async (data) => {
-	const res = await axios.put(baseUrl + '/Security/ActualizarEstado', data)
+	const res = await axios.put(baseUrl + '/Security/ActualizarEstado', data, {
+		headers: {
+			'Authorization': 'Bearer ' + userStorage.token
+		}
+	})
 	return res;
 }
 
 users.login = async (data) => {
 	const res = await axios.post(baseUrl + '/Security/Login', data, {
 		headers: {
+			'Authorization': 'Bearer ' + userStorage.token,
 			"Content-Type": 'application/json'
 		}
 	 })
