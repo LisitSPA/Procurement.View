@@ -7,6 +7,13 @@
 		<div class="modal-body">
 			<div class="row">
 				<div class="col-12">
+					<label for="">Tipo</label>
+					<select class="form-control" v-model="type" required>
+						<option value="" selected disabled>Seleccione una opción...</option>
+						<option v-for="(type, index) in props.types" :key="index" :value="type.id">{{ type.nombre }}</option>
+					</select>
+				</div>
+				<div class="col-12">
 					<label for="">Título</label>
 					<input type="text" class="form-control" v-model="title">
 				</div>
@@ -32,17 +39,21 @@
 </template>
 
 <script setup>
-	import { ref } from 'vue'
+	import { ref, watch } from 'vue'
 	import { toast } from 'vue3-toastify';
 
-	defineProps({
-		newsletterSelected: {
+	const props = defineProps({
+		selectedNewsletter: {
+			required: true
+		},
+		types: {
 			required: true
 		}
 	})
 
-	const title = ref('')
-	const description = ref('')
+	const type = props.selectedNewsletter.tipoAssetId
+	const title = props.selectedNewsletter.titulo
+	const description = props.selectedNewsletter.descripcion
 	const image = ref('')
 	const btnSend = ref(false)
 

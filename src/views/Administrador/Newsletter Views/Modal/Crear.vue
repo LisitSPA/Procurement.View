@@ -10,7 +10,7 @@
 					<label for="">Tipo</label>
 					<select class="form-control" v-model="type" required>
 						<option value="" selected disabled>Seleccione una opción...</option>
-						<option v-for="(type, index) in types" :key="index" :value="type.id">{{ type.nombre }}</option>
+						<option v-for="(type, index) in props.types" :key="index" :value="type.id">{{ type.nombre }}</option>
 					</select>
 				</div>
 				<div class="col-12">
@@ -45,24 +45,19 @@
 	import { toast } from 'vue3-toastify';
 	import newsletterServices from './../../../../services/Newsletters';
 
+	const props = defineProps({
+		types: {
+			required: true
+		}
+	})
+
 	const emit = defineEmits(['updateNewsletterList'])
 
 	const title = ref('')
 	const description = ref('')
 	const type = ref('')
-	const types = ref([])
 	const image = ref('')
 	const btnSend = ref(false)
-
-	const getTypes = async() => {
-		try {
-			const res = await newsletterServices.getNewslettersTypes()
-			types.value = res.data
-		} catch (error) {
-			console.log(error)
-			toast.error('Ha ocurrido un error al cargar los tipos.')
-		}
-	}
 
 	const storeNewsletter = async() => {
 		btnSend.value = true
@@ -77,7 +72,6 @@
 			console.log(res.data)
 			btnSend.value = false
 			emit('updateNewsletterList', res.data)
-			clearInputs()
 			toast.success('Se ha creado el registro exitosamente.')
 		} catch (error) {
 			btnSend.value = false
@@ -88,15 +82,6 @@
 	const uploadImage = async (event) => {
 		image.value = event.target.files[0]
 	}
-
-	const clearInputs = () => {
-		type.value = ''
-		title.value = ''
-		description.value = ''
-		image.value = ''
-	}
-
-	getTypes()
 
 </script>
 

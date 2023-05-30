@@ -15,6 +15,13 @@
 <script setup>
 	import { toast } from 'vue3-toastify'
 
+	const props = defineProps({
+		selectedNewsletter: {
+			required: true
+		}		
+	})
+	
+
 </script>
 
 <style scoped>

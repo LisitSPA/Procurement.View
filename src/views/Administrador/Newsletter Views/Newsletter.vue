@@ -30,9 +30,9 @@
 							<td width="25"><img :src="newsletter.urlsImagenes[0]" alt="newsletter image" style="width: 5vw"></td>
 							<td width="25">
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"  
-									@click="setModalContent('edit')"><i class="bi bi-pencil-square"></i></button>
+									@click="setModalContent('edit', newsletter)"><i class="bi bi-pencil-square"></i></button>
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"
-								@click="setModalContent('delete', user)"><i class="bi bi-trash-fill"></i></button>
+								@click="setModalContent('delete', newsletter)"><i class="bi bi-trash-fill"></i></button>
 							</td>
 						</tr>
 					</tbody>
@@ -66,9 +66,16 @@
 		<div class="modal-dialog modal-dialog-centered modal-lg">
 			<div class="modal-content">
 				<Crear v-if="modalContent === 'create'"
-					@updateNewsletterList="updateNewsletterList"/>
-				<Editar v-if="modalContent === 'edit'"/>
-				<Eliminar v-if="modalContent === 'delete'"/>
+					@updateNewsletterList="updateNewsletterList"
+					:types="types"
+					:key="componentKey"/>
+				<Editar v-if="modalContent === 'edit'"
+					:types="types"
+					:selectedNewsletter="selectedNewsletter"
+					:key="componentKey"/>
+				<Eliminar v-if="modalContent === 'delete'"
+					:selectedNewsletter="selectedNewsletter"
+					:key="componentKey"/>
 			</div>
 		</div>
 	</div>
@@ -84,12 +91,15 @@
 	import Eliminar from './Modal/Eliminar.vue'
 
 	const modalContent = ref('create')
-	const newsletterSelected = ref({})
+	const selectedNewsletter = ref({})
 	const newsletters = ref([])
+	const types = ref([])
+	const componentKey = ref(0)
 
-	const setModalContent = (option, user) => {
+	const setModalContent = (option, newsletter) => {
 		modalContent.value = option
-		newsletterSelected.value = user
+		selectedNewsletter.value = newsletter
+		componentKey.value +=1
 	}
 
 	const getNewsletters = async() => {
@@ -101,12 +111,23 @@
 		}
 	}
 
+	const getTypes = async() => {
+		try {
+			const res = await newsletterServices.getNewslettersTypes()
+			types.value = res.data
+		} catch (error) {
+			console.log(error)
+			toast.error('Ha ocurrido un error al cargar los tipos.')
+		}
+	}
+
 	const updateNewsletterList = (newsletter) => {
 		var closeModal = document.getElementById("btnCerrar");
 		closeModal.click()
 		newsletters.value.push(newsletter)
 	}
 
+	getTypes()
 	getNewsletters()
 
 </script>
