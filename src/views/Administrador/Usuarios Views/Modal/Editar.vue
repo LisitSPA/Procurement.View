@@ -7,11 +7,11 @@
 		<div class="row">
 			<div class="col-12">
 				<label for="">Nombre</label>
-				<input type="text" class="form-control">
+				<input type="text" class="form-control" v-model="name">
 			</div>
 			<div class="col-6">
 				<label for="">Correo</label>
-				<input type="text" class="form-control">
+				<input type="text" class="form-control" v-model="email">
 			</div>
 			<div class="col-6">
 				<label for="">Rol</label>
@@ -44,8 +44,11 @@
 	import { toast } from 'vue3-toastify';
 	import moment from 'moment'
 
-	defineProps({
+	const props = defineProps({
 		roles: {
+			required: true
+		},
+		selectedUser: {
 			required: true
 		}
 	})
@@ -54,11 +57,9 @@
 		today.value = moment().format('YYYY-MM-D')
 	})
 
-	const name = ref('')
-	const lastname = ref('')
-	const email = ref('')
-	const position = ref('')
-	const role = ref('')
+	const name = props.selectedUser.names
+	const email = props.selectedUser.mail
+	const role = props.selectedUser.role
 	const bday = ref('')
 	const today = ref('')
 	const image = ref('')

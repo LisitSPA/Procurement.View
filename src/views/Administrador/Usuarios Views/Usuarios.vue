@@ -27,7 +27,7 @@
 							<td>{{user.role}}</td>
 							<td>
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"  
-									@click="setModalContent('edit')"><i class="bi bi-pencil-square"></i></button>
+									@click="setModalContent('edit', user)"><i class="bi bi-pencil-square"></i></button>
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"
 								@click="setModalContent('disabled', user)"><i class="bi bi-trash-fill"></i></button>
 							</td>
@@ -64,10 +64,15 @@
 			<div class="modal-content">
 				<CrearUsuario v-if="modalContent === 'create'" 
 					:roles="roles"
-					@updateUserList="updateUserList"/>
+					@updateUserList="updateUserList"
+					:key="componentKey"/>
 				<EditarUsuario v-if="modalContent === 'edit'"
-					:roles="roles"/>
-				<DeshabilitarUsuario v-if="modalContent === 'disabled'" :selectedUser="selectedUser"/>
+					:roles="roles"
+					:selectedUser="selectedUser"
+					:key="componentKey"/>
+				<DeshabilitarUsuario v-if="modalContent === 'disabled'" 
+					:selectedUser="selectedUser"
+					:key="componentKey"/>
 			</div>
 		</div>
 	</div>
@@ -86,10 +91,12 @@
 	const users = ref([])
 	const roles = ref([])
 	const selectedUser = ref({})
+	const componentKey = ref(0)
 
 	const setModalContent = (option, user) => {
 		modalContent.value = option
 		selectedUser.value = user
+		componentKey.value += 1
 	}
 
 	const updateUserList = (user) => {
