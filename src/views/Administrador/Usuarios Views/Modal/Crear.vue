@@ -6,13 +6,9 @@
 		</div>
 		<div class="modal-body">
 			<div class="row">
-				<div class="col-6">
+				<div class="col-12">
 					<label for="">Nombre</label>
 					<input type="text" class="form-control" v-model="name">
-				</div>
-				<div class="col-6">
-					<label for="">Apellido</label>
-					<input type="text" class="form-control" v-model="lastname">
 				</div>
 				<div class="col-6">
 					<label for="">Correo</label>
@@ -21,8 +17,20 @@
 				<div class="col-6">
 					<label for="">Rol</label>
 					<select class="form-control" v-model="role">
+						<option value="" disabled selected>Selecciona una opción...</option>
 						<option v-for="(role, index) in roles" :key="index">{{ role }}</option>
 					</select>
+				</div>
+				<div class="col-6">
+					<label for="">Fecha Nacimiento</label>
+					<input type="date" class="form-control" 
+						v-model="bday" 
+						:max="today"
+						required>
+				</div>
+				<div class="col-6">
+					<label for="">Foto Perfil</label>
+					<input type="file" class="form-control" accept="image/png, image/jpeg, image/jpg">
 				</div>
 			</div>
 		</div>
@@ -38,8 +46,9 @@
 </template>
 
 <script setup>
-	import { ref } from 'vue'
+	import { ref, onMounted } from 'vue'
 	import { toast } from 'vue3-toastify';
+	import moment from 'moment'
 	import UserServices from '../../../../services/Users'
 
 	defineProps({
@@ -47,13 +56,19 @@
 			required: true
 		}
 	})
-	const emit = defineEmits(['updateUserList'])
+	onMounted(() => {
+		today.value = moment().format('YYYY-MM-D')
+	})
 
+	const emit = defineEmits(['updateUserList'])
 	const name = ref('')
 	const lastname = ref('')
 	const email = ref('')
 	const position = ref('')
 	const role = ref('')
+	const bday = ref('')
+	const today = ref('')
+	const image = ref('')
 	const btnSend = ref(false)
 
 	const storeUser = async () => {
@@ -61,8 +76,9 @@
 		try{
 			let data = new FormData()
 			data.append('Email', email.value)
-			data.append('Nombres', name.value + ' ' + lastname.value)
+			data.append('Nombres', name.value)
 			data.append('Rol', role.value)
+			data.append('FechaNacimiento', bday.value)
 			const res = await UserServices.storeUser(data)
 			toast.success('Se ha creado el usuario.')
 			emit('updateUserList', res.data)

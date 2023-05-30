@@ -5,7 +5,11 @@ const users = {}
 const userStorage = JSON.parse(localStorage.getItem("usuario"))
 
 users.storeUser = async (data) => {
-	const res = await axios.post(baseUrl + '/Security/CrearUsuario', data)
+	const res = await axios.post(baseUrl + '/Security/CrearUsuario', data, {
+		headers: {
+			'Authorization': 'Bearer ' + userStorage.token
+		}
+	})
 	return res;
 }
 

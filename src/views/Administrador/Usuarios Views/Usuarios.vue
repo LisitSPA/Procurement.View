@@ -65,7 +65,8 @@
 				<CrearUsuario v-if="modalContent === 'create'" 
 					:roles="roles"
 					@updateUserList="updateUserList"/>
-				<EditarUsuario v-if="modalContent === 'edit'"/>
+				<EditarUsuario v-if="modalContent === 'edit'"
+					:roles="roles"/>
 				<DeshabilitarUsuario v-if="modalContent === 'disabled'" :selectedUser="selectedUser"/>
 			</div>
 		</div>
@@ -110,7 +111,6 @@
 		try{
 			const res = await UserServices.getRoles()
 			roles.value = res.data
-			console.log(res)
 		}catch(error){
 			console.log(error)
 		}
