@@ -69,7 +69,6 @@
 			data.append('FormFile', image.value)
 			data.append('_method', 'POST')
 			const res = await newsletterServices.storeNewsletter(data)
-			console.log(res.data)
 			btnSend.value = false
 			emit('updateNewsletterList', res.data)
 			toast.success('Se ha creado el registro exitosamente.')

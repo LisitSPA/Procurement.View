@@ -30,7 +30,6 @@
 			data.append('idUsuario', user.id)
 			data.append('_method', 'put')
 			const res = await UsersServices.disableUser(data)
-			console.log(res)
 			toast.success('Usuario deshabilitado.')
 		}catch(error){
 			$('#myModal').modal('hide')

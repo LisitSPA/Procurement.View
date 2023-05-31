@@ -22,7 +22,6 @@ import UserServices from './../../services/Users'
 
 const login = () => {
   googleTokenLogin().then((response) => {
-    console.log(response)
 		googleVerify(response)
   })
 }
