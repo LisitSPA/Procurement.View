@@ -32,4 +32,23 @@ newsletters.storeNewsletter = async (data) => {
 	return res
 }
 
+newsletters.updateNewsletter = async (data) => {
+	const res = await axios.put(baseUrl + '/Assets/EditarAsset', data, {
+		headers: {
+			'Authorization': 'Bearer ' + userStorage.token,
+		},
+	})
+	return res
+}
+
+newsletters.deleteNewsletter = async (data) => {
+	const res = await axios.delete(baseUrl + '/Assets/Eliminar', {
+		data,
+		headers: {
+			'Authorization': 'Bearer ' + userStorage.token,
+		},
+	})
+	return res
+}
+
 export default newsletters

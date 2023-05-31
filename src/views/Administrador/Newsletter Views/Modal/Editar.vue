@@ -1,5 +1,5 @@
 <template>
-	<form @submit.prevent="">
+	<form @submit.prevent="updateNewsletter">
 		<div class="modal-header">
 			<h5 class="modal-title" id="myModalLabel">Editar Newsletter</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
@@ -28,7 +28,7 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary btn-radius" data-bs-dismiss="modal">Cerrar</button>
+			<button type="button" class="btn btn-secondary btn-radius" data-bs-dismiss="modal" id="btnCerrar">Cerrar</button>
 			<button type="submit" class="btn btn-primary btn-radius" :disabled="btnSend">
 			 Guardar
 			 <div v-if="btnSend" class="text-info spinner-border spinner-border-sm" role="status">
@@ -39,8 +39,9 @@
 </template>
 
 <script setup>
-	import { ref, watch } from 'vue'
+	import { onMounted, ref } from 'vue'
 	import { toast } from 'vue3-toastify';
+	import newsletterServices from '../../../../services/Newsletters';
 
 	const props = defineProps({
 		selectedNewsletter: {
@@ -51,11 +52,38 @@
 		}
 	})
 
-	const type = props.selectedNewsletter.tipoAssetId
-	const title = props.selectedNewsletter.titulo
-	const description = props.selectedNewsletter.descripcion
+	const emit = defineEmits(['updateNewsletterList'])
+	const type = ref('')
+	const title = ref('')
+	const description = ref('')
 	const image = ref('')
 	const btnSend = ref(false)
+
+	onMounted(() => {
+		type.value = props.selectedNewsletter.tipoAssetId
+		title.value = props.selectedNewsletter.titulo
+		description.value = props.selectedNewsletter.descripcion
+	})
+
+	const updateNewsletter = async () => {
+		btnSend.value = true
+		try {
+			let data = new FormData()
+			data.append('AssetId', props.selectedNewsletter.id)
+			data.append('TipoAssetId', type.value)
+			data.append('Titulo', title.value)
+			data.append('Descripcion', description.value)
+			data.append('FormFile', image.value)
+			const res = await newsletterServices.updateNewsletter(data)
+			emit('updateNewsletterList', props.selectedNewsletter)
+			btnSend.value = false
+			toast.success('Se ha actualizado el registro exitosamente.')
+		} catch (error) {
+			btnSend.value = false
+			console.log(error)
+			toast.error('Ha ocurrido un error al actualizar el registro.')
+		}
+	}
 
 </script>
 

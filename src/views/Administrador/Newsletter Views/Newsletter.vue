@@ -70,10 +70,12 @@
 					:types="types"
 					:key="componentKey"/>
 				<Editar v-if="modalContent === 'edit'"
+					@updateNewsletterList="updateNewsletterList"
 					:types="types"
 					:selectedNewsletter="selectedNewsletter"
 					:key="componentKey"/>
 				<Eliminar v-if="modalContent === 'delete'"
+					@updateNewsletterList="updateNewsletterList"
 					:selectedNewsletter="selectedNewsletter"
 					:key="componentKey"/>
 			</div>
@@ -123,8 +125,15 @@
 
 	const updateNewsletterList = (newsletter) => {
 		var closeModal = document.getElementById("btnCerrar");
+		if(modalContent.value === 'create'){
+			newsletters.value.push(newsletter)
+		}else if(modalContent.value === 'edit'){
+			console.log(newsletter)
+		}else if(modalContent.value === 'delete'){
+			let index = newsletters.value.indexOf(newsletter);
+			newsletters.value.splice(index, 1);
+		}
 		closeModal.click()
-		newsletters.value.push(newsletter)
 	}
 
 	getTypes()
