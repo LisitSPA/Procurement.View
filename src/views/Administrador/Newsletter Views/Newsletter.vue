@@ -128,7 +128,7 @@
 		if(modalContent.value === 'create'){
 			newsletters.value.push(newsletter)
 		}else if(modalContent.value === 'edit'){
-			console.log(newsletter)
+			getNewsletters()
 		}else if(modalContent.value === 'delete'){
 			let index = newsletters.value.indexOf(newsletter);
 			newsletters.value.splice(index, 1);

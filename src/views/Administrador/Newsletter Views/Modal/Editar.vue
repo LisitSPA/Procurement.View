@@ -75,7 +75,7 @@
 			data.append('Descripcion', description.value)
 			data.append('FormFile', image.value)
 			const res = await newsletterServices.updateNewsletter(data)
-			emit('updateNewsletterList', props.selectedNewsletter)
+			emit('updateNewsletterList')
 			btnSend.value = false
 			toast.success('Se ha actualizado el registro exitosamente.')
 		} catch (error) {
