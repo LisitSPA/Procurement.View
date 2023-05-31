@@ -33,7 +33,7 @@ newsletters.storeNewsletter = async (data) => {
 }
 
 newsletters.updateNewsletter = async (data) => {
-	const res = await axios.put(baseUrl + '/Assets/EditarAsset', data, {
+	const res = await axios.post(baseUrl + '/Assets/EditarAsset', data, {
 		headers: {
 			'Authorization': 'Bearer ' + userStorage.token,
 		},
