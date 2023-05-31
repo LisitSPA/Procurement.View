@@ -16,6 +16,7 @@
 							<th scope="col">NOMBRE</th>
 							<th scope="col">CORREO</th>
 							<th scope="col">ROL</th>
+							<th scope="col">ESTADO</th>
 							<th scope="col">ACCIONES</th>
 						</tr>
 					</thead>
@@ -25,6 +26,12 @@
 							<td>{{user.names}}</td>
 							<td>{{user.mail}}</td>
 							<td>{{user.role}}</td>
+							<td v-if=(user.activo)>
+								<span class="badge badge-pill" style="background-color: green;">Activo</span>
+							</td>
+							<td v-else>
+								<span class="badge badge-pill" style="background-color: red;">Inactivo</span>
+							</td>
 							<td>
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"  
 									@click="setModalContent('edit', user)"><i class="bi bi-pencil-square"></i></button>
@@ -67,10 +74,12 @@
 					@updateUserList="updateUserList"
 					:key="componentKey"/>
 				<EditarUsuario v-if="modalContent === 'edit'"
+					@updateUserList="updateUserList"
 					:roles="roles"
 					:selectedUser="selectedUser"
 					:key="componentKey"/>
-				<DeshabilitarUsuario v-if="modalContent === 'disabled'" 
+				<DeshabilitarUsuario v-if="modalContent === 'disabled'"
+					@updateUserList="updateUserList"
 					:selectedUser="selectedUser"
 					:key="componentKey"/>
 			</div>
@@ -101,8 +110,14 @@
 
 	const updateUserList = (user) => {
 		var closeModal = document.getElementById("btnCerrar");
+		if(modalContent.value === 'create'){
+			users.value.push(user)
+		}else if(modalContent.value === 'edit'){
+			console.log('edit')
+		}else if(modalContent.value === 'disabled'){
+		
+		}
 		closeModal.click()
-		users.value.push(user)
 	}
 
 	const getusers = async() => {

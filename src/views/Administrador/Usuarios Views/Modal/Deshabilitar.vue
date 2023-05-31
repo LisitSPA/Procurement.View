@@ -15,16 +15,20 @@
 <script setup>
 	import { toast } from 'vue3-toastify'
 	import UsersServices from './../../../../services/Users'
+	
 	defineProps({
 		selectedUser: {
 			required: true
 		}
 	})
 
+	const emit = defineEmits(['updateUserList'])
+
 	const disableUser = async (user) => {
 		try{
 			let data = new FormData()
 			data.append('idUsuario', user.id)
+			data.append('_method', 'put')
 			const res = await UsersServices.disableUser(data)
 			console.log(res)
 			toast.success('Usuario deshabilitado.')

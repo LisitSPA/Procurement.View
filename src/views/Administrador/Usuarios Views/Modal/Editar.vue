@@ -53,17 +53,26 @@
 		}
 	})
 
-	onMounted(() => {
-		today.value = moment().format('YYYY-MM-D')
-	})
-
-	const name = props.selectedUser.names
-	const email = props.selectedUser.mail
-	const role = props.selectedUser.role
+	const emit = defineEmits(['updateUserList'])
+	const name = ref('')
+	const email = ref('')
+	const role = ref('')
 	const bday = ref('')
 	const today = ref('')
 	const image = ref('')
 	const btnSend = ref(false)
+
+	onMounted(() => {
+		today.value = moment().format('YYYY-MM-D')
+		name.value = props.selectedUser.names
+		email.value = props.selectedUser.mail
+		role.value = props.selectedUser.role
+		bday.value = ref('')
+		today.value = ref('')
+		image.value = ref('')
+	})
+
+	
 
 </script>
 
