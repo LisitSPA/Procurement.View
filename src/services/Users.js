@@ -13,6 +13,16 @@ users.storeUser = async (data) => {
 	return res;
 }
 
+users.updateUser = async (data) => {
+	const res = await axios.post(baseUrl + '/Security/EditarUsuario', data, {
+		headers: {
+			'Authorization': 'Bearer ' + userStorage.token,
+			"Content-Type": "multipart/form-data",
+		}
+	})
+	return res;
+}
+
 users.getUsers = async () => {
 	const res = await axios.get(baseUrl + '/Security/ObtenerUsuarios', {
 		headers: {
