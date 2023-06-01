@@ -36,7 +36,10 @@
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"  
 									@click="setModalContent('edit', user)"><i class="bi bi-pencil-square"></i></button>
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"
-								@click="setModalContent('disabled', user)"><i class="bi bi-trash-fill"></i></button>
+								@click="setModalContent('disabled', user)">
+								<i v-if="user.activo" class="bi bi-toggle-on"></i>
+								<i v-else class="bi bi-toggle-off"></i>
+								</button>
 							</td>
 						</tr>
 					</tbody>
@@ -115,7 +118,8 @@
 		}else if(modalContent.value === 'edit'){
 			console.log('edit')
 		}else if(modalContent.value === 'disabled'){
-		
+			const findUser = users.value.find(element => element.id === user.id)
+			findUser.activo = user.activo
 		}
 		closeModal.click()
 	}

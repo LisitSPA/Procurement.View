@@ -31,10 +31,10 @@ users.getRoles = async () => {
 	return res
 }
 
-users.disableUser = async (data) => {
-	const res = await axios.post(baseUrl + '/Security/ActualizarEstado', data, {
+users.disableUser = async (id) => {
+	const res = await axios.get(baseUrl + '/Security/ActualizarEstado/'+ id, {
 		headers: {
-			'Authorization': 'Bearer ' + userStorage.token,
+			'Authorization': 'Bearer ' + userStorage.token
 		}
 	})
 	return res;

@@ -1,14 +1,14 @@
 <template>
 	<div class="modal-header">
-		<h5 class="modal-title" id="myModalLabel">Deshabilitar Usuario</h5>
+		<h5 class="modal-title" id="myModalLabel">{{(selectedUser.activo)? "Deshabilitar Usuario": "Habilitar Usuario"}}</h5>
 		<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
 	</div>
 	<div class="modal-body text-center">
-		<h5>¿Estás seguro que quieres deshabilitar al usuario?</h5>
+		<h5>{{(selectedUser.activo)? "¿Estás seguro que quieres deshabilitar al usuario?": "¿Estás seguro que quieres habilitar al usuario?"}}</h5>
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-secondary btn-radius" data-bs-dismiss="modal">Cerrar</button>
-		<button type="button" class="btn btn-danger btn-radius" @click="disableUser(selectedUser)">Deshabilitar</button>
+		<button type="button" class="btn btn-secondary btn-radius" data-bs-dismiss="modal" id="btnCerrar">Cerrar</button>
+		<button type="button" class="btn btn-danger btn-radius" @click="disableUser(selectedUser)">{{(selectedUser.activo)? "Deshabilitar": "Habilitar"}}</button>
 	</div>
 </template>
 
@@ -26,11 +26,13 @@
 
 	const disableUser = async (user) => {
 		try{
-			let data = new FormData()
-			data.append('idUsuario', user.id)
-			data.append('_method', 'put')
-			const res = await UsersServices.disableUser(data)
-			toast.success('Usuario deshabilitado.')
+			const res = await UsersServices.disableUser(user.id)
+			emit('updateUserList', res.data)
+			if(res.data.activo){
+				toast.success('Usuario habilitado.')
+			}else{
+				toast.success('Usuario deshabilitado.')
+			}
 		}catch(error){
 			$('#myModal').modal('hide')
 			toast.error('Se ha producido un error.')
