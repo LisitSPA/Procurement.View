@@ -49,6 +49,7 @@ const router = createRouter({
 				{ path: 'Usuarios', name: 'usuarios', component: () => import ('../views/Administrador/Usuarios Views/Usuarios.vue') },
 				{ path: 'Newsletters', name: 'newsletters', component: () => import ('../views/Administrador/Newsletter Views/Newsletter.vue') },
 				{ path: 'Organigrama', name: 'organigrama', component: () => import ('../views/Administrador/Organigrama Views/Organigrama.vue') },
+				{ path: 'Awards', name: 'awards', component: () => import ('../views/Administrador/Awards Views/Awards.vue') },
 			]
 		},
   ]

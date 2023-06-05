@@ -1,0 +1,96 @@
+<template>
+	<div class="row" style="height: 10%;">
+		<div class="col-12 d-flex align-items-center">
+			<h1>Procurement Awards</h1>
+			<button class="btn-border-lighblue-add" data-bs-toggle="modal" data-bs-target="#myModal"
+				style="margin-left: 1rem;" @click="setModalContent('create')"><i class="bi bi-plus" style="font-size: 1.2rem;"></i> Añadir Award</button>
+		</div>
+	</div>
+	<div class="row" style="height: 85%;">
+		<div class="col-12 h-100" style="padding-top: 1rem;">
+			<div class="table-responsive h-100">
+				<table class="table table-hover ">
+					<thead>
+						<tr class="bg-blue1 text-white text-center">
+							<th scope="col">#</th>
+							<th scope="col">USUARIO</th>
+							<th scope="col">CATEGORIA</th>
+							<th scope="col">ACCIONES</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="text-center dark-blue-text" v-for="(award,index) in 7" :key="index">
+							<th width="25">{{ index+1 }}</th>
+							<td width="25">Carlos Pinto</td>
+							<td width="25">Entero locura</td>
+							<td width="25">
+								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"  
+									@click="setModalContent('edit', award)"><i class="bi bi-pencil-square"></i></button>
+								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"
+								@click="setModalContent('delete', award)"><i class="bi bi-trash-fill"></i></button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="height: 5%;">
+		<div class="col-12 d-flex justify-content-center align-items-center">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination m-0">
+					<li class="page-item">
+						<a class="page-link" href="#" aria-label="Previous">
+							<span aria-hidden="true">&laquo;</span>
+						</a>
+					</li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item">
+						<a class="page-link" href="#" aria-label="Next">
+							<span aria-hidden="true">&raquo;</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<!-- modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+				<Crear v-if="modalContent === 'create'"
+					:key="componentKey"/>
+				<Editar v-if="modalContent === 'edit'"
+					:key="componentKey"/>
+				<!-- <Eliminar v-if="modalContent === 'delete'"
+					:key="componentKey"/> -->
+			</div>
+		</div>
+	</div>
+</template>
+
+<script setup>
+	import { ref } from 'vue'
+
+	// MODAL COMPONENTS
+	import Crear from './Modal/Crear.vue'
+	import Editar from './Modal/Editar.vue'
+	// import Eliminar from './Modal/Eliminar.vue'
+
+	const modalContent = ref('create')
+	const selectedAward = ref('')
+	const componentKey = ref(0)
+
+	const setModalContent = (option, award) => {
+		modalContent.value = option
+		selectedAward.value = award
+		componentKey.value +=1
+	}
+
+
+</script>
+
+<style scoped>
+</style>

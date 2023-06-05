@@ -16,8 +16,13 @@
 				:class="{ 'menu-selected': $route.path === '/Admin/Organigrama' }">
 				<span><i class="bi bi-bezier" style="font-size: 1.5rem;"></i> Organigrama</span>
 			</router-link>
+			<router-link class="contenedor-btn h-100 d-flex justify-content-center align-items-center px-3 cursor-pointer"
+				to="/Admin/Awards"
+				:class="{ 'menu-selected': $route.path === '/Admin/Awards' }">
+				<span><i class="bi bi-trophy" style="font-size: 1.5rem;"></i> Awards</span>
+			</router-link>
 			<div class="contenedor-btn h-100 d-flex justify-content-center align-items-center px-3 cursor-pointer" @click="$emit('setSection', index)"
-				v-for="(item, index) in 7" :key="index">
+				v-for="(item, index) in 6" :key="index">
 				<span><i class="bi bi-menu-app" style="font-size: 1.5rem;"></i> Módulo {{ index+1 }}</span>
 			</div>
 		</div>
