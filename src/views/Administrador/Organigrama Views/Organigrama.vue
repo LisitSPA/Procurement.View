@@ -36,14 +36,14 @@
 
 <script setup>
 	import { ref } from 'vue'
-	import UserServices from '../../../services/Users'
+	import newslettersServices from '../../../services/Newsletters';
 
 	// MODAL COMPONENTS
 	import CrearOrganigrama from './Modal/Crear.vue'
 	import EliminarOrganigrama from './Modal/Eliminar.vue'
 
-	const modalContent = ref('create')
 	const organigrama = ref('')
+	const modalContent = ref('create')
 
 	const setModalContent = (option) => {
 		modalContent.value = option
@@ -58,6 +58,18 @@
 		}
 		closeModal.click()
 	}
+
+	const getOrganigrama = async() => {
+		try{
+			const res = await newslettersServices.getOrganigrama()
+			console.log(res.data)
+			organigrama.value = res.data
+		}catch(error){
+			console.log(error)
+		}
+	}
+
+	getOrganigrama()
 
 </script>
 

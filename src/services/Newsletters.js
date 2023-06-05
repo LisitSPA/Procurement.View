@@ -51,4 +51,13 @@ newsletters.deleteNewsletter = async (data) => {
 	return res
 }
 
+newsletters.getOrganigrama = async () => {
+	const res = await axios.get(baseUrl + '/Assets/ObtenerOrganigrama', {
+		headers: {
+			'Authorization': 'Bearer ' + userStorage.token
+		}
+	})
+	return res
+}
+
 export default newsletters
