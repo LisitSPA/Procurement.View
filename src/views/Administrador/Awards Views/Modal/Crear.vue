@@ -10,14 +10,14 @@
 					<label for="">Categoria</label>
 					<select class="form-control" v-model="category" required>
 						<option value="" selected disabled>Seleccione una opción...</option>
-						<option v-for="(category, index) in 5" :key="index" :value="category">Entero loco</option>
+						<option v-for="(category, index) in categories" :key="index" :value="category.id">{{ category.nombreAward }}</option>
 					</select>
 				</div>
 				<div class="col-12">
 					<label for="">Usuario</label>
 					<select class="form-control" v-model="user" required>
 						<option value="" selected disabled>Seleccione una opción...</option>
-						<option v-for="(user, index) in 7" :key="index" :value="user">Carlos Pinto</option>
+						<option v-for="(user, index) in users" :key="index" :value="user.id">{{ user.names }}</option>
 					</select>
 				</div>
 			</div>
@@ -36,17 +36,39 @@
 <script setup>
 	import { ref } from 'vue'
 	import { toast } from 'vue3-toastify';
+	import awardsServices from '../../../../services/Awards';
 
-	// const props = defineProps({
-	// 	types: {
-	// 		required: true
-	// 	}
-	// })
+	const props = defineProps({
+		categories: {
+			required: true
+		},
+		users: {
+			required: true
+		}
+	})
 
-	const emit = defineEmits(['updateNewsletterList'])
+	const emit = defineEmits(['updateAwardsList'])
 	const category = ref('')
 	const user = ref('')
 	const btnSend = ref(false)
+
+	const storeAwards = async() => {
+		btnSend.value = true
+		try {
+			let data = new FormData()
+			data.append('usuarioId', user.value)
+			data.append('tipoAwardId', category.value)
+			const res = await awardsServices.storeAwards(data)
+			toast.success('Se ha creado el registro exitosamente.')
+			emit('updateAwardsList', res.data)
+			btnSend.value = false
+			console.log(res)
+		} catch (error) {
+			btnSend.value = false
+			toast.error('Se ha producido un error al crear el registro.')
+			console.log(error)
+		}
+	}
 
 </script>
 

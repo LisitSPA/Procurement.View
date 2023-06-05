@@ -10,15 +10,12 @@
 					<label for="">Categoria</label>
 					<select class="form-control" v-model="category" required>
 						<option value="" selected disabled>Seleccione una opción...</option>
-						<option v-for="(category, index) in 5" :key="index" :value="category">Entero loco</option>
+						<option v-for="(category, index) in categories" :key="index" :value="category">{{ category.nombreAward }}</option>
 					</select>
 				</div>
 				<div class="col-12">
 					<label for="">Usuario</label>
-					<select class="form-control" v-model="user" required>
-						<option value="" selected disabled>Seleccione una opción...</option>
-						<option v-for="(user, index) in 7" :key="index" :value="user">Carlos Pinto</option>
-					</select>
+					<input type="text" class="form-control" :value="selectedAward.usuario" disabled>
 				</div>
 			</div>
 		</div>
@@ -37,11 +34,14 @@
 	import { ref } from 'vue'
 	import { toast } from 'vue3-toastify';
 
-	// const props = defineProps({
-	// 	types: {
-	// 		required: true
-	// 	}
-	// })
+	const props = defineProps({
+		categories: {
+			required: true
+		},
+		selectedAward: {
+			required: true
+		}
+	})
 
 	const emit = defineEmits(['updateNewsletterList'])
 	const category = ref('')

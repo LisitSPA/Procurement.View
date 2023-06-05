@@ -19,10 +19,10 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="text-center dark-blue-text" v-for="(award,index) in 7" :key="index">
-							<th width="25">{{ index+1 }}</th>
-							<td width="25">Carlos Pinto</td>
-							<td width="25">Entero locura</td>
+						<tr class="text-center dark-blue-text" v-for="(award,index) in awards" :key="index">
+							<th width="25">{{ index + 1 }}</th>
+							<td width="25">{{ award.usuario }}</td>
+							<td width="25">{{ award.tipoAward }}</td>
 							<td width="25">
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"  
 									@click="setModalContent('edit', award)"><i class="bi bi-pencil-square"></i></button>
@@ -61,8 +61,14 @@
 		<div class="modal-dialog modal-dialog-centered modal-lg">
 			<div class="modal-content">
 				<Crear v-if="modalContent === 'create'"
+					@updateAwardsList="updateAwardsList"
+					:categories="categories"
+					:users="users"
 					:key="componentKey"/>
 				<Editar v-if="modalContent === 'edit'"
+					@updateAwardsList="updateAwardsList"
+					:categories="categories"
+					:selectedAward="selectedAward"
 					:key="componentKey"/>
 				<!-- <Eliminar v-if="modalContent === 'delete'"
 					:key="componentKey"/> -->
@@ -73,6 +79,8 @@
 
 <script setup>
 	import { ref } from 'vue'
+	import awardsServices from '../../../services/Awards';
+	import userServices from '../../../services/Users'
 
 	// MODAL COMPONENTS
 	import Crear from './Modal/Crear.vue'
@@ -82,6 +90,9 @@
 	const modalContent = ref('create')
 	const selectedAward = ref('')
 	const componentKey = ref(0)
+	const awards = ref('')
+	const categories = ref('')
+	const users = ref('')
 
 	const setModalContent = (option, award) => {
 		modalContent.value = option
@@ -89,6 +100,42 @@
 		componentKey.value +=1
 	}
 
+	const updateAwardsList = (award) => {
+		var closeModal = document.getElementById("btnCerrar");
+		awards.value.push(award)
+		closeModal.click()
+	}
+
+	const getAwards = async() => {
+		try {
+			const res = await awardsServices.getAwards()
+			awards.value = res.data
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	const getCategories = async() => {
+		try {
+			const res = await awardsServices.getAwardsCategories()
+			categories.value = res.data
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	const getUsers = async() => {
+		try {
+			const res = await userServices.getUsers()
+			users.value = res.data
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	getAwards()
+	getCategories()
+	getUsers()
 
 </script>
 
