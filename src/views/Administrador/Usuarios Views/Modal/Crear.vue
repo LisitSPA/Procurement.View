@@ -30,7 +30,7 @@
 				</div>
 				<div class="col-6">
 					<label for="">Foto Perfil</label>
-					<input type="file" class="form-control" accept="image/png, image/jpeg, image/jpg">
+					<input type="file" class="form-control" accept="image/png, image/jpeg, image/jpg" @change="uploadImage($event)">
 				</div>
 			</div>
 		</div>
@@ -62,9 +62,7 @@
 
 	const emit = defineEmits(['updateUserList'])
 	const name = ref('')
-	const lastname = ref('')
 	const email = ref('')
-	const position = ref('')
 	const role = ref('')
 	const bday = ref('')
 	const today = ref('')
@@ -79,6 +77,7 @@
 			data.append('Nombres', name.value)
 			data.append('Rol', role.value)
 			data.append('FechaNacimiento', bday.value)
+			data.append('ImagenPerfil', image.value)
 			const res = await UserServices.storeUser(data)
 			toast.success('Se ha creado el usuario.')
 			emit('updateUserList', res.data)
@@ -88,6 +87,10 @@
 			toast.error('Se ha producido un error al crear el usuario.')
 			console.log(error)
 		}
+	}
+
+	const uploadImage = async (event) => {
+		image.value = event.target.files[0]
 	}
 
 </script>
