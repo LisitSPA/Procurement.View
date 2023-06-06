@@ -32,4 +32,14 @@ awards.storeAwards = async (data) => {
 	return res
 }
 
+awards.updateAward = async (data) => {
+	const res = await axios.post(baseUrl + '/Awards/Editar', data, {
+		headers: {
+			'Authorization': 'Bearer ' + userStorage.token,
+			"Content-Type": 'application/json'
+		}
+	})
+	return res
+}
+
 export default awards

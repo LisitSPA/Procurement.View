@@ -1,5 +1,5 @@
 <template>
-	<form @submit.prevent="updateAwards">
+	<form @submit.prevent="updateAward">
 		<div class="modal-header">
 			<h5 class="modal-title" id="myModalLabel">Editar Procurement Awards</h5>
 			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
@@ -10,7 +10,7 @@
 					<label for="">Categoria</label>
 					<select class="form-control" v-model="category" required>
 						<option value="" selected disabled>Seleccione una opción...</option>
-						<option v-for="(category, index) in categories" :key="index" :value="category">{{ category.nombreAward }}</option>
+						<option v-for="(category, index) in categories" :key="index" :value="category.id">{{ category.nombreAward }}</option>
 					</select>
 				</div>
 				<div class="col-12">
@@ -31,8 +31,9 @@
 </template>
 
 <script setup>
-	import { ref } from 'vue'
+	import { onMounted, ref } from 'vue'
 	import { toast } from 'vue3-toastify';
+	import awardServices from './../../../../services/Awards'
 
 	const props = defineProps({
 		categories: {
@@ -43,10 +44,31 @@
 		}
 	})
 
-	const emit = defineEmits(['updateNewsletterList'])
+	const emit = defineEmits(['updateAwardsList'])
 	const category = ref('')
-	const user = ref('')
 	const btnSend = ref(false)
+	
+	onMounted(()=> {
+		let findCategory = props.categories.find(element => element.nombreAward === props.selectedAward.tipoAward)
+		category.value = findCategory.id
+	})
+
+	const updateAward = async() => {
+		btnSend.value = true
+		try {
+			let data = new FormData()
+			data.append('id', props.selectedAward.id)
+			data.append('tipoAwardId', category.value)
+			const res = await awardServices.updateAward(data)
+			emit('updateAwardsList')
+			btnSend.value = false
+			toast.success('Se ha creado el registro exitosamente.', res.data)
+		} catch (error) {
+			btnSend.value = false
+			console.log(error)
+			toast.error('Se ha producido un error al actualizar el registro.')
+		}
+	}
 
 </script>
 

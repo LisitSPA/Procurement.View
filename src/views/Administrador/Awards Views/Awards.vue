@@ -102,7 +102,11 @@
 
 	const updateAwardsList = (award) => {
 		var closeModal = document.getElementById("btnCerrar");
-		awards.value.push(award)
+		if(modalContent === 'create'){
+			awards.value.push(award)
+		}else{
+			getAwards()
+		}
 		closeModal.click()
 	}
 
