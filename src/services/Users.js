@@ -53,7 +53,6 @@ users.disableUser = async (id) => {
 users.login = async (data) => {
 	const res = await axios.post(baseUrl + '/Security/Login', data, {
 		headers: {
-			'Authorization': 'Bearer ' + userStorage.token,
 			"Content-Type": 'application/json'
 		}
 	 })
