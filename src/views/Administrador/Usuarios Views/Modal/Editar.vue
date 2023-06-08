@@ -21,6 +21,12 @@
 						<option v-for="(role, index) in roles" :key="index">{{ role }}</option>
 					</select>
 				</div>
+				<div class="col-12">
+					<label for="">Cargo</label>
+					<input type="text" class="form-control" maxlength="50"
+						v-model="position" 
+						required>
+				</div>
 				<div class="col-6">
 					<label for="">Fecha Nacimiento</label>
 					<input type="date" class="form-control" 
@@ -67,6 +73,7 @@
 	const bday = ref('')
 	const today = ref('')
 	const image = ref('')
+	const position = ref('')
 	const btnSend = ref(false)
 
 	onMounted(() => {
@@ -74,7 +81,8 @@
 		name.value = props.selectedUser.names
 		email.value = props.selectedUser.mail
 		role.value = props.selectedUser.role
-		bday.value = props.selectedUser.fechaCumpleanos
+		bday.value = moment(props.selectedUser.fechaCumpleanos).format('YYYY-MM-DD')
+		position.value = props.selectedUser.cargo
 		today.value = ref('')
 		image.value = ref('')
 	})
@@ -85,16 +93,17 @@
 			let data = new FormData()
 			data.append('usuarioId', props.selectedUser.id)
 			data.append('rol', role.value)
+			data.append('Cargo', position.value)
 			data.append('formFile', image.value)
 			data.append('fechaCumpleanos', bday.value)
 			const res = await userServices.updateUser(data)
-			console.log(res)
+			emit('updateUserList', res.data)
 			btnSend.value = false
 			toast.success('Se ha actualizado el registro exitosamente.')
 		} catch (error) {
 			console.log(error)
 			btnSend.value = false
-			toast.error('Se ha producido un error al actualizar el registro.')
+			toast.error('Ha ocurrido un error al actualizar el registro.')
 		}
 	}
 

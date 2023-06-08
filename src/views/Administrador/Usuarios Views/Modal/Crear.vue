@@ -8,11 +8,11 @@
 			<div class="row">
 				<div class="col-12">
 					<label for="">Nombre</label>
-					<input type="text" class="form-control" v-model="name">
+					<input type="text" class="form-control" v-model="name" maxlength="100">
 				</div>
 				<div class="col-6">
 					<label for="">Correo</label>
-					<input type="email" class="form-control" v-model="email">
+					<input type="email" class="form-control" v-model="email" maxlength="50">
 				</div>
 				<div class="col-6">
 					<label for="">Rol</label>
@@ -20,6 +20,12 @@
 						<option value="" disabled selected>Selecciona una opción...</option>
 						<option v-for="(role, index) in roles" :key="index">{{ role }}</option>
 					</select>
+				</div>
+				<div class="col-12">
+					<label for="">Cargo</label>
+					<input type="text" class="form-control" maxlength="50"
+						v-model="position" 
+						required>
 				</div>
 				<div class="col-6">
 					<label for="">Fecha Nacimiento</label>
@@ -67,6 +73,7 @@
 	const bday = ref('')
 	const today = ref('')
 	const image = ref('')
+	const position = ref('')
 	const btnSend = ref(false)
 
 	const storeUser = async () => {
@@ -76,15 +83,16 @@
 			data.append('Email', email.value)
 			data.append('Nombres', name.value)
 			data.append('Rol', role.value)
+			data.append('Cargo', position.value)
 			data.append('FechaNacimiento', bday.value)
 			data.append('ImagenPerfil', image.value)
 			const res = await UserServices.storeUser(data)
-			toast.success('Se ha creado el usuario.')
+			toast.success('Se ha creado el registro exitosamente.')
 			emit('updateUserList', res.data)
 			btnSend.value = false
 		}catch(error){
 			btnSend.value = false
-			toast.error('Se ha producido un error al crear el usuario.')
+			toast.error('Ha ocurrido un error al crear el registro.')
 			console.log(error)
 		}
 	}

@@ -35,7 +35,7 @@
 			}
 		}catch(error){
 			$('#myModal').modal('hide')
-			toast.error('Se ha producido un error.')
+			toast.error('Ha ocurrido un error al actualizar el registro.')
 			console.log(error)
 		}
 	}

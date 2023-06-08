@@ -116,7 +116,7 @@
 		if(modalContent.value === 'create'){
 			users.value.push(user)
 		}else if(modalContent.value === 'edit'){
-			console.log('edit')
+			getUsers()
 		}else if(modalContent.value === 'disabled'){
 			const findUser = users.value.find(element => element.id === user.id)
 			findUser.activo = user.activo
@@ -124,7 +124,7 @@
 		closeModal.click()
 	}
 
-	const getusers = async() => {
+	const getUsers = async() => {
 		try{
 			const res = await UserServices.getUsers()
 			users.value = res.data
@@ -142,7 +142,7 @@
 		}
 	}
 
-	getusers()
+	getUsers()
 	getRoles()
 
 </script>

@@ -65,7 +65,7 @@
 			console.log(res)
 		} catch (error) {
 			btnSend.value = false
-			toast.error('Se ha producido un error al crear el registro.')
+			toast.error('Ha ocurrido un error al crear el registro.')
 			console.log(error)
 		}
 	}

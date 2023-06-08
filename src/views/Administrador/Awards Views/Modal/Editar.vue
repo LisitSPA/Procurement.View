@@ -62,11 +62,11 @@
 			const res = await awardServices.updateAward(data)
 			emit('updateAwardsList')
 			btnSend.value = false
-			toast.success('Se ha creado el registro exitosamente.', res.data)
+			toast.success('Se ha actualizado el registro exitosamente.', res.data)
 		} catch (error) {
 			btnSend.value = false
 			console.log(error)
-			toast.error('Se ha producido un error al actualizar el registro.')
+			toast.error('Ha ocurrido un error al actualizar el registro.')
 		}
 	}
 
