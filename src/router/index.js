@@ -50,6 +50,7 @@ const router = createRouter({
 				{ path: 'Newsletters', name: 'newsletters', component: () => import ('../views/Administrador/Newsletter Views/Newsletter.vue') },
 				{ path: 'Organigrama', name: 'organigrama', component: () => import ('../views/Administrador/Organigrama Views/Organigrama.vue') },
 				{ path: 'Awards', name: 'awards', component: () => import ('../views/Administrador/Awards Views/Awards.vue') },
+				{ path: 'Proyectos-Valor', name: 'proyectosvalor', component: () => import ('../views/Administrador/Proyectos Valor Views/ProyectosValor.vue') },
 			]
 		},
   ]

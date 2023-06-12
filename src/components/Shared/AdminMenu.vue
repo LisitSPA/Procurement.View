@@ -21,8 +21,13 @@
 				:class="{ 'menu-selected': $route.path === '/Admin/Awards' }">
 				<span><i class="bi bi-trophy" style="font-size: 1.5rem;"></i> Awards</span>
 			</router-link>
+			<router-link class="contenedor-btn h-100 d-flex justify-content-center align-items-center px-3 cursor-pointer"
+				to="/Admin/Proyectos-Valor"
+				:class="{ 'menu-selected': $route.path === '/Admin/Proyectos-Valor' }">
+				<span><i class="bi bi-archive" style="font-size: 1.5rem;"></i> Proyectos de Valor</span>
+			</router-link>
 			<div class="contenedor-btn h-100 d-flex justify-content-center align-items-center px-3 cursor-pointer" @click="$emit('setSection', index)"
-				v-for="(item, index) in 6" :key="index">
+				v-for="(item, index) in 5" :key="index">
 				<span><i class="bi bi-menu-app" style="font-size: 1.5rem;"></i> Módulo {{ index+1 }}</span>
 			</div>
 		</div>
