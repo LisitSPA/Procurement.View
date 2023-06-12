@@ -14,22 +14,22 @@
 						<tr class="bg-blue1 text-white text-center">
 							<th scope="col">#</th>
 							<th scope="col">NOMBRE</th>
-							<th scope="col">MODULO</th>
+							<th scope="col">TIPO</th>
 							<th scope="col">FECHA CARGA</th>
 							<th scope="col">ACCIONES</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="text-center dark-blue-text" v-for="(user,index) in 10" :key="index">
+						<tr class="text-center dark-blue-text" v-for="(project,index) in projects" :key="index">
 							<th scope="row">{{ index+1 }}</th>
-							<td>Prueba</td>
-							<td>Planes de Ahorro</td>
-							<td>09-06-2023</td>
+							<td>{{ project.nombreArchivo }}</td>
+							<td>{{ project.tipoDocumento }}</td>
+							<td>{{ moment(project.fechaCreacion).format('MMMM YYYY') }}</td>
 							<td>
-								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"  
-									@click="setModalContent('edit', user)"><i class="bi bi-pencil-square"></i></button>
+								<button class="btn-actions" style="margin-left: 1rem;"
+									@click="downloadFile(project)"><i class="bi bi-download"></i></button>
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"
-								@click="setModalContent('delete', user)"><i class="bi bi-trash-fill"></i>
+								@click="setModalContent('delete', project)"><i class="bi bi-trash-fill"></i>
 								</button>
 							</td>
 						</tr>
@@ -63,7 +63,8 @@
 	<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered modal-lg">
 			<div class="modal-content">
-				<Crear v-if="modalContent === 'create'" 
+				<Crear v-if="modalContent === 'create'"
+					:types="types"
 					:key="componentKey"/>
 				<Eliminar v-if="modalContent === 'delete'" 
 					:key="componentKey"/>			</div>
@@ -72,7 +73,9 @@
 </template>
 
 <script setup>
-	import { ref } from 'vue'
+	import { ref, computed } from 'vue'
+	import projectsServices from '../../../services/Projects';
+	import moment from 'moment'
 
 	// MODAL COMPONENTS
 	import Crear from './Modal/Crear.vue'
@@ -80,6 +83,8 @@
 
 	const modalContent = ref('create')
 	const selectedProject = ref({})
+	const types = ref('')
+	const projects = ref('')
 	const componentKey = ref(0)
 
 	const setModalContent = (option, user) => {
@@ -93,6 +98,29 @@
 		
 		closeModal.click()
 	}
+
+	const getProjectTypes = async() => {
+		try {
+			const res = await projectsServices.getProjectTypes()
+			console.log(res)
+			types.value = res.data
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	const getProjects = async() => {
+		try {
+			const res = await projectsServices.getProjects()
+			console.log(res)
+			projects.value = res.data
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	getProjectTypes()
+	getProjects()
 
 	
 

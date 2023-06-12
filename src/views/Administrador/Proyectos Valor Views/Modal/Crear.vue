@@ -10,7 +10,7 @@
 					<label for="">Tipos</label>
 					<select class="form-control" v-model="type">
 						<option value="" disabled selected>Selecciona una opción...</option>
-						<option v-for="(type, index) in types" :key="index">{{ type }}</option>
+						<option v-for="(type, index) in types" :key="index" :value="type">{{ type.nombreTipo }}</option>
 					</select>
 				</div>
 				<div class="col-12">
