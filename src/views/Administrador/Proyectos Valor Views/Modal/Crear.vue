@@ -33,6 +33,7 @@
 <script setup>
 	import { ref } from 'vue'
 	import { toast } from 'vue3-toastify';
+	import projectsServices from '../../../../services/Projects';
 
 	defineProps({
 		types: {
@@ -40,7 +41,7 @@
 		}
 	})
 
-	const emit = defineEmits(['updateUserList'])
+	const emit = defineEmits(['updateProjectList'])
 	const type = ref('')
 	const file = ref('')
 	const btnSend = ref(false)
@@ -49,6 +50,10 @@
 		btnSend.value = true
 		try{
 			let data = new FormData()
+			data.append('FormFile', file.value)
+			data.append('TipoDocumentoId', type.value.id)
+			const res = await projectsServices.storeProject(data)
+			emit('updateProjectList', res.data)
 			toast.success('Se ha creado el registro exitosamente.')
 			btnSend.value = false
 		}catch(error){

@@ -22,6 +22,16 @@ projects.getProjects = async () => {
 	return res
 }
 
+projects.storeProject = async(data) => {
+	const res = await axios.post(baseUrl + '/Archivos/CrearDocumento', data, {
+		headers: {
+			'Authorization': 'Bearer ' + userStorage.token,
+			"Content-Type": "multipart/form-data",
+		},
+	})
+	return res
+}
+
 
 
 

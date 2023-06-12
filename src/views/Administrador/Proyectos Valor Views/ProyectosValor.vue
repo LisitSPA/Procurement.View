@@ -24,7 +24,7 @@
 							<th scope="row">{{ index+1 }}</th>
 							<td>{{ project.nombreArchivo }}</td>
 							<td>{{ project.tipoDocumento }}</td>
-							<td>{{ moment(project.fechaCreacion).format('MMMM YYYY') }}</td>
+							<td>{{ project.fechaCreacion }}</td>
 							<td>
 								<button class="btn-actions" style="margin-left: 1rem;"
 									@click="downloadFile(project)"><i class="bi bi-download"></i></button>
@@ -65,6 +65,7 @@
 			<div class="modal-content">
 				<Crear v-if="modalContent === 'create'"
 					:types="types"
+					@updateProjectList="updateProjectList"
 					:key="componentKey"/>
 				<Eliminar v-if="modalContent === 'delete'" 
 					:key="componentKey"/>			</div>
@@ -93,16 +94,15 @@
 		componentKey.value += 1
 	}
 
-	const updateProjectList = (user) => {
+	const updateProjectList = (project) => {
 		var closeModal = document.getElementById("btnCerrar");
-		
+		projects.value.push(project)
 		closeModal.click()
 	}
 
 	const getProjectTypes = async() => {
 		try {
 			const res = await projectsServices.getProjectTypes()
-			console.log(res)
 			types.value = res.data
 		} catch (error) {
 			console.log(error)
@@ -112,7 +112,6 @@
 	const getProjects = async() => {
 		try {
 			const res = await projectsServices.getProjects()
-			console.log(res)
 			projects.value = res.data
 		} catch (error) {
 			console.log(error)
