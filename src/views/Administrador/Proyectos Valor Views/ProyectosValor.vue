@@ -67,7 +67,9 @@
 					:types="types"
 					@updateProjectList="updateProjectList"
 					:key="componentKey"/>
-				<Eliminar v-if="modalContent === 'delete'" 
+				<Eliminar v-if="modalContent === 'delete'"
+					:selectedProject="selectedProject"
+					@updateProjectList="updateProjectList"
 					:key="componentKey"/>			</div>
 		</div>
 	</div>
@@ -89,15 +91,19 @@ import { toast } from 'vue3-toastify';
 	const projects = ref('')
 	const componentKey = ref(0)
 
-	const setModalContent = (option, user) => {
+	const setModalContent = (option, project) => {
 		modalContent.value = option
-		selectedProject.value = user
+		selectedProject.value = project
 		componentKey.value += 1
 	}
 
 	const updateProjectList = (project) => {
 		var closeModal = document.getElementById("btnCerrar");
-		projects.value.push(project)
+		if(modalContent.value === 'create'){
+			projects.value.push(project)
+		}else{
+			getProjects()
+		}
 		closeModal.click()
 	}
 

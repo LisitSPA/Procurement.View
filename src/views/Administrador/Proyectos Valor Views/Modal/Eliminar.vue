@@ -19,14 +19,22 @@
 <script setup>
 	import { ref } from 'vue' 
 	import { toast } from 'vue3-toastify'
+	import projectsServices from '../../../../services/Projects';
 
-
+	const props = defineProps({
+		selectedProject: {
+			required: true
+		}
+	})
+	const emit = defineEmits(['updateProjectList'])
 	const btnSend = ref(false)
 
 	const deleteProject = async() => {
 		btnSend.value = true
 		try {
+			const res = await projectsServices.deleteProject(props.selectedProject.id)
 			toast.success('Se ha eliminado el registro exitosamente.')
+			emit('updateProjectList')
 			btnSend.value = false
 		} catch (error) {
 			btnSend.value = false

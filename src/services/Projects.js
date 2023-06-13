@@ -47,7 +47,15 @@ projects.downloadProject = async(project) => {
 		document.body.appendChild(link);
 		link.click();
 	})
+	return res
+}
 
+projects.deleteProject = async(id) => {
+	const res = await axios.delete(baseUrl + '/Archivos/BorrarDocumento/'+ id, {
+		headers: {
+			'Authorization': 'Bearer ' + userStorage.token,
+		},
+	})
 	return res
 }
 
