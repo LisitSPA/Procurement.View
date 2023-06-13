@@ -81,6 +81,7 @@
 	// MODAL COMPONENTS
 	import Crear from './Modal/Crear.vue'
 	import Eliminar from './Modal/Eliminar.vue'
+import { toast } from 'vue3-toastify';
 
 	const modalContent = ref('create')
 	const selectedProject = ref({})
@@ -114,6 +115,16 @@
 			const res = await projectsServices.getProjects()
 			projects.value = res.data
 		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	const downloadFile = async(project) => {
+		try {
+			const res = await projectsServices.downloadProject(project)
+			toast.success('Se ha descargado el documento exitosamente.')
+		} catch (error) {
+			toast.error('Ha ocurrido un error al descargar el documento.')
 			console.log(error)
 		}
 	}
