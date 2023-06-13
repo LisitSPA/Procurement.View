@@ -1,7 +1,7 @@
 <template>
 	<div class="row" style="height: 10%;">
 		<div class="col-12 d-flex align-items-center">
-			<h1>Proyectos de Valor</h1>
+			<h1>Documentos</h1>
 			<button class="btn-border-lighblue-add" data-bs-toggle="modal" data-bs-target="#myModal"
 				style="margin-left: 1rem;" @click="setModalContent('create')"><i class="bi bi-plus" style="font-size: 1.2rem;"></i> Añadir Proyecto</button>
 		</div>
