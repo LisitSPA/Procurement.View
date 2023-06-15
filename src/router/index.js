@@ -54,8 +54,8 @@ const router = createRouter({
 			]
 		},
 		{
-			path: '/Error',
-			name: 'notfound',
+			path: '/Not-Found',
+			name: 'notFound',
 			component: () => import ('../views/Errors/404.vue'),
 		},
   ]

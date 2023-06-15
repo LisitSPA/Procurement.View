@@ -15,9 +15,6 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
-import UserServices from './../../services/Users'
-
 
 </script>
 

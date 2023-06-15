@@ -7,8 +7,8 @@
 		</div>
 		<div class="row" style="margin: 10vh 0 0 4vw">
 			<div class="col-6 d-flex align-items-center">
-				<button class="btn btn-lightblue" @click="this.$router.push('/Error')">Noticias / Newsletter</button>
-				<button class="btn btn-white" @click="this.$router.push('/Error')">Preguntas frecuentes</button>
+				<button class="btn btn-lightblue" @click="this.$router.push('/Not-Found')">Noticias / Newsletter</button>
+				<button class="btn btn-white" @click="this.$router.push('/Not-Found')">Preguntas frecuentes</button>
 				<input type="search" class="input-search" placeholder="Aquí puedes buscar...">
 			</div>
 			<div class="col-6 d-flex justify-content-end">
@@ -34,6 +34,7 @@
 
 <script setup>
 	import {ref, watch, onMounted} from 'vue'
+
 	const slides = ref(['/src/assets/images/header-1.jpg', '/src/assets/images/header-2.jpg', '/src/assets/images/header-3.jpg']);
 	const currentSlide = ref(0);
 	let slideInterval = null;
@@ -84,6 +85,11 @@
     border-radius: 30px;
     padding: 10px;
 		height: 5vh;
+		border: none;
+	}
+
+	.input-search:focus{
+		outline: none;
 	}
 
 	.white-bar{

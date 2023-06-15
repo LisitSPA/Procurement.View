@@ -10,11 +10,11 @@
 			<button class="btn btn-border-blue" @click="this.$router.push('/Proyectos-de-Valor')">Proyectos de Valor</button>
 		</div>
 		<div class="col-12 d-flex justify-content-center align-items-center">
-			<button class="btn btn-border-blue" @click="this.$router.push('/Error')">Sostenibilidad</button>
-			<button class="btn btn-border-blue" @click="this.$router.push('/Error')">Sistemas</button>
-			<button class="btn btn-border-blue" @click="this.$router.push('/Error')">Procurement Academy</button>
-			<button class="btn btn-border-blue" @click="this.$router.push('/Error')">Proveedores</button>
-			<button class="btn btn-border-blue" @click="this.$router.push('/Error')">Procurement 4.0</button>
+			<button class="btn btn-border-blue" @click="this.$router.push('/Not-Found')">Sostenibilidad</button>
+			<button class="btn btn-border-blue" @click="this.$router.push('/Not-Found')">Sistemas</button>
+			<button class="btn btn-border-blue" @click="this.$router.push('/Not-Found')">Procurement Academy</button>
+			<button class="btn btn-border-blue" @click="this.$router.push('/Not-Found')">Proveedores</button>
+			<button class="btn btn-border-blue" @click="this.$router.push('/Not-Found')">Procurement 4.0</button>
 		</div>
 	</div>
 	<div class="col-12 d-flex align-items-end justify-content-center">
