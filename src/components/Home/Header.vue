@@ -2,8 +2,8 @@
 	<div class="col-12 p-0 carrusel" style="height: 100%;">
 		<div class="row" style="margin: 10vh 0 0 4vw">
 			<div class="col-6 d-flex align-items-center">
-				<button class="btn btn-lightblue">Noticias / Newsletter</button>
-				<button class="btn btn-white">Preguntas frecuentes</button>
+				<button class="btn btn-lightblue" @click="this.$router.push('/Error')">Noticias / Newsletter</button>
+				<button class="btn btn-white" @click="this.$router.push('/Error')">Preguntas frecuentes</button>
 				<input type="search" class="input-search" placeholder="Aquí puedes buscar...">
 			</div>
 			<div class="col-6 d-flex justify-content-end">

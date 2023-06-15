@@ -53,6 +53,11 @@ const router = createRouter({
 				{ path: 'Proyectos-Valor', name: 'proyectosvalor', component: () => import ('../views/Administrador/Proyectos Valor Views/ProyectosValor.vue') },
 			]
 		},
+		{
+			path: '/Error',
+			name: 'notfound',
+			component: () => import ('../views/Errors/404.vue'),
+		},
   ]
 })
 
