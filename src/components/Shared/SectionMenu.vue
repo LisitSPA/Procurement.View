@@ -4,7 +4,7 @@
 			<span class="title-section" @click="$emit('updateContent', 'home')">{{ titleSection }} / {{ titleSubSection }}</span>
 			<input type="search" class="form-control" placeholder="Aquí puedes buscar..." style="width: 10vw; height: 4vh;">
 		</div>
-		<div class="col-6 logo">
+		<div class="col-6 logo cursor-pointer" @click="this.$router.push('/Home')" >
 			<img src="./../../assets/images/logo-azul.png" alt="Logo procurement" style="width: 21%;">
 		</div>
 	</div>
