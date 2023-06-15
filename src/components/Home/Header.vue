@@ -1,5 +1,10 @@
 <template>
-	<div class="col-12 p-0 carrusel" style="height: 100%;">
+	<div class="col-12 p-0 carousel" style="height: 100%;">
+		<div class="slide" v-for="(slide, index) in slides" 
+			:key="index" 
+			:class="{ active: index === currentSlide }"
+			:style="{ backgroundImage: 'url(' + slide + ')' }">
+		</div>
 		<div class="row" style="margin: 10vh 0 0 4vw">
 			<div class="col-6 d-flex align-items-center">
 				<button class="btn btn-lightblue" @click="this.$router.push('/Error')">Noticias / Newsletter</button>
@@ -28,6 +33,24 @@
 </template>
 
 <script setup>
+	import {ref, watch, onMounted} from 'vue'
+	const slides = ref(['/src/assets/images/header-1.jpg', '/src/assets/images/header-2.jpg', '/src/assets/images/header-3.jpg']);
+	const currentSlide = ref(0);
+	let slideInterval = null;
+
+	const nextSlide = () => {
+		currentSlide.value =  (currentSlide.value + 1) % slides.value.length;
+		console.log(currentSlide.value)
+	};
+
+	onMounted(() => {
+		slideInterval = setInterval(nextSlide, 3000);
+		
+		watch(currentSlide, () => {
+			clearInterval(slideInterval);
+			slideInterval = setInterval(nextSlide, 3000);
+		});
+	});
 
 </script>
 
@@ -77,8 +100,20 @@
 		height: 30vh;
 		background-size: cover;
 	}
-	.carrusel{
-		background-image: url('./../../assets/images/header-1.jpg');
+	.carousel {
+		overflow: hidden;
+		position: relative;
+	}
+	.slide {
+		width: 100%;
+		height: 100%;
 		background-size: cover;
+		background-position: center;
+		transition: opacity 1s ease-in-out;
+		position: absolute;
+		opacity: 0;
+	}
+	.slide.active {
+		opacity: 1;
 	}
 </style>
