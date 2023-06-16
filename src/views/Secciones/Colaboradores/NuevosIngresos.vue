@@ -25,8 +25,12 @@
 		</div>
 		<div class="col-1">
 			<div class="row h-100">
-				<div class="col-12 my-2 bg-gris d-flex align-items-center justify-content-center cursor-pointer" v-for="(items, index) in months" :key="index">
-					<span>{{ items }}</span>
+				<div class="col-12 my-2 bg-gris d-flex align-items-center justify-content-center cursor-pointer month"
+					:class="{'selected': selectedMonth === item}"
+					v-for="(item, index) in months" 
+					:key="index"
+					@click="selectedMonth = item">
+					<span>{{ item }}</span>
 				</div>
 			</div>
 		</div>
@@ -34,9 +38,9 @@
 </template>
 
 <script setup>
-
+	import { ref } from 'vue'
 	const months = ['ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE']
-
+	const selectedMonth = ref('ENERO') 
 </script>
 
 <style scoped>
@@ -46,6 +50,14 @@
 	text-orientation: sideways; 
 	transform: rotate(-180deg);
 	color: #1DB7C1;
+}
+.month:hover{
+	background-color: var(--dark-blue);
+	color: white;
+}
+.selected{
+	background-color: var(--dark-blue);
+	color: white;
 }
 
 </style>
