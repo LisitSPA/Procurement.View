@@ -3,7 +3,13 @@
 		<div class="col-12" style="height: 20%;">
 			<p style="font-size: 21px;">Selector mensual de cumpleaños</p>
 			<div style="justify-content: space-evenly; display: flex;">
-				<span class="badge bg-gris custom-badgage" v-for="(item, index) in months" :key="index">{{item}}</span>
+				<span class="badge bg-gris custom-badgage"
+					:class="{'selected': selectedMonth === item}"
+					v-for="(item, index) in months"
+					:key="index"
+					@click="selectedMonth = item">
+					{{item}}
+				</span>
 			</div>
 		</div>
 		<div class="col-12" style="height: 40%; padding-bottom: 1rem;">
@@ -54,7 +60,9 @@
 </template>
 
 <script setup>
+	import { ref } from 'vue'
 	const months = ['ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE']
+	const selectedMonth = ref('ENERO') 
 </script>
 
 <style scoped>
@@ -68,6 +76,14 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+.custom-badgage:hover{
+	background-color: var(--dark-blue);
+	color: white;
+}
+.selected{
+	background-color: var(--dark-blue);
+	color: white;
 }
 .content-username{
 	height: 20%; 
