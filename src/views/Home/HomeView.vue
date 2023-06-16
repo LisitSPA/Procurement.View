@@ -15,8 +15,8 @@
 
 <script setup>
 	import TopMenu from '../../components/Shared/TopMenu.vue'
-	import Headers from '../../components/Home/Header.vue'
-	import Categories from '../../components/Home/Categories.vue'
+	import Headers from './Header.vue'
+	import Categories from './Categories.vue'
 	import Footers from '../../components/Shared/Footer.vue'
 	
 </script>

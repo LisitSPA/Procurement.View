@@ -19,10 +19,11 @@
 	import TopMenu from '../../../components/Shared/TopMenu.vue'
 	import SectionMenu from '../../../components/Shared/SectionMenu.vue'
 	import SectionFooter from '../../../components/Shared/SectionFooter.vue'
-	import Home from './../../../components/Secciones/Procurement Excellence/Home.vue'
-	import Procedimientos from './../../../components/Secciones/Procurement Excellence/Procedimientos.vue'
-	import Racis from './../../../components/Secciones/Procurement Excellence/Racis.vue'
-	import Manuales from './../../../components/Secciones/Procurement Excellence/Manuales.vue'
+	// contenido
+	import Home from './Home.vue'
+	import Procedimientos from './Procedimientos.vue'
+	import Racis from './Racis.vue'
+	import Manuales from './Manuales.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');

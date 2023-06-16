@@ -41,7 +41,6 @@
 
 	const nextSlide = () => {
 		currentSlide.value =  (currentSlide.value + 1) % slides.value.length;
-		console.log(currentSlide.value)
 	};
 
 	onMounted(() => {

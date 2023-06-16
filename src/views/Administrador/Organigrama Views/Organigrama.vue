@@ -62,7 +62,6 @@
 	const getOrganigrama = async() => {
 		try{
 			const res = await newslettersServices.getOrganigrama()
-			console.log(res.data)
 			organigrama.value = res.data
 		}catch(error){
 			console.log(error)

@@ -13,18 +13,18 @@
 		</div>
 		<SectionFooter/>
 	</div>
-
 </template>
 
 <script setup>
 	import TopMenu from '../../../components/Shared/TopMenu.vue'
 	import SectionMenu from '../../../components/Shared/SectionMenu.vue'
-	import HomeSection from '../../../components/Secciones/Colaboradores/Home.vue'
-	import Organigrama from '../../../components/Secciones/Colaboradores/Organigrama.vue'
-	import Cumpleaños from '../../../components/Secciones/Colaboradores/Cumpleaños.vue'
-	import ProcurementAwards from '../../../components/Secciones/Colaboradores/ProcurementAwards.vue'
-	import NuevosIngresos from '../../../components/Secciones/Colaboradores/NuevosIngresos.vue'
 	import SectionFooter from '../../../components/Shared/SectionFooter.vue'
+	// contenido
+	import HomeSection from './Home.vue'
+	import Organigrama from './Organigrama.vue'
+	import Cumpleaños from './Cumpleaños.vue'
+	import ProcurementAwards from './ProcurementAwards.vue'
+	import NuevosIngresos from './NuevosIngresos.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');

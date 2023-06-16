@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import CalendarioLicitaciones from '../../../Shared/CalendarioLicitaciones.vue';
+import CalendarioLicitaciones from './../../../../components/Shared/CalendarioLicitaciones.vue';
 
 </script>
 

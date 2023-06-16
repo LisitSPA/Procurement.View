@@ -27,17 +27,19 @@
 	import TopMenu from '../../../components/Shared/TopMenu.vue'
 	import SectionMenu from '../../../components/Shared/SectionMenu.vue'
 	import SectionFooter from '../../../components/Shared/SectionFooter.vue'
-	import Home from '../../../components/Secciones/Control de Gestion/Home.vue'
-	import ReportesMensuales from '../../../components/Secciones/Control de Gestion/ReportesMensuales.vue'
-	import AdministracionContratos from '../../../components/Secciones/Control de Gestion/AdministracionContratos.vue'
-	import PanelContratosLegales from '../../../components/Secciones/Control de Gestion/PanelContratosLegales.vue'
-	import CosteDrivers from '../../../components/Secciones/Control de Gestion/CosteDrivers.vue'
-	import PagoProveedores from '../../../components/Secciones/Control de Gestion/PagoProveedores.vue'
-	import Presupuestos from '../../../components/Secciones/Control de Gestion/Presupuestos.vue'
-	import Bridge from '../../../components/Secciones/Control de Gestion/Reportes Views/Bridge.vue'
-	import IPS from '../../../components/Secciones/Control de Gestion/Reportes Views/IPS.vue'
-	import GestionProcurement from '../../../components/Secciones/Control de Gestion/Reportes Views/GestionProcurement.vue'
-	import VariacionPrecios from '../../../components/Secciones/Control de Gestion/Reportes Views/VariacionPrecios.vue'
+	// contenido
+	import Home from './Home.vue'
+	import ReportesMensuales from './ReportesMensuales.vue'
+	import AdministracionContratos from './AdministracionContratos.vue'
+	import PanelContratosLegales from './PanelContratosLegales.vue'
+	import CosteDrivers from './CosteDrivers.vue'
+	import PagoProveedores from './PagoProveedores.vue'
+	import Presupuestos from './Presupuestos.vue'
+	// subcontenido
+	import Bridge from './Reportes Views/Bridge.vue'
+	import IPS from './Reportes Views/IPS.vue'
+	import GestionProcurement from './Reportes Views/GestionProcurement.vue'
+	import VariacionPrecios from './Reportes Views/VariacionPrecios.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');

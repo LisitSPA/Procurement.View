@@ -62,7 +62,6 @@
 			toast.success('Se ha creado el registro exitosamente.')
 			emit('updateAwardsList', res.data)
 			btnSend.value = false
-			console.log(res)
 		} catch (error) {
 			btnSend.value = false
 			toast.error('Ha ocurrido un error al crear el registro.')

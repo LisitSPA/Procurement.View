@@ -31,21 +31,22 @@
 	import TopMenu from '../../../components/Shared/TopMenu.vue'
 	import SectionMenu from '../../../components/Shared/SectionMenu.vue'
 	import SectionFooter from '../../../components/Shared/SectionFooter.vue'
-	import Home from './../../../components/Secciones/Proyectos de Valor/Home.vue'
-	import ImpactTracker from './../../../components/Secciones/Proyectos de Valor/ImpactTracker.vue'
-	import InformesMensuales from './../../../components/Secciones/Proyectos de Valor/InformesMensuales.vue'
-	import Presentaciones from './../../../components/Secciones/Proyectos de Valor/Presentaciones.vue'
-	import Manual from './../../../components/Secciones/Proyectos de Valor/Manual.vue'
-	import PlanesAhorro from './../../../components/Secciones/Proyectos de Valor/PlanesAhorro.vue'
-	import ReunionPLT from './../../../components/Secciones/Proyectos de Valor/ReunionPLT.vue'
-	import Licitaciones from './../../../components/Secciones/Proyectos de Valor/Licitaciones.vue'
-	// Subcontenido
-	import Otros from './../../../components/Secciones/Proyectos de Valor/Presentaciones Views/Otros.vue'
-	import Comites from './../../../components/Secciones/Proyectos de Valor/Presentaciones Views/Comites.vue'
-	import Seguimiento from './../../../components/Secciones/Proyectos de Valor/Presentaciones Views/Seguimiento.vue'
-	import Directos from './../../../components/Secciones/Proyectos de Valor/Licitaciones Views/Directos.vue'
-	import Indirectos from './../../../components/Secciones/Proyectos de Valor/Licitaciones Views/Indirectos.vue'
-	import Servicios from './../../../components/Secciones/Proyectos de Valor/Licitaciones Views/Servicios.vue'
+	// contenido
+	import Home from './Home.vue'
+	import ImpactTracker from './ImpactTracker.vue'
+	import InformesMensuales from './InformesMensuales.vue'
+	import Presentaciones from './Presentaciones.vue'
+	import Manual from './Manual.vue'
+	import PlanesAhorro from './PlanesAhorro.vue'
+	import ReunionPLT from './ReunionPLT.vue'
+	import Licitaciones from './Licitaciones.vue'
+	// subcontenido
+	import Otros from './Presentaciones Views/Otros.vue'
+	import Comites from './Presentaciones Views/Comites.vue'
+	import Seguimiento from './Presentaciones Views/Seguimiento.vue'
+	import Directos from './Licitaciones Views/Directos.vue'
+	import Indirectos from './Licitaciones Views/Indirectos.vue'
+	import Servicios from './Licitaciones Views/Servicios.vue'
 	import { ref, watch } from 'vue';
 
 	const content = ref('home');

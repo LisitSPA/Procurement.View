@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import ReportCardTabs from '../../../Shared/ReportCardTabs.vue';
+import ReportCardTabs from './../../../../components/Shared/ReportCardTabs.vue';
 
 </script>
 
