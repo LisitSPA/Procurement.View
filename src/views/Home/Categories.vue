@@ -1,5 +1,5 @@
 <template>
-	<div class="col-12 d-flex justify-content-center align-items-center">
+	<div class="col-12 d-flex justify-content-center align-items-center" id="categories-section">
 		<p class="title-section">Secciones/Categorias</p>
 	</div>
 	<div class="row" style="height: 30vh">

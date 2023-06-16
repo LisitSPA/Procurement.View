@@ -24,7 +24,7 @@
 			</div>
 		</div>
 		<div class="row m-0 ola">
-			<div class="col-11" style="display: inline-grid; justify-content: end; align-content: center; text-align: center;">
+			<div class="col-11 cursor-pointer" @click="scrolltoCategories" style="display: inline-grid; justify-content: end; align-content: center; text-align: center;">
 				<p style="font-size: 24px;">Secciones / Categorias</p>
 				<i class="bi bi-chevron-down" style="color: var(--dark-blue); font-size: 3vh;"></i>
 			</div>
@@ -42,6 +42,11 @@
 	const nextSlide = () => {
 		currentSlide.value =  (currentSlide.value + 1) % slides.value.length;
 	};
+
+	const scrolltoCategories = () => {
+		var div = document.getElementById('categories-section');
+  	div.scrollIntoView({ behavior: 'smooth' });
+	}
 
 	onMounted(() => {
 		slideInterval = setInterval(nextSlide, 3000);
