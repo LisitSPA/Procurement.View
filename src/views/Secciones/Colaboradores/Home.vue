@@ -1,6 +1,6 @@
 <template>
 	<div class="row" style="height: 60%;">
-		<div class="col-6 bg-gris cursor-pointer" style="border-radius: 30px; padding: 2rem 2rem 0 2rem;"  @click="$emit('updateContent', 'organigrama')">
+		<div class="col-6 bg-gris cursor-pointer" style="border-radius: 30px; padding: 2rem 2rem 0 2rem;" @click="this.$router.push('Organigrama')">
 			<div class="row">
 				<div class="col-12">
 					<span>Organigrama</span>
@@ -15,7 +15,7 @@
 		</div>
 		<div class="col-6" style="padding: 0 20px 0 20px;">
 			<div class="row h-100">
-				<div class="col-12 cursor-pointer" @click="$emit('updateContent', 'cumpleaños')">
+				<div class="col-12 cursor-pointer" @click="this.$router.push('Cumpleaños')">
 					<p class="light-blue-text fw-bold" style="font-size: 22px;">Cumpleaños</p>
 					<p class="text-blue2" style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa at ducimus veniam doloremque omnis recusandae eos? Doloribus, ad porro! Tempore dicta minima architecto a consequuntur maiores vero quod totam odio!</p>
 				</div>
@@ -32,12 +32,12 @@
 		</div>
 	</div>
 	<div class="row mt-2" style="height: 40%;">
-		<div class="col-6 bg-blue1 cursor-pointer d-flex align-items-end" style="border-radius: 30px; padding: 2rem 2rem 2rem 2rem;" @click="$emit('updateContent', 'procurement')">
+		<div class="col-6 bg-blue1 cursor-pointer d-flex align-items-end" style="border-radius: 30px; padding: 2rem 2rem 2rem 2rem;" @click="this.$router.push('Procurement-Awards')">
 			<span class="text-white" style="font-size: 22px;">Procurement awards</span>
 		</div>
 		<div class="col-6" style="padding: 0 20px 0 20px;">
 			<div class="row h-100">
-				<div class="col-12 cursor-pointer" @click="$emit('updateContent', 'ingresos')">
+				<div class="col-12 cursor-pointer" @click="this.$router.push('Nuevos-Ingresos')">
 					<p class="dark-blue-text fw-bold m-0" style="font-size: 22px;">Nuevos ingresos</p>
 					<p class="text-blue2 m-0" style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa at ducimus veniam doloremque omnis recusandae eos? Doloribus, ad porro! Tempore dicta minima architecto a consequuntur maiores vero quod totam odio!</p>
 				</div>
