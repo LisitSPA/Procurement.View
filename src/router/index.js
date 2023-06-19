@@ -34,6 +34,13 @@ const router = createRouter({
 			path: '/Procurement-Excellence',
 			name: 'procurementExcellence',
 			component: () => import ('../views/Secciones/Procurement Excellence/ProcurementExcellenceView.vue'),
+			children: [
+				{ path: '/Procurement-Excellence',	redirect: '/Procurement-Excellence/Home' },
+				{ path: 'Home', name: 'homeProcurement', component: () => import ('../views/Secciones/Procurement Excellence/Home.vue') },
+				{ path: 'Procedimientos', name: 'procedimientos', component: () => import ('../views/Secciones/Procurement Excellence/Procedimientos.vue') },
+				{ path: 'Racis', name: 'racis', component: () => import ('../views/Secciones/Procurement Excellence/Racis.vue') },
+				{ path: 'Manuales', name: 'manuales', component: () => import ('../views/Secciones/Procurement Excellence/Manuales.vue') },
+			]
 		},
 		{
 			path: '/Proyectos-de-Valor',
