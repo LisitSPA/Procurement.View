@@ -3,10 +3,10 @@
 		<div class="col-7 mx-auto">
 			<div class="row h-100">
 				<div class="col d-flex justify-content-center align-items-center">
-					<button class="btn btn-section-menu" @click="$emit('updateSubContent', 'bridge')">Bridge<br>de gastos de SOFTYS</button>
+					<button class="btn btn-section-menu" @click="this.$router.push('Reportes-Mensuales/Bridge')">Bridge<br>de gastos de SOFTYS</button>
 				</div>
 				<div class="col d-flex justify-content-center align-items-center">
-					<button class="btn btn-section-menu" @click="$emit('updateSubContent', 'ips')">IPS</button>
+					<button class="btn btn-section-menu" @click="this.$router.push('Reportes-Mensuales/IPS')">IPS</button>
 				</div>
 			</div>
 		</div>
@@ -15,10 +15,10 @@
 		<div class="col-7 mx-auto">
 			<div class="row h-100">
 				<div class="col d-flex justify-content-center align-items-center">
-					<button class="btn btn-section-menu" @click="$emit('updateSubContent', 'gestion-procurement')">Informe<br>Gestión Procurement</button>
+					<button class="btn btn-section-menu" @click="this.$router.push('Reportes-Mensuales/Gestion-Procurement')">Informe<br>Gestión Procurement</button>
 				</div>
 				<div class="col d-flex justify-content-center align-items-center">
-					<button class="btn btn-section-menu" @click="$emit('updateSubContent', 'variacion-precios')">Variación Precios</button>
+					<button class="btn btn-section-menu" @click="this.$router.push('Reportes-Mensuales/Variacion-Precios')">Variación Precios</button>
 				</div>
 			</div>
 		</div>

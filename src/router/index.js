@@ -29,6 +29,21 @@ const router = createRouter({
 			path: '/Control-Gestion',
 			name: 'controlGestion',
 			component: () => import ('../views/Secciones/Control de Gestion/ControlGestionView.vue'),
+			children: [
+				{ path: '/Control-Gestion',	redirect: '/Control-Gestion/Home' },
+				{ path: 'Home', name: 'homeControl', component: () => import ('../views/Secciones/Control de Gestion/Home.vue') },
+				{ path: 'Reportes-Mensuales', name: 'reportesMensuales', component: () => import ('../views/Secciones/Control de Gestion/ReportesMensuales.vue') },
+				{ path: 'Administracion-Contratos', name: 'administracionContratos', component: () => import ('../views/Secciones/Control de Gestion/AdministracionContratos.vue') },
+				{ path: 'Contratos-Legales', name: 'panelContratosLegales', component: () => import ('../views/Secciones/Control de Gestion/PanelContratosLegales.vue') },
+				{ path: 'Coste-Drivers', name: 'costeDrivers', component: () => import ('../views/Secciones/Control de Gestion/CosteDrivers.vue') },
+				{ path: 'Pago-Proveedores', name: 'pagoProveedores', component: () => import ('../views/Secciones/Control de Gestion/PagoProveedores.vue') },
+				{ path: 'Presupuestos', name: 'presupuestos', component: () => import ('../views/Secciones/Control de Gestion/Presupuestos.vue') },
+				// subcontenido
+				{ path: 'Reportes-Mensuales/Bridge', name: 'bridge', component: () => import ('../views/Secciones/Control de Gestion/Reportes Views/Bridge.vue') },
+				{ path: 'Reportes-Mensuales/IPS', name: 'ips', component: () => import ('../views/Secciones/Control de Gestion/Reportes Views/IPS.vue') },
+				{ path: 'Reportes-Mensuales/Gestion-Procurement', name: 'gestionProcurement', component: () => import ('../views/Secciones/Control de Gestion/Reportes Views/GestionProcurement.vue') },
+				{ path: 'Reportes-Mensuales/Variacion-Precios', name: 'variacionPrecios', component: () => import ('../views/Secciones/Control de Gestion/Reportes Views/VariacionPrecios.vue') },
+			]
 		},
 		{
 			path: '/Procurement-Excellence',
