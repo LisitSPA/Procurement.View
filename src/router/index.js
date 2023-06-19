@@ -39,6 +39,24 @@ const router = createRouter({
 			path: '/Proyectos-de-Valor',
 			name: 'proyectosValor',
 			component: () => import ('../views/Secciones/Proyectos de Valor/ProyectosValorView.vue'),
+			children: [
+				{ path: '/Proyectos-de-Valor',	redirect: '/Proyectos-de-Valor/Home' },
+				{ path: 'Home', name: 'homeProyecto', component: () => import ('../views/Secciones/Proyectos de Valor/Home.vue') },
+				{ path: 'Impact-Tracker', name: 'impactTracker', component: () => import ('../views/Secciones/Proyectos de Valor/ImpactTracker.vue') },
+				{ path: 'Informes-Mensuales', name: 'informesMensuales', component: () => import ('../views/Secciones/Proyectos de Valor/InformesMensuales.vue') },
+				{ path: 'Presentaciones', name: 'presentaciones', component: () => import ('../views/Secciones/Proyectos de Valor/Presentaciones.vue') },
+				{ path: 'Manual', name: 'manual', component: () => import ('../views/Secciones/Proyectos de Valor/Manual.vue') },
+				{ path: 'Planes-Ahorro', name: 'planesAhorro', component: () => import ('../views/Secciones/Proyectos de Valor/PlanesAhorro.vue') },
+				{ path: 'Reunion-PLT', name: 'reunionPLT', component: () => import ('../views/Secciones/Proyectos de Valor/ReunionPLT.vue') },
+				{ path: 'Licitaciones', name: 'licitaciones', component: () => import ('../views/Secciones/Proyectos de Valor/Licitaciones.vue') },
+				// subcontenido
+				{ path: 'Presentaciones/Otros', name: 'otros', component: () => import ('../views/Secciones/Proyectos de Valor/Presentaciones Views/Otros.vue') },
+				{ path: 'Presentaciones/Comites', name: 'comites', component: () => import ('../views/Secciones/Proyectos de Valor/Presentaciones Views/Comites.vue') },
+				{ path: 'Presentaciones/Seguimiento', name: 'seguimiento', component: () => import ('../views/Secciones/Proyectos de Valor/Presentaciones Views/Seguimiento.vue') },
+				{ path: 'Licitaciones/Directos', name: 'directos', component: () => import ('../views/Secciones/Proyectos de Valor/Licitaciones Views/Directos.vue') },
+				{ path: 'Licitaciones/Indirectos', name: 'indirectos', component: () => import ('../views/Secciones/Proyectos de Valor/Licitaciones Views/Indirectos.vue') },
+				{ path: 'Licitaciones/Servicios', name: 'servicios', component: () => import ('../views/Secciones/Proyectos de Valor/Licitaciones Views/Servicios.vue') },
+			]
 		},
 		{
 			path: '/Admin',

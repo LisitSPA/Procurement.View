@@ -3,13 +3,13 @@
 		<div class="col-10 mx-auto">
 			<div class="row h-100">
 				<div class="col d-flex justify-content-center align-items-center">
-					<button class="btn btn-section-menu" @click="$emit('updateSubContent', 'directos')">Directos</button>
+					<button class="btn btn-section-menu" @click="this.$router.push('Licitaciones/Directos')">Directos</button>
 				</div>
 				<div class="col d-flex justify-content-center align-items-center">
-					<button class="btn btn-section-menu" @click="$emit('updateSubContent', 'indirectos')">Indirectos</button>
+					<button class="btn btn-section-menu" @click="this.$router.push('Licitaciones/Indirectos')">Indirectos</button>
 				</div>
 				<div class="col d-flex justify-content-center align-items-center">
-					<button class="btn btn-section-menu" @click="$emit('updateSubContent', 'servicios')">Servicios</button>
+					<button class="btn btn-section-menu" @click="this.$router.push('Licitaciones/Servicios')">Servicios</button>
 				</div>
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 <template>
 	<div class="row row-menu">
 		<div class="col-6 menu cursor-pointer">
-			<span class="title-section" @click="$emit('updateContent', 'home')">{{ titleSection }} / {{ titleSubSection }}</span>
+			<span class="title-section" @click="back">{{ sectionTitle }}</span>
 			<input type="search" class="form-control" placeholder="Aquí puedes buscar..." style="width: 10vw; height: 4vh;">
 		</div>
 		<div class="col-6 logo cursor-pointer" @click="this.$router.push('/Home')" >
@@ -11,16 +11,21 @@
 </template>
 
 <script setup>
-defineProps({
-  titleSection: {
-    type: String,
-    required: true
-  },
-	titleSubSection: {
-    type: String,
-    required: true
-  }
-})
+	import { computed } from 'vue'
+	import { useRouter } from 'vue-router'
+	const router = useRouter()
+
+	const sectionTitle = computed(() => {
+		const currentPath = router.currentRoute.value.path
+		const replace = currentPath.replace('/', '');
+		const replace2 = replace.replace(/-/g, ' ');
+		const spaces = replace2.split("/");
+		return spaces.map(space => ` ${space.trim()} `).join("/");
+	})
+	
+	const back = () => {
+		history.back()
+	}
 </script>
 
 <style scoped>

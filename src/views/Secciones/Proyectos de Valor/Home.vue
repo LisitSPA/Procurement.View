@@ -3,13 +3,13 @@
 		<div class="col-10 mx-auto">
 			<div class="row h-100">
 				<div class="col d-flex justify-content-center align-items-center">
-					<button class="btn btn-section-menu" @click="$emit('updateContent', 'impact-tracker')">Impact Tracker</button>
+					<button class="btn btn-section-menu" @click="this.$router.push('Impact-Tracker')">Impact Tracker</button>
 				</div>
 				<div class="col d-flex justify-content-center align-items-center">
-					<button class="btn btn-section-menu" @click="$emit('updateContent', 'informes-mensuales')">Informes Mensuales</button>
+					<button class="btn btn-section-menu" @click="this.$router.push('Informes-Mensuales')">Informes Mensuales</button>
 				</div>
 				<div class="col d-flex justify-content-center align-items-center">
-					<button class="btn btn-section-menu" @click="$emit('updateContent', 'presentaciones')">Presentaciones</button>
+					<button class="btn btn-section-menu" @click="this.$router.push('Presentaciones')">Presentaciones</button>
 				</div>
 			</div>
 		</div>
@@ -18,16 +18,16 @@
 		<div class="col-12 mx-auto">
 			<div class="row h-100">
 				<div class="col d-flex justify-content-center align-items-center">
-					<button class="btn btn-section-menu" @click="$emit('updateContent', 'manual')">Manual</button>
+					<button class="btn btn-section-menu" @click="this.$router.push('Manual')">Manual</button>
 				</div>
 				<div class="col d-flex justify-content-center align-items-center">
-					<button class="btn btn-section-menu" @click="$emit('updateContent', 'planes-ahorro')">Planes de Ahorro</button>
+					<button class="btn btn-section-menu" @click="this.$router.push('Planes-Ahorro')">Planes de Ahorro</button>
 				</div>
 				<div class="col d-flex justify-content-center align-items-center">
-					<button class="btn btn-section-menu" @click="$emit('updateContent', 'reunion-plt')">Reunión PLT</button>
+					<button class="btn btn-section-menu" @click="this.$router.push('Reunion-PLT')">Reunión PLT</button>
 				</div>
 				<div class="col d-flex justify-content-center align-items-center">
-					<button class="btn btn-section-menu" @click="$emit('updateContent', 'licitaciones')">Licitaciones</button>
+					<button class="btn btn-section-menu" @click="this.$router.push('Licitaciones')">Licitaciones</button>
 				</div>
 			</div>
 		</div>
