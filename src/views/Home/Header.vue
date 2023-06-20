@@ -35,7 +35,7 @@
 <script setup>
 	import {ref, watch, onMounted} from 'vue'
 
-	const slides = ref(['/src/assets/images/header-1.jpg', '/src/assets/images/header-2.jpg', '/src/assets/images/header-3.jpg']);
+	const slides = ref(['~@/assets/images/header-1.jpg', '~@/assets/images/header-2.jpg', '~@/assets/images/header-3.jpg']);
 	const currentSlide = ref(0);
 	let slideInterval = null;
 
