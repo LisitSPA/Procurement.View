@@ -34,8 +34,11 @@
 
 <script setup>
 	import {ref, watch, onMounted} from 'vue'
+	import header1 from '@/assets/images/header-1.jpg'
+	import header2 from '@/assets/images/header-2.jpg'
+	import header3 from '@/assets/images/header-3.jpg'
 
-	const slides = ref(['/src/assets/images/header-1.jpg', '/src/assets/images/header-2.jpg', '/src/assets/images/header-3.jpg']);
+	const slides = ref([header1, header2, header3]);
 	const currentSlide = ref(0);
 	let slideInterval = null;
 
