@@ -5,8 +5,9 @@
 				<span class="fw-bold" style="font-size: 20px;">ELO</span>
 			</div>
 			<div class="col mx-1 mt-2 d-flex justify-content-center align-items-center cursor-pointer"
-				:class="index == 0 ? 'bg-gris':'bg-gris2 text-white'"
-				v-for="(item, index) in 3" :key="index">
+				:class="selectedAge == index ? 'bg-gris':'bg-gris2 text-white'"
+				v-for="(item, index) in 3" :key="index"
+				@click="selectedAge = index">
 				<span class="fw-bold" style="font-size: 20px;">202{{ index }}</span>
 			</div>
 		</div>
@@ -35,6 +36,9 @@
 </template>
 
 <script setup>
+	import { ref } from 'vue'
+
+	const selectedAge = ref(0)
 
 </script>
 
