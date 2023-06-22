@@ -4,7 +4,7 @@
 			<span class="title-section" @click="back">{{ sectionTitle }}</span>
 			<input type="search" class="form-control" placeholder="Aquí puedes buscar..." style="width: 10vw; height: 4vh;">
 		</div>
-		<div class="col-6 logo cursor-pointer" @click="this.$router.push('/Home')" >
+		<div class="col-6 logo cursor-pointer" @click="backHome()" >
 			<img src="./../../assets/images/logo-azul.png" alt="Logo procurement" style="width: 21%;">
 		</div>
 	</div>
@@ -25,6 +25,10 @@
 	
 	const back = () => {
 		history.back()
+	}
+
+	const backHome = () => {
+		router.push('/Home')
 	}
 </script>
 

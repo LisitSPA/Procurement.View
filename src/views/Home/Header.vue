@@ -7,8 +7,8 @@
 		</div>
 		<div class="row" style="margin: 10vh 0 0 4vw">
 			<div class="col-6 d-flex align-items-center">
-				<button class="btn btn-lightblue" @click="this.$router.push('/Not-Found')">Noticias / Newsletter</button>
-				<button class="btn btn-white" @click="this.$router.push('/Not-Found')">Preguntas frecuentes</button>
+				<router-link class="btn btn-lightblue" to="/Not-Found">Noticias / Newsletter</router-link>
+				<router-link class="btn btn-white" to="/Not-Found">Preguntas frecuentes</router-link>
 				<input type="search" class="input-search" placeholder="Aquí puedes buscar...">
 			</div>
 			<div class="col-6 d-flex justify-content-end">
@@ -73,6 +73,9 @@
 		background-color: var(--light-blue);
 		border-radius: 30px;
 		font-weight: bold;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 	.btn-white{
 		height: 5vh;
@@ -83,6 +86,9 @@
 		width: 12vw;
 		border-radius: 30px;
 		font-weight: bold;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 	.btn-white:hover{
 		background-color: var(--dark-blue);
