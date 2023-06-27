@@ -5,7 +5,7 @@
 				<i class="bi bi-play-circle text-white" style="font-size: 6rem;"></i>
 			</div>
 		</div>
-		<div class="row wea h-25">
+		<div class="row h-25">
 			<div class="col-12 d-flex justify-content-center align-items-center">
 				<span class="text-white">Dashboard Impact Tracker</span>
 			</div>
