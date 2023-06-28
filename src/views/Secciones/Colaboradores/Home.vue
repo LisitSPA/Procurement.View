@@ -15,7 +15,7 @@
 		</div>
 		<div class="col-6" style="padding: 0 20px 0 20px;">
 			<div class="row h-100">
-				<div class="col-12 cursor-pointer" @click="this.$router.push('Cumpleaños')">
+				<div class="col-12 cursor-pointer" @click="this.$router.push('Cumpleanos')">
 					<p class="light-blue-text fw-bold" style="font-size: 22px;">Cumpleaños</p>
 					<p class="text-blue2" style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa at ducimus veniam doloremque omnis recusandae eos? Doloribus, ad porro! Tempore dicta minima architecto a consequuntur maiores vero quod totam odio!</p>
 				</div>

@@ -26,7 +26,7 @@ const router = createRouter({
 				{ path: '/Colaboradores',	redirect: '/Colaboradores/Home' },
 				{ path: 'Home', name: 'homeColaboradores', component: () => import ('../views/Secciones/Colaboradores/Home.vue') },
 				{ path: 'Organigrama', name: 'organigramaColaboradores', component: () => import ('../views/Secciones/Colaboradores/Organigrama.vue') },
-				{ path: 'Cumpleaños', name: 'cumpleaños', component: () => import ('../views/Secciones/Colaboradores/Cumpleaños.vue') },
+				{ path: 'Cumpleanos', name: 'cumpleanos', component: () => import ('../views/Secciones/Colaboradores/Cumpleanos.vue') },
 				{ path: 'Procurement-Awards', name: 'procurementAwards', component: () => import ('../views/Secciones/Colaboradores/ProcurementAwards.vue') },
 				{ path: 'Nuevos-Ingresos', name: 'nuevosIngresos', component: () => import ('../views/Secciones/Colaboradores/NuevosIngresos.vue') },
 			]
