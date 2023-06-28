@@ -1,66 +1,75 @@
 <template>
-	<div class="row h-100">
-		<div class="col-12" style="height: 20%; margin-top: 15vh;">
-			<div style="justify-content: space-evenly; display: flex;">
-				<span class="bg-light-blue custom-categorias" v-for="(items, index) in [1,2,3,4,5,6,7,8]" :key="index">Categorias</span>
-			</div>
-		</div>
-		<div class="col-12" style="height: 40%; padding-bottom: 1rem;">
-			<div class="row h-100">
-				<div class="col">
-					<div class="row h-100">
-						<div class="col-2 align-self-center">
-							<span class="fw-bold" style="font-size: 21px;">Procurement</span><br>
-							<span class="fw-bold" style="font-size: 21px;">Awards</span>
-						</div>
-						<div class="col bg-gris mx-2 poligon" v-for="(items, index) in [1,2,3,4]" :key="index">
-							<div class="row d-flex align-content-center" style="height: 70%;">
-								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="81.733" height="95.414" viewBox="0 0 81.733 95.414">
-									<defs>
-										<clipPath id="clip-path">
-											<rect id="Rectángulo_100" data-name="Rectángulo 100" width="81.733" height="95.414" fill="#fff"/>
-										</clipPath>
-									</defs>
-									<g id="Grupo_39" data-name="Grupo 39" clip-path="url(#clip-path)">
-										<path id="Trazado_9" data-name="Trazado 9" d="M40.7,121.031c-9.8,0-19.6.037-29.4-.012-8.387-.041-12.857-5.836-10.8-13.9C1.56,102.956,2.58,98.782,3.75,94.651A34.936,34.936,0,0,1,20.682,73.188a3.993,3.993,0,0,1,4.674.162c10.3,6.319,20.75,6.311,31.043-.01a4,4,0,0,1,4.675-.145C70.4,78.51,76.084,86.5,78.638,96.835c.85,3.439,1.741,6.867,2.6,10.3,2.037,8.1-2.406,13.843-10.822,13.883-9.908.047-19.816.011-29.724.011" transform="translate(0 -25.63)" fill="#fff"/>
-										<path id="Trazado_10" data-name="Trazado 10" d="M50.388,0A23.611,23.611,0,0,1,73.937,23.692c-.082,12.938-10.948,23.749-23.753,23.635A23.9,23.9,0,0,1,26.645,23.489,23.6,23.6,0,0,1,50.388,0" transform="translate(-9.418 0)" fill="#fff"/>
-									</g>
-								</svg>
-							</div>
-							<div class="row px-3" style="height: 30%; font-size: 16px;">
-								<span>Nombre</span><br>
-								<span>Apellido</span>
-							</div>
-
-						</div>
+	<div class="row h-100" style="padding-top: 5rem;">
+		<div class="col-2">
+			<div class="row">
+				<div class="col-12 dark-blue-text">
+					<label for="">Selecciona el año</label>
+					<select class="form-control custom-select" name="" id="">
+						<option value="">2023</option>
+					</select>
+				</div>
+				<div class="col-12 mt-2 dark-blue-text">
+					<label for="">Selecciona ubicación</label>
+					<select class="form-control custom-select" name="" id="">
+						<option value="" selected disabled>-</option>
+						<option value="" selected>Regional</option>
+						<option value="" selected>Local</option>
+					</select>
+				</div>
+				<div class="col-12 mt-4">
+					<div class="mt-2 custom-categorias" 
+						:class="{'selected-category': selectedCategory === index}"
+						v-for="(category, index) in 5" 
+						:key="index"
+						@click="selectedCategory = index">
+						<span>Categoría</span>
 					</div>
 				</div>
+			</div>
+
+		</div>
+		<div class="col px-5">
+			<div class="row">
 				<div class="col">
-					<div class="row h-100">
-						<div class="col-2 align-self-center">
-							<span class="fw-bold" style="font-size: 21px;">Procurement</span><br>
-							<span class="fw-bold" style="font-size: 21px;">Awards</span>
-						</div>
-						<div class="col bg-gris mx-2 poligon" v-for="(items, index) in [1,2,3,4]" :key="index">
-							<div class="row d-flex align-content-center" style="height: 70%;">
-								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="81.733" height="95.414" viewBox="0 0 81.733 95.414">
-									<defs>
-										<clipPath id="clip-path">
-											<rect id="Rectángulo_100" data-name="Rectángulo 100" width="81.733" height="95.414" fill="#fff"/>
-										</clipPath>
-									</defs>
-									<g id="Grupo_39" data-name="Grupo 39" clip-path="url(#clip-path)">
-										<path id="Trazado_9" data-name="Trazado 9" d="M40.7,121.031c-9.8,0-19.6.037-29.4-.012-8.387-.041-12.857-5.836-10.8-13.9C1.56,102.956,2.58,98.782,3.75,94.651A34.936,34.936,0,0,1,20.682,73.188a3.993,3.993,0,0,1,4.674.162c10.3,6.319,20.75,6.311,31.043-.01a4,4,0,0,1,4.675-.145C70.4,78.51,76.084,86.5,78.638,96.835c.85,3.439,1.741,6.867,2.6,10.3,2.037,8.1-2.406,13.843-10.822,13.883-9.908.047-19.816.011-29.724.011" transform="translate(0 -25.63)" fill="#fff"/>
-										<path id="Trazado_10" data-name="Trazado 10" d="M50.388,0A23.611,23.611,0,0,1,73.937,23.692c-.082,12.938-10.948,23.749-23.753,23.635A23.9,23.9,0,0,1,26.645,23.489,23.6,23.6,0,0,1,50.388,0" transform="translate(-9.418 0)" fill="#fff"/>
-									</g>
-								</svg>
-							</div>
-							<div class="row px-3" style="height: 30%; font-size: 16px;">
-								<span>Nombre</span><br>
-								<span>Apellido</span>
-							</div>
-						</div>
-					</div>
+					<b style="font-size: 1.5rem;">Procurement Awards</b>
+				</div>
+			</div>
+			<div class="row h-25">
+				<div class="col">
+					<b style="font-size: 4rem;">Título de categoría</b>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipiscing elit ridiculus, purus phasellus curae suspendisse sed eu cum, vel curabitur commodo suscipit euismod pulvinar netus. Curae diam imperdiet vivamus eget congue venenatis nullam, hendrerit cursus cubilia mauris ultrices ut, sociis ornare eu tristique a eros. Laoreet senectus vehicula pulvinar blandit nisi eros tempor, mi nec accumsan inceptos proin justo, sodales augue litora fermentum eleifend pretium.
+					</p>
+					<p>
+						Fermentum suspendisse interdum quisque vel lobortis class placerat nunc odio, diam imperdiet tellus iaculis varius dis lacinia duis. Tincidunt integer aliquam maecenas iaculis class tempus taciti, lectus pellentesque bibendum lacus placerat senectus facilisis, interdum rhoncus vivamus facilisi nisi nibh. Habitant vestibulum eros dignissim class ornare commodo hendrerit, sapien habitasse suspendisse maecenas at eleifend, primis morbi aenean nisi proin porttitor. Ad penatibus gravida diam hac praesent commodo nam netus pharetra, feugiat himenaeos lobortis nec potenti tincidunt magna convallis cubilia etiam, odio maecenas quis cum luctus eros donec primis.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-2">
+			<div class="row h-50">
+				<div class="col-12 bg-gris d-flex justify-content-center align-items-center">
+					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="78.075" height="91.143" viewBox="0 0 78.075 91.143" style="height: 10rem; width: 10rem;">
+						<defs>
+							<clipPath id="clip-path">
+								<rect id="Rectángulo_100" data-name="Rectángulo 100" width="78.075" height="91.143" fill="#fff"/>
+							</clipPath>
+						</defs>
+						<g id="Grupo_39" data-name="Grupo 39" clip-path="url(#clip-path)">
+							<path id="Trazado_9" data-name="Trazado 9" d="M38.875,118.859c-9.362,0-18.723.035-28.084-.011-8.012-.04-12.281-5.574-10.315-13.28,1.014-3.975,1.989-7.962,3.106-11.908a33.372,33.372,0,0,1,16.174-20.5,3.814,3.814,0,0,1,4.465.155c9.838,6.036,19.821,6.029,29.654-.009a3.821,3.821,0,0,1,4.466-.138c8.907,5.076,14.338,12.708,16.777,22.581.812,3.285,1.663,6.56,2.488,9.841,1.946,7.736-2.3,13.224-10.338,13.261-9.464.044-18.929.01-28.393.01" transform="translate(0 -27.729)" fill="#fff"/>
+							<path id="Trazado_10" data-name="Trazado 10" d="M49.325,0A22.554,22.554,0,0,1,71.82,22.632c-.078,12.359-10.457,22.686-22.69,22.577A22.833,22.833,0,0,1,26.645,22.437,22.54,22.54,0,0,1,49.325,0" transform="translate(-10.189 0)" fill="#fff"/>
+						</g>
+					</svg>
+				</div>
+			</div>
+			<div class="row h-25">
+				<div class="col-12 bg-dark-blue text-white text-center py-2" style="height: 50%; font-size: 1.2rem;">
+					<p class="m-0">Nombre Apellido</p>
+					<b>Cargo</b>
 				</div>
 			</div>
 		</div>
@@ -68,22 +77,36 @@
 </template>
 
 <script setup>
+	import { ref } from 'vue'
 
+	const selectedCategory = ref(0)
 </script>
 
 <style scoped>
 .custom-categorias{
-	font-size: 21px;
-	width: 7vw;
-	height: 5vh;
-	color: white;
+	height: 3vh;
+	color: var(--dark-blue);
 	cursor: pointer;
+	padding-left: 10px;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	background-color: var(--light-gris);
 }
-.poligon{
-	clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+.custom-categorias:hover{
+	background-color: var(--light-blue);
+	color: white;
+	width: 19.5rem;
+}
+.custom-select{
+	background-color: var(--light-gris);
+	color: var(--dark-blue);
+	font-weight: bold;
+	border-radius: 0;
+}
+.selected-category{
+	background-color: var(--light-blue);
+	color: white;
+	width: 19.5rem;
 }
 
 </style>
