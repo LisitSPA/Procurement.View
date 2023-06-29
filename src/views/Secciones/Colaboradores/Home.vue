@@ -1,6 +1,6 @@
 <template>
 	<div class="row" style="height: 60%;">
-		<div class="col-6 bg-gris cursor-pointer" style="border-radius: 30px; padding: 2rem 2rem 0 2rem;" @click="this.$router.push('Organigrama')">
+		<div class="col-6 bg-gris cursor-pointer" style="border-radius: 30px; padding: 2rem 2rem 0 2rem;" @click="navigation('Organigrama')">
 			<div class="row">
 				<div class="col-12">
 					<span>Organigrama</span>
@@ -15,9 +15,9 @@
 		</div>
 		<div class="col-6" style="padding: 0 20px 0 20px;">
 			<div class="row h-100">
-				<div class="col-12 cursor-pointer" @click="this.$router.push('Cumpleanos')">
+				<div class="col-12 cursor-pointer" @click="navigation('Cumpleanos')">
 					<p class="light-blue-text fw-bold" style="font-size: 22px;">Cumpleaños</p>
-					<p class="text-blue2" style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa at ducimus veniam doloremque omnis recusandae eos? Doloribus, ad porro! Tempore dicta minima architecto a consequuntur maiores vero quod totam odio!</p>
+					<p class="text-blue2" style="font-size: 14px;">¡Celebremos a nuestros compañeros! Entérate aquí quién de nuestro equipo cumple años:</p>
 				</div>
 				<div class="col-12" style="padding: 0 10px 0 20px; height: 20vh;">
 					<div class="row h-100">
@@ -35,14 +35,14 @@
 		</div>
 	</div>
 	<div class="row mt-2" style="height: 40%;">
-		<div class="col-6 bg-blue1 cursor-pointer d-flex align-items-end" style="border-radius: 30px; padding: 2rem 2rem 2rem 2rem;" @click="this.$router.push('Procurement-Awards')">
+		<div class="col-6 bg-blue1 cursor-pointer d-flex align-items-end" style="border-radius: 30px; padding: 2rem 2rem 2rem 2rem;" @click="navigation('Procurement-Awards')">
 			<span class="text-white" style="font-size: 22px;">Procurement awards</span>
 		</div>
 		<div class="col-6" style="padding: 0 20px 0 20px;">
 			<div class="row h-100">
-				<div class="col-12 cursor-pointer" @click="this.$router.push('Nuevos-Ingresos')">
+				<div class="col-12 cursor-pointer" @click="navigation('Nuevos-Ingresos')">
 					<p class="dark-blue-text fw-bold m-0" style="font-size: 22px;">Nuevos ingresos</p>
-					<p class="text-blue2 m-0" style="font-size: 14px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa at ducimus veniam doloremque omnis recusandae eos? Doloribus, ad porro! Tempore dicta minima architecto a consequuntur maiores vero quod totam odio!</p>
+					<p class="text-blue2 m-0" style="font-size: 14px;"> ¡Bienvenidos! Seguimos creciendo y se incorporan a nuestro equipo las siguientes personas:</p>
 				</div>
 				<div class="col-12" style="padding: 0 10px 0 20px; height: 12vh;;">
 					<div class="row h-100">
@@ -76,6 +76,9 @@
 
 <script setup>
 	import { computed, ref } from 'vue'
+	import { useRouter } from 'vue-router'
+
+	const router = useRouter()
 	const people = ref(['person','person2','person3','person4','person5','person6','person7','person8','person9','person10','person11','person12'])
 	const people2 = ref(['person','person2','person3','person4','person5','person6','person7','person8','person9','person10','person11','person12'])
 
@@ -99,6 +102,10 @@
 		const endIndex = startIndex + peoplePage2.value; 
 		return people2.value.slice(startIndex, endIndex);
 	})
+
+	const navigation = (menu) => {
+		router.push(menu)
+	}
 
 
 </script>
