@@ -20,8 +20,8 @@
 				<div class="col-2 mx-2 bg-gris" v-for="(person,index) in peopleCurrentMonth" :key="index" style="border-radius: 30px;">
 					<div class="row w-100 m-0 content-user-image text-end">
 						<span class="mt-4 fw-bold text-blue2" style="font-size: 21px;">{{ dateFormat(person.fechaCumpleanos) }}</span>
-						<img v-if="person.urlImagen != '-'" :src="person.urlImagen" alt="user-image" style="height: 7rem;width: 12rem;">
-						<img v-else src="./../../../assets/images/default-user.png" alt="user-image" style="height: 7rem;width: 12rem;">
+						<img v-if="person.urlImagen != '-'" :src="person.urlImagen" alt="user-image" class="user-image">
+						<img v-else src="./../../../assets/images/default-user.png" alt="user-image" class="user-image">
 					</div>
 					<div class="row bg-dark-blue d-flex align-items-center justify-content-center content-username">
 						<span class="text-white text-center" style="font-size: 11px;">{{person.names}}</span>
@@ -46,8 +46,8 @@
 				<div class="col-2 mx-2 bg-gris" v-for="(person,index) in peopleLastMonth" :key="index" style="border-radius: 30px;">
 					<div class="row w-100 m-0 content-user-image text-end">
 						<span class="mt-4 fw-bold text-gris2" style="font-size: 21px;">{{ dateFormat(person.fechaCumpleanos)}}</span>
-						<img v-if="person.urlImagen != '-'" :src="person.urlImagen" alt="user-image" style="height: 7rem;width: 12rem;">
-						<img v-else src="./../../../assets/images/default-user.png" alt="user-image" style="height: 7rem;width: 12rem;">
+						<img v-if="person.urlImagen != '-'" :src="person.urlImagen" alt="user-image" class="user-image">
+						<img v-else src="./../../../assets/images/default-user.png" alt="user-image" class="user-image">
 					</div>
 					<div class="row bg-gris2 d-flex align-items-center justify-content-center content-username">
 						<span class="text-white text-center" style="font-size: 11px;">{{ person.names }}</span>
@@ -171,6 +171,10 @@
 	height: 80%;
 	display: flex;
 	justify-content: center;
+}
+.user-image{
+	height: 5rem;
+	width: 7rem;
 }
 
 </style>

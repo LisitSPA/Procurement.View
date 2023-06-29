@@ -17,7 +17,7 @@
 			<div class="row h-100">
 				<div class="col-12 cursor-pointer" @click="navigation('Cumpleanos')">
 					<p class="light-blue-text fw-bold" style="font-size: 22px;">Cumpleaños</p>
-					<p class="text-blue2" style="font-size: 14px;">¡Celebremos a nuestros compañeros! Entérate aquí quién de nuestro equipo cumple años:</p>
+					<p class="text-blue2" style="font-size: 18px;">¡Celebremos a nuestros compañeros! Entérate aquí quién de nuestro equipo cumple años:</p>
 				</div>
 				<div class="col-12" style="padding: 0 10px 0 20px; height: 20vh;">
 					<div class="row h-100">
@@ -44,7 +44,7 @@
 			<div class="row h-100">
 				<div class="col-12 cursor-pointer" @click="navigation('Nuevos-Ingresos')">
 					<p class="dark-blue-text fw-bold m-0" style="font-size: 22px;">Nuevos ingresos</p>
-					<p class="text-blue2 m-0" style="font-size: 14px;"> ¡Bienvenidos! Seguimos creciendo y se incorporan a nuestro equipo las siguientes personas:</p>
+					<p class="text-blue2 m-0" style="font-size: 18px;"> ¡Bienvenidos! Seguimos creciendo y se incorporan a nuestro equipo las siguientes personas:</p>
 				</div>
 				<div class="col-12" style="padding: 0 10px 0 20px; height: 12vh;;">
 					<div class="row h-100">
@@ -91,7 +91,7 @@
 	const currentPage = ref(1)
 	const totalPage = people.value.length / peoplePage.value
 
-	const peoplePage2 = ref(4)
+	const peoplePage2 = ref(5)
 	const currentPage2 = ref(1)
 	const totalPage2 = people2.value.length / peoplePage2.value
 
