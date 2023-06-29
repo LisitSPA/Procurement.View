@@ -1,6 +1,9 @@
 <template>
-	<div class="row h-100 bg-gris p-5">
-		<img :src="organigrama.urlsImagenes[0]" alt="Organigrama">
+	<div class="row h-100 bg-gris p-5 d-flex justify-content-center align-items-center">
+		<img v-if="organigrama" :src="organigrama.urlsImagenes[0]" alt="Organigrama">
+		<div v-else class="spinner-border text-primary" role="status">
+			<span class="sr-only"></span>
+		</div>
 	</div>
 </template>
 

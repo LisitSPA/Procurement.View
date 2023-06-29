@@ -9,11 +9,20 @@
 					</select>
 				</div>
 				<div class="col-12 mt-2 dark-blue-text">
+					<label for="">Selecciona participación</label>
+					<select class="form-control custom-select" name="" id="">
+						<option value="" selected disabled>-</option>
+						<option value="">Individual</option>
+						<option value="">Equipo</option>
+						<option value="">Especial</option>
+					</select>
+				</div>
+				<div class="col-12 mt-2 dark-blue-text">
 					<label for="">Selecciona ubicación</label>
 					<select class="form-control custom-select" name="" id="">
 						<option value="" selected disabled>-</option>
-						<option value="" selected>Regional</option>
-						<option value="" selected>Local</option>
+						<option value="">Regional</option>
+						<option value="">Local</option>
 					</select>
 				</div>
 				<div class="col-12 mt-4">
