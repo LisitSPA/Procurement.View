@@ -20,7 +20,8 @@
 		const replace = currentPath.replace('/', '');
 		const replace2 = replace.replace(/-/g, ' ');
 		const spaces = replace2.split("/");
-		return spaces.map(space => ` ${space.trim()} `).join("/");
+		const sectionName = spaces.map(space => ` ${space.trim()} `).join("/")
+		return sectionName === ' Colaboradores / Cumpleanos ' ? "Colaboradores / Cumpleaños" : sectionName
 	})
 	
 	const back = () => {

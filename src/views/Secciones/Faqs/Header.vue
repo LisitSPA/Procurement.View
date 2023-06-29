@@ -12,7 +12,7 @@
 				<input type="search" class="input-search" placeholder="Aquí puedes buscar...">
 			</div>
 			<div class="col-6 d-flex justify-content-end">
-				<div class="row white-bar" @click="this.$router.push('/Home')">
+				<div class="row white-bar" @click="navigate('/Home')">
 					<img src="./../../../assets/images/logo-azul.png" alt="Logo procurement" style="width: 70%;">
 				</div>
 			</div>
@@ -29,8 +29,10 @@
 
 <script setup>
 	import {ref, watch, onMounted} from 'vue'
+	import { useRouter } from 'vue-router';
 	import header1 from '@/assets/images/header-faq.jpg'
 
+	const router = useRouter()
 	const slides = ref([header1]);
 	const currentSlide = ref(0);
 	let slideInterval = null;
@@ -47,6 +49,10 @@
 			slideInterval = setInterval(nextSlide, 3000);
 		});
 	});
+
+	const navigate = (url) => {
+		router.push(url)
+	}
 
 </script>
 
