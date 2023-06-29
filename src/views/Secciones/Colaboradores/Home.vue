@@ -24,7 +24,7 @@
 						<div v-if="currentPage != 1" class="col-1 d-flex align-items-center justify-content-center cursor-pointer" @click="currentPage--">
 							<i class="bi bi-caret-left-fill text-blue2" style="font-size: 22px;"></i>
 						</div>
-						<div class="col user-bday bg-gris" v-for="(items,index) in displayPeople" :key="index" >
+						<div class="col-2 user-bday bg-gris" v-for="(items,index) in displayPeople" :key="index" >
 						</div>
 						<div v-if="currentPage < totalPage" class="col-1 d-flex align-items-center justify-content-center cursor-pointer" @click="currentPage++">
 							<i class="bi bi-caret-right-fill text-blue2" style="font-size: 22px;"></i>
@@ -52,12 +52,12 @@
 							<i class="bi bi-caret-left-fill text-blue2" style="font-size: 22px;"></i>
 						</div>
 						<div class="col">
-							<div class="row h-100">
-								<div class="col new-user bg-gris" v-for="(items,index) in displayPeople2" :key="index">
+							<div class="row h-100" style="display: flex; justify-content: space-between;">
+								<div class="col-2 new-user bg-gris" v-for="(items,index) in displayPeople2" :key="index">
 								</div>
 							</div>
-							<div class="row">
-								<div class="col text-blue2 text-center bg-gris" v-for="(items,index) in displayPeople2" :key="index" style="margin-right: 10px; height: 1.5rem;">
+							<div class="row" style="display: flex; justify-content: space-between;">
+								<div class="col-2 text-blue2 text-center bg-gris" v-for="(items,index) in displayPeople2" :key="index" style="margin-right: 10px; height: 1.5rem;">
 									<span class="fw-bold">12 abril 23</span>
 								</div>
 							</div>
@@ -77,6 +77,7 @@
 <script setup>
 	import { computed, ref } from 'vue'
 	import { useRouter } from 'vue-router'
+	import userServices from './../../../services/Users'
 
 	const router = useRouter()
 	const people = ref(['person','person2','person3','person4','person5','person6','person7','person8','person9','person10','person11','person12'])
@@ -106,6 +107,19 @@
 	const navigation = (menu) => {
 		router.push(menu)
 	}
+
+	const getUsers = async() => {
+		try{
+			const res = await userServices.getUsers()
+			people.value = res.data
+			people2.value = res.data
+			console.log(res.data)
+		}catch(error){
+			console.log(error)
+		}
+	}
+
+	getUsers()
 
 
 </script>
