@@ -24,7 +24,9 @@
 						<div v-if="currentPage != 1" class="col-1 d-flex align-items-center justify-content-center cursor-pointer" @click="currentPage--">
 							<i class="bi bi-caret-left-fill text-blue2" style="font-size: 22px;"></i>
 						</div>
-						<div class="col-2 user-bday bg-gris" v-for="(items,index) in displayPeople" :key="index" >
+						<div class="col-2 user-bday bg-gris d-flex justify-content-center align-items-center" v-for="(person,index) in displayPeople" :key="index" >
+							<img v-if="person.urlImagen != '-'" :src="person.urlImagen" alt="user-image" style="height: 5rem;width: 5rem;">
+							<img v-else src="./../../../assets/images/default-user.png" alt="user-image" style="height: 5rem;width: 5rem;">
 						</div>
 						<div v-if="currentPage < totalPage" class="col-1 d-flex align-items-center justify-content-center cursor-pointer" @click="currentPage++">
 							<i class="bi bi-caret-right-fill text-blue2" style="font-size: 22px;"></i>
@@ -53,12 +55,14 @@
 						</div>
 						<div class="col">
 							<div class="row h-100" style="display: flex; justify-content: space-between;">
-								<div class="col-2 new-user bg-gris" v-for="(items,index) in displayPeople2" :key="index">
+								<div class="col-2 new-user bg-gris d-flex justify-content-center align-items-center" v-for="(person,index) in displayPeople2" :key="index">
+									<img v-if="person.urlImagen != '-'" :src="person.urlImagen" alt="user-image" style="height: 5rem;width: 5rem;">
+									<img v-else src="./../../../assets/images/default-user.png" alt="user-image" style="height: 5rem;width: 5rem;">
 								</div>
 							</div>
 							<div class="row" style="display: flex; justify-content: space-between;">
-								<div class="col-2 text-blue2 text-center bg-gris" v-for="(items,index) in displayPeople2" :key="index" style="margin-right: 10px; height: 1.5rem;">
-									<span class="fw-bold">12 abril 23</span>
+								<div class="col-2 text-blue2 text-center bg-gris" v-for="(person,index) in displayPeople2" :key="index" style="margin-right: 10px; height: 1.5rem;">
+									<span class="fw-bold">{{person.fechaCreacion}}</span>
 								</div>
 							</div>
 						</div>
