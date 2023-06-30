@@ -11,7 +11,7 @@
 		</div>
 		<div class="col-12 d-flex justify-content-center align-items-center">
 			<button class="btn btn-border-blue" @click="this.$router.push('/Not-Found')">Sostenibilidad</button>
-			<button class="btn btn-border-blue" @click="this.$router.push('/Not-Found')">Sistemas</button>
+			<button class="btn btn-border-blue" @click="this.$router.push('/Not-Found')">Analytics, Tools and Data</button>
 			<button class="btn btn-border-blue" @click="this.$router.push('/Not-Found')">Procurement Academy</button>
 			<button class="btn btn-border-blue" @click="this.$router.push('/Not-Found')">Proveedores</button>
 			<button class="btn btn-border-blue" @click="this.$router.push('/Not-Found')">Procurement 4.0</button>
