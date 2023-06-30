@@ -73,9 +73,9 @@ const router = createRouter({
 				{ path: 'Impact-Tracker', name: 'impactTracker', component: () => import ('../views/Secciones/Proyectos de Valor/ImpactTracker.vue') },
 				{ path: 'Informes-Mensuales', name: 'informesMensuales', component: () => import ('../views/Secciones/Proyectos de Valor/InformesMensuales.vue') },
 				{ path: 'Presentaciones', name: 'presentaciones', component: () => import ('../views/Secciones/Proyectos de Valor/Presentaciones.vue') },
-				{ path: 'Manual', name: 'manual', component: () => import ('../views/Secciones/Proyectos de Valor/Manual.vue') },
+				// { path: 'Manual', name: 'manual', component: () => import ('../views/Secciones/Proyectos de Valor/Manual.vue') },
 				{ path: 'Planes-Ahorro', name: 'planesAhorro', component: () => import ('../views/Secciones/Proyectos de Valor/PlanesAhorro.vue') },
-				{ path: 'Reunion-PLT', name: 'reunionPLT', component: () => import ('../views/Secciones/Proyectos de Valor/ReunionPLT.vue') },
+				// { path: 'Reunion-PLT', name: 'reunionPLT', component: () => import ('../views/Secciones/Proyectos de Valor/ReunionPLT.vue') },
 				{ path: 'Licitaciones', name: 'licitaciones', component: () => import ('../views/Secciones/Proyectos de Valor/Licitaciones.vue') },
 				// subcontenido
 				{ path: 'Presentaciones/Otros', name: 'otros', component: () => import ('../views/Secciones/Proyectos de Valor/Presentaciones Views/Otros.vue') },
