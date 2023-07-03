@@ -5,8 +5,8 @@
 				<div class="col-12">
 					<span>Organigrama</span>
 				</div>
-				<div class="col-12" style="height: 25vh;">
-						<!-- imagen organigrama	-->
+				<div class="col-12 d-flex justify-content-center align-items-center" style="height: 25vh;">
+					<img class="w-100" src="./../../../assets/images/preview-organigrama.png" alt="prev-organigrama">
 				</div>
 				<div class="col-12 text-center">
 					<p style="color: #CCCCCC; font-size: 21px;"><i class="bi bi-caret-down-fill"></i>Ver más</p>
