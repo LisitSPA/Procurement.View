@@ -23,10 +23,6 @@
 
 
 <style scoped>
-.menu-container{
-	height: 6vh; 
-	background-color: #013F7A;
-}
 .header-container{
 	height: 80%;
 }
