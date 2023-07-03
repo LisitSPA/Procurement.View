@@ -60,11 +60,6 @@
 									<img v-else src="./../../../assets/images/default-user.png" alt="user-image" style="height: 5rem;width: 5rem;">
 								</div>
 							</div>
-							<div class="row" style="display: flex; justify-content: space-between;">
-								<div class="col-2 text-blue2 text-center bg-gris" v-for="(person,index) in displayPeople2" :key="index" style="margin-right: 10px; height: 1.5rem;">
-									<span class="fw-bold">{{person.fechaCreacion}}</span>
-								</div>
-							</div>
 						</div>
 						<div class="col-1 d-flex align-items-center justify-content-center cursor-pointer" 
 							v-if="currentPage2 < totalPage2"

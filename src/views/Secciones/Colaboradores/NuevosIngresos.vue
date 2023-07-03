@@ -12,11 +12,13 @@
 						<img v-if="person.urlImagen != '-'" :src="person.urlImagen" alt="user-image" class="user-image">
 						<img v-else src="./../../../assets/images/default-user.png" alt="user-image" class="user-image">
 					</div>
-					<div class="row bg-gris" style="height: 5%; width: 7vw;">
-						<p class="m-0 text-gris2" style="font-size: 17px;">{{person.fechaCreacion}}</p>
-					</div>
-					<div class="row bg-gris d-flex align-items-center justify-content-center" style="height: 55%;">
-						<b>{{ person.names }}</b>
+					<div class="row bg-gris " style="height: 55%;">
+						<div class="col-12 d-flex justify-content-center align-items-end">
+							<b>{{ person.names }}</b>
+						</div>
+						<div class="col-12" style="color: var(--light-blue)">
+							<b>{{ person.cargo }}</b>
+						</div>
 					</div>
 				</div>
 			</div>
