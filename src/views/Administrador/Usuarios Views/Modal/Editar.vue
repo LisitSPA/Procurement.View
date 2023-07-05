@@ -81,7 +81,7 @@
 		name.value = props.selectedUser.names
 		email.value = props.selectedUser.mail
 		role.value = props.selectedUser.role
-		bday.value = moment(props.selectedUser.fechaCumpleanos).format('YYYY-MM-DD')
+		bday.value = moment(props.selectedUser.fechaCumpleanos, 'DD-MM-YYYY').format('YYYY-MM-DD')
 		position.value = props.selectedUser.cargo
 		today.value = ref('')
 		image.value = ref('')
