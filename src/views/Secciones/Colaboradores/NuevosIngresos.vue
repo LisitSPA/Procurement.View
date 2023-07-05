@@ -73,8 +73,9 @@
 		const endIndex = startIndex + peoplePage.value;
 		const newPeople = people.value.filter(person => {
 			const fechaCreacion = person.fechaCreacion
+			const rol = person.role
 			const mesCumpleanos = fechaCreacion.split("-")[1]
-			return mesCumpleanos === selectedMonth.value.number
+			return mesCumpleanos === selectedMonth.value.number && (rol == 'Usuario')
 		});
 		return newPeople.slice(startIndex, endIndex);
 	})

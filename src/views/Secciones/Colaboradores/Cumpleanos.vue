@@ -105,8 +105,9 @@
 		const endIndex = startIndex + peoplePage.value;
 		const newPeople = people.value.filter(person => {
 			const fechaCumpleanos = person.fechaCumpleanos
+			const rol = person.role
 			const mesCumpleanos = fechaCumpleanos.split("-")[1]
-			return mesCumpleanos === selectedMonth.value.number
+			return mesCumpleanos === selectedMonth.value.number && (rol == 'Usuario' || rol == 'Administrador')
 		});
 		return newPeople.slice(startIndex, endIndex);
 	})
@@ -121,8 +122,9 @@
 		const endIndex = startIndex + peoplePage.value;
 		const newPeople = people.value.filter(person => {
 			const fechaCumpleanos = person.fechaCumpleanos
+			const rol = person.role
 			const mesCumpleanos = fechaCumpleanos.split("-")[1]
-			return mesCumpleanos === previousMonth.value.number
+			return mesCumpleanos === previousMonth.value.number && (rol == 'Usuario' || rol == 'Administrador')
 		});
 		return newPeople.slice(startIndex, endIndex);
 	})
