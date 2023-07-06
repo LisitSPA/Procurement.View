@@ -4,25 +4,22 @@
 			<div class="row">
 				<div class="col-12 dark-blue-text">
 					<label for="">Selecciona el año</label>
-					<select class="form-control custom-select" name="" id="">
-						<option value="">2023</option>
+					<select class="form-control custom-select" v-model="anio">
+						<option value="2023" selected>2023</option>
 					</select>
 				</div>
 				<div class="col-12 mt-2 dark-blue-text">
 					<label for="">Selecciona participación</label>
-					<select class="form-control custom-select" name="" id="">
+					<select class="form-control custom-select" v-model="selectedParticipation">
 						<option value="" selected disabled>-</option>
-						<option value="">Individual</option>
-						<option value="">Equipo</option>
-						<option value="">Especial</option>
+						<option v-for="(participation, index) in participations" :key="index" :value="participation.id">{{participation.nombre}}</option>
 					</select>
 				</div>
 				<div class="col-12 mt-2 dark-blue-text">
 					<label for="">Selecciona ubicación</label>
-					<select class="form-control custom-select" name="" id="">
+					<select class="form-control custom-select" v-model="selectedLocation">
 						<option value="" selected disabled>-</option>
-						<option value="">Regional</option>
-						<option value="">Local</option>
+						<option v-for="(location, index) in locations" :key="index" :value="location.id">{{location.nombre}}</option>
 					</select>
 				</div>
 				<div class="col-12 mt-4">
@@ -87,8 +84,35 @@
 
 <script setup>
 	import { ref } from 'vue'
+	import awardsServices from '../../../services/Awards';
 
 	const selectedCategory = ref(0)
+	const participations = ref([])
+	const locations = ref([])
+	const selectedParticipation = ref('')
+	const selectedLocation = ref('')
+	const anio = ref(2023)
+
+	const getParticipations = async() => {
+		try {
+			const res = await awardsServices.getParticipations()
+			participations.value = res.data
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	const getLocations = async() => {
+		try {
+			const res = await awardsServices.getLocations()
+			locations.value = res.data
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	getParticipations()
+	getLocations()
 </script>
 
 <style scoped>

@@ -14,6 +14,8 @@
 						<tr class="bg-blue1 text-white text-center">
 							<th scope="col">#</th>
 							<th scope="col">USUARIO</th>
+							<th scope="col">PARTICIPACIÓN</th>
+							<th scope="col">UBICACIÓN</th>
 							<th scope="col">CATEGORIA</th>
 							<th scope="col">ACCIONES</th>
 						</tr>
@@ -22,10 +24,12 @@
 						<tr class="text-center dark-blue-text" v-for="(award,index) in awards" :key="index">
 							<th width="25">{{ index + 1 }}</th>
 							<td width="25">{{ award.usuario }}</td>
-							<td width="25">{{ award.tipoAward }}</td>
+							<td width="25">{{ award.participacion }}</td>
+							<td width="25">{{ award.ubicacion }}</td>
+							<td width="25">{{ award.categoria }}</td>
 							<td width="25">
-								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"  
-									@click="setModalContent('edit', award)"><i class="bi bi-pencil-square"></i></button>
+								<!-- <button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"  
+									@click="setModalContent('edit', award)"><i class="bi bi-pencil-square"></i></button> -->
 								<button class="btn-actions" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-left: 1rem;"
 								@click="setModalContent('delete', award)"><i class="bi bi-trash-fill"></i></button>
 							</td>
@@ -62,11 +66,15 @@
 			<div class="modal-content">
 				<Crear v-if="modalContent === 'create'"
 					@updateAwardsList="updateAwardsList"
+					:participations="participations"
+					:locations="locations"
 					:categories="categories"
 					:users="users"
 					:key="componentKey"/>
 				<Editar v-if="modalContent === 'edit'"
 					@updateAwardsList="updateAwardsList"
+					:participations="participations"
+					:locations="locations"
 					:categories="categories"
 					:selectedAward="selectedAward"
 					:key="componentKey"/>
@@ -92,6 +100,8 @@
 	const componentKey = ref(0)
 	const awards = ref('')
 	const categories = ref('')
+	const participations = ref('')
+	const locations = ref('')
 	const users = ref('')
 
 	const setModalContent = (option, award) => {
@@ -114,6 +124,7 @@
 		try {
 			const res = await awardsServices.getAwards()
 			awards.value = res.data
+			console.log(res.data)
 		} catch (error) {
 			console.log(error)
 		}
@@ -123,6 +134,24 @@
 		try {
 			const res = await awardsServices.getAwardsCategories()
 			categories.value = res.data
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	const getParticipations = async() => {
+		try {
+			const res = await awardsServices.getParticipations()
+			participations.value = res.data
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	const getLocations = async() => {
+		try {
+			const res = await awardsServices.getLocations()
+			locations.value = res.data
 		} catch (error) {
 			console.log(error)
 		}
@@ -140,6 +169,8 @@
 	getAwards()
 	getCategories()
 	getUsers()
+	getParticipations()
+	getLocations()
 
 </script>
 

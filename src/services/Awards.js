@@ -14,7 +14,25 @@ awards.getAwards = async () => {
 }
 
 awards.getAwardsCategories = async () => {
-	const res = await axios.get(baseUrl + '/Awards/ObtenerTipos', {
+	const res = await axios.get(baseUrl + '/Awards/Categorias', {
+		headers: {
+			'Authorization': 'Bearer ' + userStorage.token
+		}
+	})
+	return res
+}
+
+awards.getParticipations = async () => {
+	const res = await axios.get(baseUrl + '/Awards/Participaciones', {
+		headers: {
+			'Authorization': 'Bearer ' + userStorage.token
+		}
+	})
+	return res
+}
+
+awards.getLocations = async () => {
+	const res = await axios.get(baseUrl + '/Awards/Ubicaciones', {
 		headers: {
 			'Authorization': 'Bearer ' + userStorage.token
 		}
