@@ -10,25 +10,29 @@
 				</div>
 				<div class="col-12 mt-2 dark-blue-text">
 					<label for="">Selecciona participación</label>
-					<select class="form-control custom-select" v-model="selectedParticipation">
-						<option value="" selected disabled>-</option>
-						<option v-for="(participation, index) in participations" :key="index" :value="participation.id">{{participation.nombre}}</option>
+					<select class="form-control custom-select" v-model="selectedParticipation" @change="findCategories()">
+						<option v-for="(participation, index) in participations" 
+							:key="index" 
+							:value="participation"
+							>{{participation.nombre}}</option>
 					</select>
 				</div>
 				<div class="col-12 mt-2 dark-blue-text">
 					<label for="">Selecciona ubicación</label>
-					<select class="form-control custom-select" v-model="selectedLocation">
-						<option value="" selected disabled>-</option>
-						<option v-for="(location, index) in locations" :key="index" :value="location.id">{{location.nombre}}</option>
+					<select class="form-control custom-select" v-model="selectedLocation" @change="findCategories()">
+						<option v-for="(location, index) in locations" 
+							:key="index" 
+							:value="location"
+							>{{location.nombre}}</option>
 					</select>
 				</div>
 				<div class="col-12 mt-4">
 					<div class="mt-2 custom-categorias" 
-						:class="{'selected-category': selectedCategory === index}"
-						v-for="(category, index) in 5" 
+						:class="{'selected-category': selectedCategory === category}"
+						v-for="(category, index) in categories" 
 						:key="index"
-						@click="selectedCategory = index">
-						<span>Categoría</span>
+						@click="selectedCategory = category">
+						<span>{{ category.categoria }}</span>
 					</div>
 				</div>
 			</div>
@@ -42,16 +46,13 @@
 			</div>
 			<div class="row h-25">
 				<div class="col">
-					<b style="font-size: 4rem;">Título de categoría</b>
+					<b style="font-size: 4rem;">{{ selectedCategory.categoria }}</b>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col">
 					<p>
-						Lorem ipsum dolor sit amet consectetur adipiscing elit ridiculus, purus phasellus curae suspendisse sed eu cum, vel curabitur commodo suscipit euismod pulvinar netus. Curae diam imperdiet vivamus eget congue venenatis nullam, hendrerit cursus cubilia mauris ultrices ut, sociis ornare eu tristique a eros. Laoreet senectus vehicula pulvinar blandit nisi eros tempor, mi nec accumsan inceptos proin justo, sodales augue litora fermentum eleifend pretium.
-					</p>
-					<p>
-						Fermentum suspendisse interdum quisque vel lobortis class placerat nunc odio, diam imperdiet tellus iaculis varius dis lacinia duis. Tincidunt integer aliquam maecenas iaculis class tempus taciti, lectus pellentesque bibendum lacus placerat senectus facilisis, interdum rhoncus vivamus facilisi nisi nibh. Habitant vestibulum eros dignissim class ornare commodo hendrerit, sapien habitasse suspendisse maecenas at eleifend, primis morbi aenean nisi proin porttitor. Ad penatibus gravida diam hac praesent commodo nam netus pharetra, feugiat himenaeos lobortis nec potenti tincidunt magna convallis cubilia etiam, odio maecenas quis cum luctus eros donec primis.
+						{{ selectedCategory.comentario }}
 					</p>
 				</div>
 			</div>
@@ -74,7 +75,7 @@
 			</div>
 			<div class="row h-25">
 				<div class="col-12 bg-dark-blue text-white text-center py-2" style="height: 50%; font-size: 1.2rem;">
-					<p class="m-0">Nombre Apellido</p>
+					<p class="m-0">{{selectedCategory.usuario}}</p>
 					<b>Cargo</b>
 				</div>
 			</div>
@@ -85,18 +86,22 @@
 <script setup>
 	import { ref } from 'vue'
 	import awardsServices from '../../../services/Awards';
+	import moment from 'moment'
 
 	const selectedCategory = ref(0)
 	const participations = ref([])
 	const locations = ref([])
 	const selectedParticipation = ref('')
 	const selectedLocation = ref('')
-	const anio = ref(2023)
+	const awards = ref([])
+	const categories = ref([])
+	const anio = ref(moment().format('YYYY'))
 
 	const getParticipations = async() => {
 		try {
 			const res = await awardsServices.getParticipations()
 			participations.value = res.data
+			selectedParticipation.value = res.data[0]
 		} catch (error) {
 			console.log(error)
 		}
@@ -106,13 +111,34 @@
 		try {
 			const res = await awardsServices.getLocations()
 			locations.value = res.data
+			selectedLocation.value = res.data[0]
 		} catch (error) {
 			console.log(error)
 		}
 	}
 
+	const getAwards = async() => {
+		try {
+			const res = await awardsServices.getAwards()
+			awards.value = res.data
+			findCategories()
+			console.log(res.data)
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	const findCategories = () => {
+		categories.value = awards.value.filter(award => {
+			return award.participacion === selectedParticipation.value.nombre && award.ubicacion == selectedLocation.value.nombre
+		})
+		selectedCategory.value = categories.value[0]
+	}
+
+	getAwards()
 	getParticipations()
 	getLocations()
+	
 </script>
 
 <style scoped>
