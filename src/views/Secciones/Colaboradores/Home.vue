@@ -37,7 +37,7 @@
 		</div>
 	</div>
 	<div class="row mt-2" style="height: 40%;">
-		<div class="col-6 bg-blue1 cursor-pointer d-flex align-items-end" style="border-radius: 30px; padding: 2rem 2rem 2rem 2rem;" @click="navigation('Procurement-Awards')">
+		<div class="col-6 bg-awards cursor-pointer d-flex align-items-end" style="border-radius: 30px; padding: 2rem 2rem 2rem 2rem;" @click="navigation('Procurement-Awards')">
 			<span class="text-white" style="font-size: 22px;">Procurement awards</span>
 		</div>
 		<div class="col-6" style="padding: 0 20px 0 20px;">
@@ -136,4 +136,8 @@
 	margin-right: 5px;
 }
 
+.bg-awards {
+	background-image: url('./../../../assets/images/bg-awards.jpg');
+	background-size: cover;
+}
 </style>

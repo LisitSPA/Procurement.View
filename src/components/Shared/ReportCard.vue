@@ -1,6 +1,9 @@
 <template>
 	<div class="col-4 mx-auto h-100" style="margin-right: 1rem;">
-		<div class="row" style="height: 10vh;">
+		<div class="row" style="height: 12vh;">
+			<div class="col-12 bg-gris d-flex justify-content-center align-items-center" style="border-bottom: 2px solid black;">
+				<span class="fw-bold" style="font-size: 20px;">Nombre Sección</span>
+			</div>
 			<div class="col-12 bg-gris d-flex justify-content-center align-items-center">
 				<span class="fw-bold" style="font-size: 20px;">2023</span>
 			</div>
