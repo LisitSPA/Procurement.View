@@ -41,7 +41,7 @@ const router = createRouter({
 				{ path: 'Reportes-Mensuales', name: 'reportesMensuales', component: () => import ('../views/Secciones/Control de Gestion/ReportesMensuales.vue') },
 				{ path: 'Administracion-Contratos', name: 'administracionContratos', component: () => import ('../views/Secciones/Control de Gestion/AdministracionContratos.vue') },
 				{ path: 'Contratos-Legales', name: 'panelContratosLegales', component: () => import ('../views/Secciones/Control de Gestion/PanelContratosLegales.vue') },
-				{ path: 'Coste-Drivers', name: 'costeDrivers', component: () => import ('../views/Secciones/Control de Gestion/CosteDrivers.vue') },
+				{ path: 'Cost-Drivers', name: 'costDrivers', component: () => import ('../views/Secciones/Control de Gestion/CostDrivers.vue') },
 				{ path: 'Pago-Proveedores', name: 'pagoProveedores', component: () => import ('../views/Secciones/Control de Gestion/PagoProveedores.vue') },
 				{ path: 'Presupuestos', name: 'presupuestos', component: () => import ('../views/Secciones/Control de Gestion/Presupuestos.vue') },
 				// subcontenido

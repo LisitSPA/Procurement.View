@@ -1,27 +1,21 @@
 <template>
 	<div class="row h-100">
-		<div class="col-7 h-100 px-4">
-			<div class="row" style="height: 30%;">
-				<div class="col-12 bg-blue1" style="border-radius: 50px; padding: 4vh;">
-					<p class="m-0 text-white" style="font-size: 25px;">Panel de Pago a Proveedores</p>
+		<div class="col-12 mb-3">
+			<div class="row">
+				<div class="col-1 d-flex align-items-center justify-content-center">
+					<i class="bi bi-bell-fill" style="font-size: 2.3rem; color: var(--light-blue)"></i>
 				</div>
-			</div>
-			<div class="row py-3" style="height: 70%;">
-				<div class="col-6">
-
-				</div>
-				<div class="col-6 bg-gris" style="border-radius: 50px;">
-
+				<div class="col-8 bg-light-blue text-white d-flex align-items-center ps-5" style="border-radius: 50px; height: 5vh;">
+					<span style="font-size: 18px;">Para acceder al panel y mantener el funcionamiendo adecando de las macros, es importante descargar y abrir el archivo excel desde tú ordenador.</span>
 				</div>
 			</div>
 		</div>
-		<div class="col-5 h-100 bg-light-blue" style="border-radius: 50px; padding: 4vh;">
-			<p class="m-0 text-white" style="font-size: 25px;">Panel de Pago a Proveedores</p>
-		</div>
+		<ReportCardAge v-for="item in 4" :key="item"/>
 	</div>
 </template>
 
 <script setup>
+	import ReportCardAge from './../../../components/Shared/ReportCardAge.vue'
 
 </script>
 

@@ -17,10 +17,16 @@
 				</div>
 			</div>
 		</div>
-		<div class="row" style="margin: 10vh 0 0 13vw; height: 34vh;">
+		<div class="row text-white" style="margin: 10vh 0 0 0; height: 34vh;">
+			<div class="col d-flex justify-content-center align-items-center">
+				<i class="bi bi-chevron-compact-left cursor-pointer" style="font-size: 5rem;" @click="prevSlide"></i>
+			</div>
 			<div class="col-10">
-				<p class="text-white m-0" style="font-size: 120px; font-weight: bold;">Título de Noticias</p>
-				<p class="text-white" style="font-size: 37px; font-weight: bold; margin-top: -2vh;">Descripción de noticias</p>
+				<p class="m-0" style="font-size: 120px; font-weight: bold;">Título de Noticias</p>
+				<p class="" style="font-size: 37px; font-weight: bold; margin-top: -2vh;">Descripción de noticias</p>
+			</div>
+			<div class="col d-flex justify-content-center align-items-center">
+				<i class="bi bi-chevron-compact-right cursor-pointer" style="font-size: 5rem;" @click="nextSlide"></i>
 			</div>
 		</div>
 		<div class="row m-0 ola">
@@ -42,8 +48,14 @@
 	const currentSlide = ref(0);
 	let slideInterval = null;
 
+	const prevSlide = () => {
+		currentSlide.value = (currentSlide.value - 1 + slides.value.length) % slides.value.length;
+		console.log(currentSlide.value)
+	}
+
 	const nextSlide = () => {
 		currentSlide.value =  (currentSlide.value + 1) % slides.value.length;
+		console.log(currentSlide.value)
 	};
 
 	const scrolltoCategories = () => {
