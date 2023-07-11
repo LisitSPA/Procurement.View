@@ -1,11 +1,17 @@
 <template>
-	<div class="col-4 mx-auto h-100" style="margin-right: 1rem;">
+	<!-- <div class="col-4 mx-auto h-100" style="margin-right: 1rem;"> -->
 		<div class="row" style="height: 12vh;">
-			<div class="col-12 bg-gris d-flex justify-content-center align-items-center" style="border-bottom: 2px solid black;">
+			<div class="col-12 bg-gris2 d-flex justify-content-center align-items-center">
 				<span class="fw-bold" style="font-size: 20px;">Nombre Sección</span>
 			</div>
-			<div class="col-12 bg-gris d-flex justify-content-center align-items-center">
+			<div class="col bg-gris d-flex justify-content-center align-items-center">
+				<i class="bi bi-caret-left-fill cursor-pointer" style="font-size: 1.5rem"></i>
+			</div>
+			<div class="col-8 bg-gris d-flex justify-content-center align-items-center">
 				<span class="fw-bold" style="font-size: 20px;">2023</span>
+			</div>
+			<div class="col bg-gris d-flex justify-content-center align-items-center">
+				<i class="bi bi-caret-right-fill cursor-pointer" style="font-size: 1.5rem"></i>
 			</div>
 		</div>
 		<div class="row mt-3 bg-gris p-4">
@@ -33,7 +39,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	<!-- </div> -->
 	
 </template>
 
