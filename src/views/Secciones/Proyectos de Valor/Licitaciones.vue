@@ -1,6 +1,6 @@
 <template>
 	<div class="row">
-		<div class="col-10 mx-auto">
+		<div class="col-12 mx-auto">
 			<div class="row my-5">
 				<div class="col d-flex justify-content-center align-items-center">
 					<button class="btn btn-section-menu" @click="navigate('Licitaciones/Directos')">Directos</button>
@@ -10,6 +10,9 @@
 				</div>
 				<div class="col d-flex justify-content-center align-items-center">
 					<button class="btn btn-section-menu" @click="navigate('Licitaciones/Servicios')">Servicios</button>
+				</div>
+				<div class="col d-flex justify-content-center align-items-center">
+					<button class="btn btn-section-menu" @click="navigate('/Not-Found')">Fibras</button>
 				</div>
 			</div>
 			<div class="row">
