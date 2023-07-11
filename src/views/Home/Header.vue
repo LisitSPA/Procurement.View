@@ -50,12 +50,10 @@
 
 	const prevSlide = () => {
 		currentSlide.value = (currentSlide.value - 1 + slides.value.length) % slides.value.length;
-		console.log(currentSlide.value)
 	}
 
 	const nextSlide = () => {
 		currentSlide.value =  (currentSlide.value + 1) % slides.value.length;
-		console.log(currentSlide.value)
 	};
 
 	const scrolltoCategories = () => {

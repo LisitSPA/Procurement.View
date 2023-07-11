@@ -1,11 +1,13 @@
 <template>
 	<div class="row" style="height: 8%;">
-		<div class="col-12 bg-blue1 text-white d-flex align-items-center">
+		<div class="col-12 bg-blue1 text-white d-flex align-items-center bg-img">
 			<span>Para una mejor visualización y análisis te proporcionamos los datos actualizados en el siguiente dashboard. haz clic en la siguiente imagen y ¡conócelo!</span>
 		</div>
 	</div>
 	<div class="row mt-4" style="height: 90%;">
-		<ReportCard :documents="documents"/>
+		<div class="col-3">
+			<ReportCard :documents="documents"/>
+		</div>
 		<div class="col bg-gris ms-5">
 			
 		</div>
@@ -36,5 +38,9 @@
 .calendar:hover{
 	background-color: var(--light-blue);
 	color: white;
+}
+.bg-img{
+	background-image: url('./../../../assets/images/barra-legales.png');
+	background-size: cover;
 }
 </style>
