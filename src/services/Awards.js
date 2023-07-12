@@ -60,4 +60,14 @@ awards.updateAward = async (data) => {
 	return res
 }
 
+awards.deleteAward = async (id) => {
+	const res = await axios.delete(baseUrl + '/Awards/Eliminar/' + id, {
+		headers: {
+			'Authorization': 'Bearer ' + userStorage.token,
+			"Content-Type": 'application/json'
+		}
+	})
+	return res
+}
+
 export default awards

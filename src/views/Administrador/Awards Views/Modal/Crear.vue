@@ -20,12 +20,16 @@
 						<option v-for="(location, index) in locations" :key="index" :value="location.id">{{ location.nombre }}</option>
 					</select>
 				</div>
-				<div class="col-12">
+				<div class="col-6">
 					<label for="">Categoria</label>
 					<select class="form-control" v-model="category" required>
 						<option value="" selected disabled>Seleccione una opción...</option>
 						<option v-for="(category, index) in categories" :key="index" :value="category.id">{{ category.nombre }}</option>
 					</select>
+				</div>
+				<div class="col-6">
+					<label for="">Fecha</label>
+					<input type="month" class="form-control" v-model="date" required>
 				</div>
 				<div class="col-12">
 					<label for="">Usuario</label>
@@ -55,6 +59,7 @@
 	import { ref } from 'vue'
 	import { toast } from 'vue3-toastify';
 	import awardsServices from '../../../../services/Awards';
+	import moment from 'moment'
 
 	const props = defineProps({
 		categories: {
@@ -77,6 +82,7 @@
 	const location = ref('')
 	const user = ref('')
 	const comments = ref('')
+	const date = ref('')
 	const btnSend = ref(false)
 
 	const storeAwards = async() => {
@@ -88,9 +94,12 @@
 			data.append('categoriaId', category.value)
 			data.append('ubicacionId', location.value)
 			data.append('comentario', comments.value)
+			data.append('anio', moment(date.value).format('YYYY'))
+			data.append('mes', moment(date.value).format('MM'))
 			const res = await awardsServices.storeAwards(data)
 			toast.success('Se ha creado el registro exitosamente.')
 			emit('updateAwardsList', res.data)
+			console.log(res.data)
 			btnSend.value = false
 		} catch (error) {
 			btnSend.value = false

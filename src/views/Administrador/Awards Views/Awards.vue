@@ -71,15 +71,17 @@
 					:categories="categories"
 					:users="users"
 					:key="componentKey"/>
-				<Editar v-if="modalContent === 'edit'"
+				<!-- <Editar v-if="modalContent === 'edit'"
 					@updateAwardsList="updateAwardsList"
 					:participations="participations"
 					:locations="locations"
 					:categories="categories"
 					:selectedAward="selectedAward"
-					:key="componentKey"/>
-				<!-- <Eliminar v-if="modalContent === 'delete'"
 					:key="componentKey"/> -->
+				<Eliminar v-if="modalContent === 'delete'"
+					:key="componentKey"
+					:selectedAward="selectedAward"
+					@updateAwardsList="updateAwardsList"/>
 			</div>
 		</div>
 	</div>
@@ -92,8 +94,8 @@
 
 	// MODAL COMPONENTS
 	import Crear from './Modal/Crear.vue'
-	import Editar from './Modal/Editar.vue'
-	// import Eliminar from './Modal/Eliminar.vue'
+	// import Editar from './Modal/Editar.vue'
+	import Eliminar from './Modal/Eliminar.vue'
 
 	const modalContent = ref('create')
 	const selectedAward = ref('')
@@ -124,7 +126,6 @@
 		try {
 			const res = await awardsServices.getAwards()
 			awards.value = res.data
-			console.log(res.data)
 		} catch (error) {
 			console.log(error)
 		}

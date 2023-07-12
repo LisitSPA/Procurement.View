@@ -13,7 +13,11 @@
 						<option v-for="(type, index) in types" :key="index" :value="type">{{ type.nombreTipo }}</option>
 					</select>
 				</div>
-				<div class="col-12">
+				<div class="col-6">
+					<label for="">Fecha</label>
+					<input type="date" class="form-control" v-model="date" :max="today">
+				</div>
+				<div class="col-6">
 					<label for="">Archivo</label>
 					<input type="file" class="form-control" accept=".docx, .xlsx, .pdf" @change="uploadFile($event)">
 				</div>
@@ -31,8 +35,9 @@
 </template>
 
 <script setup>
-	import { ref } from 'vue'
+	import { ref, onMounted } from 'vue'
 	import { toast } from 'vue3-toastify';
+	import moment from 'moment'
 	import projectsServices from '../../../../services/Projects';
 
 	defineProps({
@@ -41,9 +46,15 @@
 		}
 	})
 
+	onMounted(() => {
+		today.value = moment().format('YYYY-MM-D')
+	})
+
 	const emit = defineEmits(['updateProjectList'])
 	const type = ref('')
 	const file = ref('')
+	const date = ref('')
+	const today = ref('')
 	const btnSend = ref(false)
 
 	const storeProject = async () => {
@@ -52,6 +63,7 @@
 			let data = new FormData()
 			data.append('FormFile', file.value)
 			data.append('TipoDocumentoId', type.value.id)
+			data.append('FechaCreacion', date.value)
 			const res = await projectsServices.storeProject(data)
 			emit('updateProjectList', res.data)
 			toast.success('Se ha creado el registro exitosamente.')

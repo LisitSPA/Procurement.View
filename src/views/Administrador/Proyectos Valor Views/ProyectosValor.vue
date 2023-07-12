@@ -15,7 +15,7 @@
 							<th scope="col">#</th>
 							<th scope="col">NOMBRE</th>
 							<th scope="col">TIPO</th>
-							<th scope="col">FECHA CARGA</th>
+							<th scope="col">FECHA DOCUMENTO</th>
 							<th scope="col">ACCIONES</th>
 						</tr>
 					</thead>
@@ -24,7 +24,7 @@
 							<th scope="row">{{ index+1 }}</th>
 							<td>{{ project.nombreArchivo }}</td>
 							<td>{{ project.tipoDocumento }}</td>
-							<td>{{ project.fechaCreacion }}</td>
+							<td>{{ formatDate(project.fechaDocumento) }}</td>
 							<td>
 								<button class="btn-actions" style="margin-left: 1rem;"
 									@click="downloadFile(project)"><i class="bi bi-download"></i></button>
@@ -76,14 +76,14 @@
 </template>
 
 <script setup>
-	import { ref, computed } from 'vue'
+	import { ref } from 'vue'
 	import projectsServices from '../../../services/Projects';
 	import moment from 'moment'
 
 	// MODAL COMPONENTS
 	import Crear from './Modal/Crear.vue'
 	import Eliminar from './Modal/Eliminar.vue'
-import { toast } from 'vue3-toastify';
+	import { toast } from 'vue3-toastify';
 
 	const modalContent = ref('create')
 	const selectedProject = ref({})
@@ -97,13 +97,14 @@ import { toast } from 'vue3-toastify';
 		componentKey.value += 1
 	}
 
+	const formatDate = (date) => {
+		let newFormat = moment(date)
+		return newFormat.format('MMMM YYYY')
+	}
+
 	const updateProjectList = (project) => {
 		var closeModal = document.getElementById("btnCerrar");
-		if(modalContent.value === 'create'){
-			projects.value.push(project)
-		}else{
-			getProjects()
-		}
+		getProjects()
 		closeModal.click()
 	}
 
