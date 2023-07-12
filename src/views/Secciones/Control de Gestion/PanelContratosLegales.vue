@@ -39,8 +39,4 @@
 	background-color: var(--light-blue);
 	color: white;
 }
-.bg-img{
-	background-image: url('./../../../assets/images/barra-legales.png');
-	background-size: cover;
-}
 </style>

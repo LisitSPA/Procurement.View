@@ -152,3 +152,8 @@ background-color: var(--light-blue);
   width: 100%;
   z-index: 9999;
 }
+
+.bg-img{
+	background-image: url('./../assets/images/barra-legales.png');
+	background-size: cover;
+}
