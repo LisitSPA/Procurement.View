@@ -10,7 +10,9 @@
 				</div>
 			</div>
 		</div>
-		<ReportCardAge v-for="item in 4" :key="item"/>
+		<div class="col mx-1" v-for="item in 4" :key="item">
+			<ReportCardAge />
+		</div>
 	</div>
 </template>
 

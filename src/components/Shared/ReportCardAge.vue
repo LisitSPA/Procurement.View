@@ -1,5 +1,5 @@
 <template>
-	<div class="col mx-2 h-100" style="margin-right: 1rem;">
+	<!-- <div class="col mx-2 h-100" style="margin-right: 1rem;"> -->
 		<div class="row" style="height: 12vh;">
 			<div class="col-12 bg-gris d-flex justify-content-center align-items-center age-container">
 				<span class="fw-bold" style="font-size: 20px;">2023</span>
@@ -30,7 +30,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	<!-- </div> -->
 </template>
 
 <script setup>

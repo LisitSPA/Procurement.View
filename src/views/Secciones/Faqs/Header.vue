@@ -7,7 +7,7 @@
 		</div>
 		<div class="row" style="margin: 10vh 0 0 4vw">
 			<div class="col-6 d-flex align-items-center">
-				<router-link class="btn btn-white" to="/Not-Found">Noticias / Newsletter</router-link>
+				<router-link class="btn btn-white" to="/Newsletters">Noticias / Newsletter</router-link>
 				<router-link class="btn btn-lightblue" to="/Preguntas-Frecuentes">Preguntas frecuentes</router-link>
 				<input type="search" class="input-search" placeholder="Aquí puedes buscar...">
 			</div>
